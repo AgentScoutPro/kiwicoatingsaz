@@ -11,6 +11,7 @@ export function Header() {
         <div className="nav-links">
           <Link href="/services">Services</Link>
           <Link href="/locations">Service Areas</Link>
+          <Link href="/gallery">Gallery</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
           <a className="button" href={site.phoneHref}>

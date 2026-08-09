@@ -14,7 +14,7 @@ export default function ContactPage() {
           <p className="eyebrow">Contact</p>
           <h1>Request a Kiwi Coatings AZ quote.</h1>
           <p className="lead">
-            Call, email, or use the quote form placeholder below. This technical pass reserves the conversion structure before final CRM or form handling is connected.
+            Call, email, or use the quote form below. The fields mirror the current Kiwi Coatings quote flow so we preserve the live conversion path while the final form handler is connected.
           </p>
           <div className="actions">
             <a className="button" href={site.phoneHref}>Call {site.phone}</a>
@@ -26,31 +26,40 @@ export default function ContactPage() {
         <div className="inner">
           <form className="grid two" name="quote-request">
             <label className="card">
-              Name
-              <input name="name" type="text" />
+              Name *
+              <input name="name" required type="text" />
             </label>
             <label className="card">
-              Phone
+              Email Address *
+              <input name="email" required type="email" />
+            </label>
+            <label className="card">
+              Phone Number
               <input name="phone" type="tel" />
             </label>
             <label className="card">
-              Email
-              <input name="email" type="email" />
-            </label>
-            <label className="card">
-              City
-              <input name="city" type="text" />
+              Address
+              <input name="address" type="text" />
             </label>
             <label className="card">
               Service Requested
-              <input name="service" type="text" />
+              <select name="service" defaultValue="">
+                <option value="" disabled>Select a service</option>
+                {site.quoteOptions.map((option) => (
+                  <option key={option} value={option}>{option}</option>
+                ))}
+              </select>
             </label>
             <label className="card">
-              Project Notes
-              <textarea name="message" rows={5} />
+              Anything you'd like to add?
+              <textarea maxLength={180} name="message" rows={5} />
             </label>
             <button className="button" type="submit">Submit Request</button>
           </form>
+          <div className="actions">
+            <a className="button secondary" href={site.reviewUrl} target="_blank" rel="noreferrer">Write a Review</a>
+            <a className="button secondary" href={site.socials.instagram} target="_blank" rel="noreferrer">Follow {site.socialHandle}</a>
+          </div>
         </div>
       </section>
     </>

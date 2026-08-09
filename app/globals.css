@@ -159,6 +159,7 @@ p {
 }
 
 input,
+select,
 textarea {
   border: 1px solid var(--line);
   display: block;
@@ -171,6 +172,13 @@ textarea {
 
 textarea {
   resize: vertical;
+}
+
+.media-card {
+  align-items: end;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  overflow-wrap: anywhere;
 }
 
 .list {

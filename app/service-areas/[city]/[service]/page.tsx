@@ -57,6 +57,7 @@ export default async function CityServicePage({ params }: Params) {
             telephone: site.phone,
             email: site.email
           },
+          image: service.image,
           areaServed: {
             "@type": "City",
             name: `${city.name}, AZ`

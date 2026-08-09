@@ -6,6 +6,7 @@ export function ServiceGrid() {
     <div className="grid three">
       {services.map((service) => (
         <Link className="card" href={`/services/${service.slug}`} key={service.slug}>
+          {service.liveSiteGroup ? <p className="eyebrow">{service.liveSiteGroup}</p> : null}
           <h3>{service.name}</h3>
           <p>{service.short}</p>
         </Link>

@@ -49,6 +49,7 @@ export default async function ServicePage({ params }: Params) {
             name: site.name,
             telephone: site.phone
           },
+          image: service.image,
           areaServed: "Central Arizona",
           url: `${site.url}/services/${service.slug}`
         }}
