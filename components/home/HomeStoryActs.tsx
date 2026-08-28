@@ -2,9 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FeaturedProjects } from "@/components/ProjectBlocks";
 import {
-  beforeAfterFeature,
   cinematicChapters,
   customInteriorMaterialStrip,
   customInteriorPanels,
@@ -13,13 +11,11 @@ import {
   homeFaqs,
   homeMedia,
   processSteps,
-  realWorkPhotos,
   designGallery,
   reviewSummary,
   verifiedHomeReviews
 } from "@/lib/home-page-content";
 import { getVerifiedCities } from "@/lib/seo-map";
-import { getFeaturedProjects } from "@/lib/projects";
 import { getService, site } from "@/lib/site-data";
 import { StoryMedia } from "@/components/home/StoryMedia";
 import { QuoteSelector } from "@/components/home/QuoteSelector";
@@ -239,23 +235,6 @@ export function GarageAct() {
             <NumberedBlock index={4} title="Flake Floor Systems" href="/services/flake-floor-systems" />
           </div>
         </div>
-        <div className="inner before-after-block">
-          <p className="eyebrow">See The Difference</p>
-          <h3>From Bare Concrete to Finished Space.</h3>
-          <figure className="before-after-figure">
-            <Image
-              src={beforeAfterFeature.imageSrc}
-              alt={beforeAfterFeature.alt}
-              width={2000}
-              height={1827}
-              sizes="(max-width: 760px) 100vw, 900px"
-            />
-            <div className="before-after-labels" aria-hidden="true">
-              <span>{beforeAfterFeature.beforeLabel}</span>
-              <span>{beforeAfterFeature.afterLabel}</span>
-            </div>
-          </figure>
-        </div>
       </section>
     </>
   );
@@ -333,7 +312,7 @@ export function DesignAct() {
                     imageSrc: panel.imageSrc,
                     alt: panel.alt,
                     aspect: "16 / 11",
-                    caption: `${panel.label} · ${panel.room}`
+                    caption: panel.room ? `${panel.label} · ${panel.room}` : panel.label
                   }}
                   sizes="(max-width: 760px) 100vw, 32vw"
                 />
@@ -482,38 +461,6 @@ export function ProcessAct() {
   );
 }
 
-/* ---------- Real work ---------- */
-
-export function ProjectsAct() {
-  const featuredProjects = getFeaturedProjects();
-
-  return (
-    <section className="section story-act" data-story-act="kiwi-projects" data-reveal>
-      <div className="inner" data-story-content>
-        <p className="eyebrow">Real Kiwi Work</p>
-        <h2>See the Difference.</h2>
-        <div className="real-work-gallery">
-          {realWorkPhotos.map((photo) => (
-            <figure className="real-work-photo" key={photo.id}>
-              <StoryMedia
-                media={{ mediaId: photo.id, imageSrc: photo.imageSrc, alt: photo.alt, aspect: photo.aspect }}
-                sizes="(max-width: 760px) 50vw, 25vw"
-              />
-              <figcaption>{photo.caption}</figcaption>
-            </figure>
-          ))}
-        </div>
-        {featuredProjects.length > 0 ? <FeaturedProjects projects={featuredProjects} /> : null}
-        <div className="actions">
-          <Link className="button secondary" href="/projects">
-            View Kiwi Coatings Projects
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ---------- Why Kiwi ---------- */
 
 export function WhyKiwiAct() {
@@ -590,6 +537,28 @@ export function ReviewsAct() {
     );
   }
 
+  function reviewCard(review: (typeof verifiedHomeReviews)[number], hidden: boolean) {
+    return (
+      <blockquote
+        className="review-card"
+        key={`${hidden ? "dup" : "primary"}-${review.source}-${review.reviewer}`}
+        aria-hidden={hidden || undefined}
+      >
+        <span className="review-card-badge">{review.source}</span>
+        <p className="review-card-text">&ldquo;{review.text}&rdquo;</p>
+        <footer className="review-card-footer">
+          <span className="review-card-avatar" aria-hidden="true">
+            {reviewerInitials(review.reviewer)}
+          </span>
+          <span className="review-card-meta">
+            <span className="review-card-name">{review.reviewer}</span>
+            {review.date ? <span className="review-card-date">{review.date}</span> : null}
+          </span>
+        </footer>
+      </blockquote>
+    );
+  }
+
   return (
     <section className="section story-act reviews-act" data-story-act="verified-reviews" data-reveal>
       <div className="inner" data-story-content>
@@ -606,23 +575,14 @@ export function ReviewsAct() {
             </p>
           </div>
         </div>
-        <div className="reviews-row">
-          {verifiedHomeReviews.map((review) => (
-            <blockquote className="review-card" key={`${review.source}-${review.reviewer}`}>
-              <span className="review-card-badge">{review.source}</span>
-              <p className="review-card-text">&ldquo;{review.text}&rdquo;</p>
-              <footer className="review-card-footer">
-                <span className="review-card-avatar" aria-hidden="true">
-                  {reviewerInitials(review.reviewer)}
-                </span>
-                <span className="review-card-meta">
-                  <span className="review-card-name">{review.reviewer}</span>
-                  {review.date ? <span className="review-card-date">{review.date}</span> : null}
-                </span>
-              </footer>
-            </blockquote>
-          ))}
+      </div>
+      <div className="reviews-track-wrap">
+        <div className="reviews-track">
+          {verifiedHomeReviews.map((review) => reviewCard(review, false))}
+          {verifiedHomeReviews.map((review) => reviewCard(review, true))}
         </div>
+      </div>
+      <div className="inner" data-story-content>
         <div className="actions">
           <a className="button secondary" href={site.reviewUrl} target="_blank" rel="noreferrer">
             Read All Reviews on Google

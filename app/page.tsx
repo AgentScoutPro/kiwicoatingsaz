@@ -12,7 +12,6 @@ import {
   HomeServiceLinks,
   KiwiSystemAct,
   ProcessAct,
-  ProjectsAct,
   ReviewsAct,
   ServiceAreasAct,
   WhyKiwiAct
@@ -42,7 +41,6 @@ export default function HomePage() {
       <CommercialAct />
       <ColorCraftAct />
       <ProcessAct />
-      <ProjectsAct />
       <WhyKiwiAct />
       <ReviewsAct />
       <ServiceAreasAct />

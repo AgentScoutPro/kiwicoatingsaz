@@ -125,7 +125,7 @@ export const processSteps: Array<{
 export type CustomInteriorPanel = {
   id: string;
   label: string;
-  room: string;
+  room?: string;
   imageSrc: string;
   videoSrc?: string;
   posterSrc?: string;
@@ -144,18 +144,17 @@ export const customInteriorPrimary: CustomInteriorPanel = {
 
 export const customInteriorPanels: CustomInteriorPanel[] = [
   {
-    id: "custom-closet",
-    label: "Custom Metallic Floor",
-    room: "Walk-In Closet",
-    imageSrc: "/media/kiwi/custom-interiors/custom-walk-in-closet-metallic.jpg",
-    alt: "Pink and purple metallic epoxy floor coating finished in a walk-in closet"
-  },
-  {
     id: "custom-bedroom",
     label: "Custom Metallic Floor",
     room: "Master Bedroom",
     imageSrc: "/media/kiwi/custom-interiors/custom-master-bedroom-metallic.jpg",
     alt: "Deep purple metallic epoxy floor coating finished in a master bedroom"
+  },
+  {
+    id: "custom-blend-sampling",
+    label: "Custom Blend Sampling",
+    imageSrc: "/media/kiwi/finishes/kiwi-custom-blend-tray-01.jpg",
+    alt: "Tray of custom decorative flake color samples staged on a finished floor"
   }
 ];
 
@@ -265,62 +264,6 @@ export const designGallery: DesignGalleryItem[] = [
     serviceLabel: "Compare Polyaspartic Floor Coatings",
     size: "small"
   },
-  {
-    id: "custom-blend-tray",
-    label: "Custom Blend Sampling",
-    imageSrc: "/media/kiwi/finishes/kiwi-custom-blend-tray-01.jpg",
-    alt: "Tray of custom decorative flake color samples staged on a finished floor",
-    aspect: "3 / 2",
-    serviceHref: "/services/epoxy-floor-coatings",
-    serviceLabel: "Compare Epoxy Floor Coatings",
-    size: "small"
-  }
-];
-
-export const beforeAfterFeature = {
-  imageSrc: "/media/kiwi/outdoor/kiwi-patio-before-after-01.jpg",
-  alt: "Side-by-side comparison of a bare concrete patio being ground for coating next to the same patio finished with a Kiwi decorative flake system",
-  beforeLabel: "BEFORE",
-  afterLabel: "AFTER"
-};
-
-export type RealWorkPhoto = {
-  id: string;
-  imageSrc: string;
-  alt: string;
-  caption: string;
-  aspect: string;
-};
-
-export const realWorkPhotos: RealWorkPhoto[] = [
-  {
-    id: "garage-01",
-    imageSrc: "/media/kiwi/projects/kiwi-project-garage-01.jpg",
-    alt: "Finished dark flake garage floor coating with crew finishing details",
-    caption: "Finished Kiwi Coatings Garage Floor",
-    aspect: "4 / 5"
-  },
-  {
-    id: "patio-01",
-    imageSrc: "/media/kiwi/projects/kiwi-project-patio-01.jpg",
-    alt: "Finished light gray flake patio coating edge detail against a stucco exterior",
-    caption: "Finished Decorative Patio Coating",
-    aspect: "4 / 5"
-  },
-  {
-    id: "garage-02",
-    imageSrc: "/media/kiwi/projects/kiwi-project-garage-02.jpg",
-    alt: "Two-tone gray flake garage floor coating corner detail",
-    caption: "Completed Kiwi Coatings Project",
-    aspect: "4 / 5"
-  },
-  {
-    id: "garage-03",
-    imageSrc: "/media/kiwi/projects/kiwi-project-garage-03.jpg",
-    alt: "Two-tone flake garage floor coating in natural light",
-    caption: "Real Kiwi Coatings Work",
-    aspect: "3 / 4"
-  }
 ];
 
 export const founderMedia = {
