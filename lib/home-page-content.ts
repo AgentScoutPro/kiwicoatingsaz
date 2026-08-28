@@ -4,8 +4,11 @@ export type StoryMediaConfig = {
   videoSrc?: string;
   posterSrc?: string;
   alt: string;
+  aspect?: string;
   position?: string;
   priority?: boolean;
+  overlay?: "dark" | "gradient";
+  caption?: string;
 };
 
 export type HomeFaq = {
@@ -24,28 +27,36 @@ export type HomeReview = {
 export const homeMedia = {
   hero: {
     mediaId: "hero-transformation",
-    alt: "Finished Kiwi Coatings concrete coating surface",
+    videoSrc: "/media/kiwi/hero/kiwi-hero-randy-transformation.mp4",
+    posterSrc: "/media/kiwi/hero/kiwi-hero-poster.jpg",
+    imageSrc: "/media/kiwi/hero/kiwi-hero-poster.jpg",
+    alt: "Finished Kiwi Coatings garage floor coating with the Arizona desert visible through the open garage door",
     priority: true
   },
   environment: {
     mediaId: "arizona-environment",
-    alt: "Arizona concrete surface exposed to heat, dust, and traffic"
+    imageSrc: "/media/kiwi/environment/kiwi-arizona-bare-concrete-01.jpg",
+    alt: "Bare, worn concrete garage floor before coating, with the Arizona desert visible outside",
+    aspect: "3 / 2"
   },
   system: {
     mediaId: "coating-system",
-    alt: "Layered concrete coating system"
+    imageSrc: "/media/kiwi/process/kiwi-surface-prep-01.jpg",
+    alt: "Kiwi Coatings technician preparing a concrete surface with a grinder before coating",
+    aspect: "4 / 3"
   },
   garage: {
     mediaId: "garage-transformation",
-    alt: "Finished garage floor coating"
+    imageSrc: "/media/kiwi/garage/kiwi-garage-finished-01.jpg",
+    alt: "Finished gray flake garage floor coating with a car parked on it",
+    aspect: "3 / 2",
+    priority: false
   },
   outdoor: {
     mediaId: "outdoor-living",
-    alt: "Finished patio and pool deck coating"
-  },
-  finishes: {
-    mediaId: "finish-gallery",
-    alt: "Decorative coating finish options"
+    imageSrc: "/media/kiwi/outdoor/kiwi-patio-finished-01.jpg",
+    alt: "Finished light gray flake patio floor coating under a covered outdoor living space",
+    aspect: "4 / 5"
   },
   commercial: {
     mediaId: "commercial-flooring",
@@ -53,48 +64,217 @@ export const homeMedia = {
   },
   process: {
     mediaId: "installation-process",
-    alt: "Concrete coating preparation and finish process"
-  },
-  projects: {
-    mediaId: "kiwi-projects",
-    alt: "Verified Kiwi Coatings project media"
-  },
-  local: {
-    mediaId: "local-arizona",
-    alt: "Arizona service area map and local markets"
+    imageSrc: "/media/kiwi/process/kiwi-tools-01.jpg",
+    alt: "Kiwi Coatings floor grinding and preparation equipment staged on a finished flake floor",
+    aspect: "3 / 2"
   },
   finalCta: {
     mediaId: "final-cta",
-    alt: "Finished concrete coating ready for use"
+    imageSrc: "/media/kiwi/garage/kiwi-garage-finished-03.jpg",
+    alt: "Finished dark flake garage floor coating ready for everyday use",
+    aspect: "3 / 4"
   }
 } satisfies Record<string, StoryMediaConfig>;
 
-export const processSteps = [
+export const processSteps: Array<{
+  title: string;
+  text: string;
+  imageSrc?: string;
+  alt?: string;
+}> = [
   {
     title: "Evaluate",
     text: "Review the concrete, use of the space, exposure, and desired finish."
   },
   {
     title: "Prepare",
-    text: "Prepare the surface so the coating system has a suitable foundation."
+    text: "Prepare the surface so the coating system has a suitable foundation.",
+    imageSrc: "/media/kiwi/process/kiwi-tools-01.jpg",
+    alt: "Grinding and surface preparation equipment used before coating"
   },
   {
     title: "Repair Where Needed",
-    text: "Address cracks, chips, worn areas, or old coatings where appropriate."
+    text: "Address cracks, chips, worn areas, or old coatings where appropriate.",
+    imageSrc: "/media/kiwi/process/kiwi-crack-repair-01.jpg",
+    alt: "Technician injecting crack repair material into a concrete floor crack before coating"
   },
   {
     title: "Coat",
-    text: "Install the selected base and coating layers for the project."
+    text: "Install the selected base and coating layers for the project.",
+    imageSrc: "/media/kiwi/process/kiwi-coat-application-01.jpg",
+    alt: "Kiwi Coatings crew applying a base coating layer to a garage floor"
   },
   {
     title: "Broadcast / Finish",
-    text: "Add flake, quartz, metallic movement, or other finish direction when selected."
+    text: "Add flake, quartz, metallic movement, or other finish direction when selected.",
+    imageSrc: "/media/kiwi/process/kiwi-broadcast-01.jpg",
+    alt: "Kiwi Coatings technician broadcasting decorative flake across a wet coating"
   },
   {
     title: "Protect",
     text: "Complete the system with a protective finish selected around use and exposure."
   }
 ];
+
+export type DesignGalleryItem = {
+  id: string;
+  label: string;
+  imageSrc: string;
+  alt: string;
+  aspect: string;
+  serviceHref: string;
+  serviceLabel: string;
+  size: "featured" | "wide" | "small";
+};
+
+export const designGallery: DesignGalleryItem[] = [
+  {
+    id: "custom-colors",
+    label: "Custom Color & Blend Options",
+    imageSrc: "/media/kiwi/finishes/kiwi-custom-colors-01.jpg",
+    alt: "Hands holding a custom blend of colorful decorative floor flakes over a rainbow flake sample display",
+    aspect: "4 / 5",
+    serviceHref: "/services/flake-floor-systems",
+    serviceLabel: "See Custom Flake Floor Systems",
+    size: "featured"
+  },
+  {
+    id: "flake-finished",
+    label: "Flake Floor Systems",
+    imageSrc: "/media/kiwi/finishes/kiwi-flake-finished-01.jpg",
+    alt: "Finished decorative flake floor coating close-up with Kiwi Coatings branding",
+    aspect: "3 / 2",
+    serviceHref: "/services/flake-floor-systems",
+    serviceLabel: "See Custom Flake Floor Systems",
+    size: "wide"
+  },
+  {
+    id: "metallic",
+    label: "Metallic Epoxy",
+    imageSrc: "/media/kiwi/finishes/kiwi-metallic-01.jpg",
+    alt: "Metallic epoxy floor finish with dimensional gold and bronze movement",
+    aspect: "4 / 5",
+    serviceHref: "/services/metallic-epoxy-floors",
+    serviceLabel: "Explore Metallic Epoxy Floors",
+    size: "small"
+  },
+  {
+    id: "quartz",
+    label: "Quartz Coatings",
+    imageSrc: "/media/kiwi/finishes/kiwi-quartz-01.jpg",
+    alt: "Close-up of a durable gray and white quartz broadcast floor coating texture",
+    aspect: "4 / 5",
+    serviceHref: "/services/quartz-floor-coatings",
+    serviceLabel: "See Quartz Floor Coatings",
+    size: "small"
+  },
+  {
+    id: "specialty-glow",
+    label: "Specialty & Glow Accents",
+    imageSrc: "/media/kiwi/finishes/kiwi-specialty-glow-01.jpg",
+    alt: "Specialty accent flake floor shown under UV light with glow-in-the-dark particles",
+    aspect: "3 / 2",
+    serviceHref: "/services/specialty-floor-finishes",
+    serviceLabel: "Explore Specialty Floor Finishes",
+    size: "small"
+  },
+  {
+    id: "stone-blend",
+    label: "Stone-Style Blend",
+    imageSrc: "/media/kiwi/finishes/kiwi-stone-blend-01.jpg",
+    alt: "Marble-style decorative flake blend in warm stone tones",
+    aspect: "4 / 5",
+    serviceHref: "/services/flake-floor-systems",
+    serviceLabel: "See Custom Flake Floor Systems",
+    size: "small"
+  },
+  {
+    id: "polyaspartic",
+    label: "Polyaspartic Systems",
+    imageSrc: "/media/kiwi/finishes/kiwi-polyaspartic-01.jpg",
+    alt: "Finished polyaspartic floor coating texture in blue-gray tones",
+    aspect: "3 / 2",
+    serviceHref: "/services/polyaspartic-floor-coatings",
+    serviceLabel: "Compare Polyaspartic Floor Coatings",
+    size: "small"
+  },
+  {
+    id: "custom-blend-tray",
+    label: "Custom Blend Sampling",
+    imageSrc: "/media/kiwi/finishes/kiwi-custom-blend-tray-01.jpg",
+    alt: "Tray of custom decorative flake color samples staged on a finished floor",
+    aspect: "3 / 2",
+    serviceHref: "/services/epoxy-floor-coatings",
+    serviceLabel: "Compare Epoxy Floor Coatings",
+    size: "small"
+  }
+];
+
+export const beforeAfterFeature = {
+  imageSrc: "/media/kiwi/outdoor/kiwi-patio-before-after-01.jpg",
+  alt: "Side-by-side comparison of a bare concrete patio being ground for coating next to the same patio finished with a Kiwi decorative flake system",
+  beforeLabel: "BEFORE",
+  afterLabel: "AFTER"
+};
+
+export type RealWorkPhoto = {
+  id: string;
+  imageSrc: string;
+  alt: string;
+  caption: string;
+  aspect: string;
+};
+
+export const realWorkPhotos: RealWorkPhoto[] = [
+  {
+    id: "garage-01",
+    imageSrc: "/media/kiwi/projects/kiwi-project-garage-01.jpg",
+    alt: "Finished dark flake garage floor coating with crew finishing details",
+    caption: "Finished Kiwi Coatings Garage Floor",
+    aspect: "4 / 5"
+  },
+  {
+    id: "patio-01",
+    imageSrc: "/media/kiwi/projects/kiwi-project-patio-01.jpg",
+    alt: "Finished light gray flake patio coating edge detail against a stucco exterior",
+    caption: "Finished Decorative Patio Coating",
+    aspect: "4 / 5"
+  },
+  {
+    id: "garage-02",
+    imageSrc: "/media/kiwi/projects/kiwi-project-garage-02.jpg",
+    alt: "Two-tone gray flake garage floor coating corner detail",
+    caption: "Completed Kiwi Coatings Project",
+    aspect: "4 / 5"
+  },
+  {
+    id: "garage-03",
+    imageSrc: "/media/kiwi/projects/kiwi-project-garage-03.jpg",
+    alt: "Two-tone flake garage floor coating in natural light",
+    caption: "Real Kiwi Coatings Work",
+    aspect: "3 / 4"
+  }
+];
+
+export const founderMedia = {
+  imageSrc: "/media/kiwi/founder/randy-founder-01.jpg",
+  alt: "Randy, owner of Kiwi Coatings AZ, standing next to floor coating equipment"
+};
+
+export const fieldMedia = {
+  truck: {
+    imageSrc: "/media/kiwi/field/kiwi-truck-decal-01.jpg",
+    alt: "Kiwi Coatings branded logo decal on a work truck door"
+  },
+  trailer: {
+    imageSrc: "/media/kiwi/field/kiwi-trailer-01.jpg",
+    alt: "Kiwi Coatings branded equipment trailer parked outdoors"
+  },
+  jobsiteSignage: {
+    imageSrc: "/media/kiwi/field/kiwi-jobsite-signage-01.jpg",
+    alt: "Kiwi Coatings yard sign staged on a finished flake floor at a job site"
+  }
+};
 
 export const homeFaqs: HomeFaq[] = [
   {

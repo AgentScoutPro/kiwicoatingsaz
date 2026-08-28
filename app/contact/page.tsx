@@ -8,7 +8,14 @@ export const metadata: Metadata = createPageMetadata({
   path: "/contact"
 });
 
-export default function ContactPage() {
+type Props = {
+  searchParams: Promise<{ service?: string }>;
+};
+
+export default async function ContactPage({ searchParams }: Props) {
+  const { service } = await searchParams;
+  const selectedService = site.quoteOptions.includes(service ?? "") ? service : "";
+
   return (
     <>
       <section className="hero">
@@ -45,7 +52,7 @@ export default function ContactPage() {
             </label>
             <label className="card">
               Service Requested
-              <select name="service" defaultValue="">
+              <select name="service" defaultValue={selectedService || ""}>
                 <option value="" disabled>Select a service</option>
                 {site.quoteOptions.map((option) => (
                   <option key={option} value={option}>{option}</option>

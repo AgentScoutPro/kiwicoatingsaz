@@ -8,6 +8,11 @@ export const metadata: Metadata = createPageMetadata({
   path: "/get-a-quote"
 });
 
-export default function GetAQuotePage() {
-  redirect("/contact");
+type Props = {
+  searchParams: Promise<{ service?: string }>;
+};
+
+export default async function GetAQuotePage({ searchParams }: Props) {
+  const { service } = await searchParams;
+  redirect(service ? `/contact?service=${encodeURIComponent(service)}` : "/contact");
 }
