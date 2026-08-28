@@ -113,6 +113,29 @@ export function createServiceSchema(service: Service, path: string, city?: City)
   };
 }
 
+export function createCityServiceAreaSchema(city: City, path: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "@id": `${absoluteUrl(path)}#business`,
+    name: site.name,
+    url: absoluteUrl(path),
+    telephone: site.phoneE164,
+    email: site.email,
+    logo: site.logo,
+    image: site.heroImage,
+    identifier: site.licenseNumber,
+    areaServed: {
+      "@type": "City",
+      name: `${city.name}, AZ`
+    },
+    parentOrganization: {
+      "@id": `${site.url}/#business`,
+      name: site.name
+    }
+  };
+}
+
 export function createBreadcrumbSchema(items: BreadcrumbItem[]) {
   return {
     "@context": "https://schema.org",
