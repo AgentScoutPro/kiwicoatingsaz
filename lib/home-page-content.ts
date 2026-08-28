@@ -13,18 +13,6 @@ export type HomeFaq = {
   answer: string;
 };
 
-export type HomeProject = {
-  title: string;
-  image?: string;
-  beforeImage?: string;
-  afterImage?: string;
-  city?: string;
-  application?: string;
-  finish?: string;
-  summary?: string;
-  href?: string;
-};
-
 export type HomeReview = {
   text: string;
   reviewer: string;
@@ -150,7 +138,5 @@ export const homeFaqs: HomeFaq[] = [
       "Return-to-use timing depends on the coating materials, weather, site conditions, and the surface being coated. Kiwi should confirm project-specific guidance before work begins."
   }
 ];
-
-export const verifiedHomeProjects: HomeProject[] = [];
 
 export const verifiedHomeReviews: HomeReview[] = [];

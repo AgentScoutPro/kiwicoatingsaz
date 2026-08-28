@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { Breadcrumbs, ServiceCityLinks } from "@/components/PageBlocks";
+import { ProjectProofSlot } from "@/components/ProjectBlocks";
 import { getService, services, site } from "@/lib/site-data";
+import { getProjectsByService } from "@/lib/projects";
 import { getPrimaryServiceContent } from "@/lib/service-page-content";
 import { createBreadcrumbSchema, createFaqSchema, createPageMetadata, createServiceSchema } from "@/lib/seo";
 
@@ -101,6 +103,10 @@ export default async function ServicePage({ params }: Params) {
           <ServiceCityLinks serviceSlug={service.slug} />
         </div>
       </section>
+      <ProjectProofSlot
+        title={`Verified ${service.name.toLowerCase()} projects`}
+        projects={getProjectsByService(service.slug)}
+      />
       {content ? (
         <section className="section">
           <div className="inner">

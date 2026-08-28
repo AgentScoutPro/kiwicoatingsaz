@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { Breadcrumbs, CityServiceLinks } from "@/components/PageBlocks";
+import { ProjectProofSlot } from "@/components/ProjectBlocks";
 import { getCity, getService, site } from "@/lib/site-data";
 import { getCityPageContent } from "@/lib/city-page-content";
+import { getProjectsByCity } from "@/lib/projects";
 import { getVerifiedCities } from "@/lib/seo-map";
 import { createBreadcrumbSchema, createCityServiceAreaSchema, createFaqSchema, createPageMetadata } from "@/lib/seo";
 
@@ -157,6 +159,10 @@ export default async function CityPage({ params }: Params) {
           </article>
         </div>
       </section>
+      <ProjectProofSlot
+        title={`Verified floor coating projects in ${city.name}`}
+        projects={getProjectsByCity(city.slug)}
+      />
       <section className="section nearby-service-areas">
         <div className="inner">
           <p className="eyebrow">Nearby Service Areas</p>

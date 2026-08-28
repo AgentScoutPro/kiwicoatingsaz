@@ -1,6 +1,8 @@
 import Link from "next/link";
-import { homeFaqs, homeMedia, processSteps, verifiedHomeProjects, verifiedHomeReviews } from "@/lib/home-page-content";
-import { getPrimaryVerifiedCities, getVerifiedCities } from "@/lib/seo-map";
+import { FeaturedProjects } from "@/components/ProjectBlocks";
+import { homeFaqs, homeMedia, processSteps, verifiedHomeReviews } from "@/lib/home-page-content";
+import { getVerifiedCities } from "@/lib/seo-map";
+import { getFeaturedProjects } from "@/lib/projects";
 import { getService, site } from "@/lib/site-data";
 import { StoryMedia } from "@/components/home/StoryMedia";
 
@@ -182,7 +184,9 @@ export function ProcessAct() {
 }
 
 export function ProjectsAct() {
-  if (verifiedHomeProjects.length === 0) {
+  const featuredProjects = getFeaturedProjects();
+
+  if (featuredProjects.length === 0) {
     return null;
   }
 
@@ -191,15 +195,7 @@ export function ProjectsAct() {
       <div className="inner" data-story-content>
         <p className="eyebrow">Real Kiwi Work</p>
         <h2>Verified projects.</h2>
-        <div className="grid three">
-          {verifiedHomeProjects.map((project) => (
-            <article className="card" key={project.title}>
-              <h3>{project.title}</h3>
-              {project.summary ? <p>{project.summary}</p> : null}
-              {project.href ? <Link href={project.href}>View the case study</Link> : null}
-            </article>
-          ))}
-        </div>
+        <FeaturedProjects projects={featuredProjects} />
         <div className="actions">
           <Link className="button secondary" href="/gallery">View Kiwi Coatings Projects</Link>
         </div>
