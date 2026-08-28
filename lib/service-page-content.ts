@@ -310,6 +310,150 @@ export const primaryServiceContent: Record<string, ServicePageContent> = {
       { question: "Can commercial coatings be decorative?", answer: "Yes. Flake, quartz, metallic, and solid-color systems can all be considered depending on the use of the space." },
       { question: "Do commercial floors need texture?", answer: "Some do. Texture should be selected around foot traffic, spills, cleaning needs, and the work performed in the space." }
     ]
+  },
+  "flake-floor-systems": {
+    heroIntro:
+      "Flake floor systems give concrete a clean, finished look with practical texture and color variation. Kiwi Coatings AZ installs flake systems for Arizona garages, patios, utility spaces, and commercial floors where the surface needs to look better and work harder.",
+    overview: [
+      "A flake floor system uses decorative vinyl flakes or similar broadcast media within a layered coating assembly. The flakes add color variation, visual texture, and a more forgiving appearance than a single solid color.",
+      "Flake systems are commonly chosen for garages because they help disguise normal dust and daily wear while making the floor feel intentional. They can also work in patios, utility spaces, and commercial settings when the full system is selected for the exposure and traffic."
+    ],
+    arizona: [
+      "Arizona properties see dust, heat, vehicle traffic, outdoor debris, and frequent cleaning. A flake finish can make coated concrete easier to live with because the surface does not show every footprint or small bit of dust the way plain concrete can.",
+      "For sun-adjacent garages, patios, and exterior surfaces, the topcoat and texture should be selected around UV exposure, foot traffic, and cleaning expectations."
+    ],
+    problems: [
+      "Plain concrete that feels unfinished",
+      "Garage floors that show dust, tire marks, and stains",
+      "Utility spaces that need a more durable finished surface",
+      "Patio concrete that needs color variation and texture",
+      "Commercial floors that need a clean appearance without looking overly decorative"
+    ],
+    process: [
+      { title: "Review the surface and use", text: "Kiwi looks at the concrete condition, traffic, exposure, and color goals before recommending a flake system." },
+      { title: "Prepare the concrete", text: "Surface preparation is selected around the existing concrete and helps the coating system bond to a properly profiled surface." },
+      { title: "Address visible damage", text: "Cracks, chips, and worn areas are evaluated and repaired where appropriate before the flake broadcast." },
+      { title: "Apply base coat and flake", text: "The base layer is installed and the selected flake blend is broadcast into the wet coating to build color, coverage, and texture." },
+      { title: "Scrape and topcoat", text: "Loose material is removed and a protective topcoat completes the system. Timing depends on the selected materials and site conditions." }
+    ],
+    finishOptions: [
+      { title: "Full-flake coverage", text: "A full broadcast creates a consistent flake look with strong color coverage across the floor." },
+      { title: "Stone and terrazzo-inspired blends", text: "Neutral blends can give the floor a stone-like or terrazzo-style appearance without using tile." },
+      { title: "Higher-contrast blends", text: "Bolder flake combinations can fit garages, hobby spaces, or commercial areas that need more visual energy." },
+      { title: "Texture and topcoat choices", text: "The finish feel should be selected around cleaning, traction, wet use, and exposure." }
+    ],
+    benefitDetails: [
+      { title: "Forgiving appearance", text: "The variation in a flake blend helps hide ordinary dust and small marks better than flat, plain concrete." },
+      { title: "Useful texture", text: "Broadcast flakes can add practical surface texture when paired with the right topcoat." },
+      { title: "Wide design range", text: "Flake blends can feel subtle, stone-like, classic, or more custom depending on the color direction." },
+      { title: "Good fit for daily-use spaces", text: "Garages, utility areas, and workspaces benefit from a finish that balances appearance with maintainability." }
+    ],
+    applicationsIntro:
+      "Flake floor systems are commonly used in residential garages, patios, utility rooms, laundry areas, workshops, storage areas, and commercial spaces that need a durable decorative finish.",
+    faqs: [
+      { question: "Why choose a flake floor instead of a solid color?", answer: "Flake adds visual texture and color variation, which can make dust, small marks, and daily wear less noticeable than on a flat solid-color surface." },
+      { question: "Can flake systems be used outside?", answer: "They may be appropriate for some outdoor areas when the full coating system is selected for UV exposure, water, texture, and maintenance needs." },
+      { question: "Are flake floors only for garages?", answer: "No. Garages are common, but flake systems can also fit patios, utility spaces, workshops, storage areas, and some commercial floors." },
+      { question: "Can I choose the flake blend?", answer: "Yes. Blend direction can be selected around the home, garage, exterior finishes, or commercial space." },
+      { question: "Do flake floors need texture planning?", answer: "Yes. Texture should match the space, especially for patios, wet areas, and working floors." },
+      { question: "Can damaged concrete receive a flake system?", answer: "Possibly. The concrete needs to be inspected first so cracks, chips, old coatings, and surface damage can be addressed appropriately." }
+    ]
+  },
+  "quartz-floor-coatings": {
+    heroIntro:
+      "Quartz floor coatings are built for surfaces that need a tougher textured finish with a clean, professional appearance. Kiwi Coatings AZ installs quartz broadcast systems for Arizona properties where grip, durability, and maintenance all matter.",
+    overview: [
+      "Quartz floor coatings use colored quartz aggregate broadcast into a resinous coating system. The aggregate creates a dense, textured finish that can be useful in working spaces, utility areas, commercial floors, and concrete surfaces where traction is part of the conversation.",
+      "Quartz systems are not chosen only for looks. They are often considered when a property owner wants a more substantial surface feel than a standard decorative flake floor."
+    ],
+    arizona: [
+      "Arizona dust, heat, tracked-in debris, and frequent foot traffic can wear down unfinished concrete and make cleaning harder. In areas where people work, walk, carry equipment, or deal with wet conditions, texture and durability become more important.",
+      "A quartz system can help create a more rugged finished surface. The final specification should still account for cleaning expectations, sunlight exposure, and whether the surface is indoors, covered, or exposed."
+    ],
+    problems: [
+      "Concrete that needs a more textured finish",
+      "Utility or work areas exposed to frequent foot traffic",
+      "Commercial spaces where plain concrete looks unfinished",
+      "Wet or transitional areas where traction should be discussed",
+      "Floors where durability matters more than a smooth decorative look"
+    ],
+    process: [
+      { title: "Use and exposure review", text: "Kiwi evaluates traffic, cleaning needs, wet-area concerns, exposure, and finish expectations before recommending quartz." },
+      { title: "Concrete preparation", text: "Mechanical preparation helps create a suitable surface profile for the coating layers." },
+      { title: "Repair and edge details", text: "Visible damage, joints, transitions, and edges are reviewed before the broadcast system is installed." },
+      { title: "Quartz broadcast", text: "Quartz aggregate is broadcast into the coating system to build texture, density, and appearance." },
+      { title: "Topcoat selection", text: "A protective topcoat completes the system and should be matched to the desired texture, traffic, and maintenance expectations." }
+    ],
+    finishOptions: [
+      { title: "Single or blended quartz colors", text: "Quartz colors can be selected for a clean professional appearance or a more decorative finish." },
+      { title: "Texture level", text: "The final feel should be planned around grip, cleaning, wet use, and comfort underfoot." },
+      { title: "Commercial-grade direction", text: "Quartz can be considered for shops, storage areas, and utility spaces where a more rugged surface is desired." },
+      { title: "Protective topcoats", text: "Topcoat choice affects appearance, cleanability, and final texture." }
+    ],
+    benefitDetails: [
+      { title: "Textured surface profile", text: "Quartz broadcast systems create a more substantial surface feel than many smooth coating finishes." },
+      { title: "Durable working finish", text: "The aggregate layer can support surfaces that see regular foot traffic and work use." },
+      { title: "Professional appearance", text: "Quartz can look clean and intentional in utility, commercial, and garage-adjacent spaces." },
+      { title: "Traction planning", text: "The system gives Kiwi a way to discuss grip and texture instead of treating all floors as smooth decorative surfaces." }
+    ],
+    applicationsIntro:
+      "Quartz coating systems are commonly used in utility spaces, work areas, commercial floors, garages, storage areas, and surfaces where texture and durability are priorities.",
+    faqs: [
+      { question: "How is quartz flooring different from flake flooring?", answer: "Quartz uses aggregate to create a denser textured surface, while flake systems are usually chosen for decorative color variation and a garage-friendly finish." },
+      { question: "Is quartz good for commercial floors?", answer: "Quartz can be a strong option for commercial and utility spaces when the surface needs texture, durability, and a professional appearance." },
+      { question: "Can quartz coatings be used in garages?", answer: "Yes, quartz may be appropriate for garages where a more textured or rugged surface is desired." },
+      { question: "Is quartz hard to clean?", answer: "Cleaning depends on the texture level and topcoat. A more textured surface can affect how the floor is maintained, so that should be discussed before installation." },
+      { question: "Does quartz help with traction?", answer: "Quartz systems can support traction planning, but the final surface feel depends on the broadcast, topcoat, and selected texture." },
+      { question: "Can quartz be decorative?", answer: "Yes. Quartz systems can be selected in colors or blends that look clean and intentional while still serving a practical role." }
+    ]
+  },
+  "specialty-floor-finishes": {
+    heroIntro:
+      "Specialty floor finishes are for customers who want a floor with more personality than a standard neutral system. Kiwi Coatings AZ offers custom finish directions such as glow, neon, glitter, UV flake, and other decorative effects when they fit the space and use.",
+    overview: [
+      "Specialty finishes build on resinous coating systems with custom decorative elements. They may include distinctive flake blends, glow effects, neon accents, glitter, mica, or other visual choices that make the floor stand out.",
+      "These finishes should still be practical. The coating system underneath, surface preparation, topcoat, texture, and cleaning expectations matter just as much as the decorative effect."
+    ],
+    arizona: [
+      "Arizona garages, patios, shops, and entertainment spaces often double as personal or customer-facing areas. A specialty finish can help the floor support the personality of the room, vehicle space, brand, or outdoor setting.",
+      "Sun exposure, heat, traffic, and maintenance should guide the finish. Some decorative choices make more sense indoors or in controlled areas, while others may need careful system selection for exterior or high-use spaces."
+    ],
+    problems: [
+      "A garage or shop floor that feels too plain for the space",
+      "Commercial or hobby areas that need stronger visual identity",
+      "Decorative floors where standard flake blends feel too neutral",
+      "Interior feature spaces that need a custom coating direction",
+      "Projects where appearance matters but practical coating performance still matters"
+    ],
+    process: [
+      { title: "Design direction", text: "Kiwi starts by understanding the look, color direction, space use, lighting, and level of visual impact the customer wants." },
+      { title: "Surface and exposure review", text: "The concrete condition, sun exposure, traffic, and maintenance needs are reviewed before the decorative system is selected." },
+      { title: "Preparation and repairs", text: "The floor is prepared and visible damage is addressed where appropriate so the specialty finish has a better foundation." },
+      { title: "Decorative build", text: "The selected specialty material or blend is installed as part of the coating system, not as a loose surface decoration." },
+      { title: "Topcoat and care discussion", text: "A protective topcoat completes the system. Kiwi should discuss cleaning, texture, and use based on the chosen finish." }
+    ],
+    finishOptions: [
+      { title: "Glow effects", text: "Glow elements can be considered for garage, hobby, or specialty spaces where the lighting conditions support the effect." },
+      { title: "Neon or bold flake accents", text: "Brighter flake directions can add energy to garages, shops, studios, or branded spaces." },
+      { title: "Glitter and mica details", text: "Reflective accents can add depth or sparkle when they fit the room and lighting." },
+      { title: "Custom blend planning", text: "Specialty finishes can combine practical flake or coating systems with a more expressive color direction." }
+    ],
+    benefitDetails: [
+      { title: "More personal finish", text: "Specialty options let the floor reflect the space instead of defaulting to a standard neutral blend." },
+      { title: "Visual identity", text: "Custom effects can support garages, studios, showrooms, and branded environments." },
+      { title: "Built on coating fundamentals", text: "The decorative effect still relies on preparation, coating layers, and a topcoat selected for the use." },
+      { title: "Flexible design range", text: "The finish can be subtle, bright, reflective, or more dramatic depending on the customer’s goals." }
+    ],
+    applicationsIntro:
+      "Specialty finishes are commonly used in garages, studios, hobby spaces, showrooms, entertainment areas, branded commercial spaces, and custom decorative floor projects.",
+    faqs: [
+      { question: "Are specialty finishes only decorative?", answer: "No. The decorative effect is part of a coating system. Surface preparation, material selection, texture, and topcoat choice still matter." },
+      { question: "Can glow or neon finishes be used in a garage?", answer: "They can be considered for garages when the design direction, lighting, use, and maintenance expectations make sense." },
+      { question: "Will a specialty finish look exactly like a sample?", answer: "Samples help set direction, but broadcast materials, lighting, concrete conditions, and installation can create natural variation." },
+      { question: "Can specialty finishes be used outdoors?", answer: "Some decorative directions may be possible outdoors, but UV exposure, water, texture, and cleaning needs must be considered carefully." },
+      { question: "Are specialty floors harder to maintain?", answer: "Maintenance depends on texture, topcoat, and use. Kiwi can discuss practical cleaning expectations before the finish is chosen." },
+      { question: "How do I choose between metallic, flake, and specialty finishes?", answer: "Metallic epoxy is usually about depth and movement, flake is a practical decorative broadcast, and specialty finishes add bolder custom effects to a coating system." }
+    ]
   }
 };
 
