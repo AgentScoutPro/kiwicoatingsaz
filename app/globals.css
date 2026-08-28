@@ -615,6 +615,30 @@ textarea {
   resize: vertical;
 }
 
+.quote-honeypot {
+  left: -9999px;
+  position: absolute;
+  top: -9999px;
+}
+
+.form-status {
+  margin-top: 20px;
+}
+
+.form-status-success {
+  border-color: var(--kiwi-green);
+}
+
+.form-status-error {
+  border-color: #c0392b;
+}
+
+.form-status-error a {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .list {
   display: grid;
   gap: 10px;

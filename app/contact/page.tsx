@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site-data";
 import { createPageMetadata } from "@/lib/seo";
+import { ContactQuoteForm } from "@/components/ContactQuoteForm";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Contact",
@@ -34,38 +35,7 @@ export default async function ContactPage({ searchParams }: Props) {
       </section>
       <section className="section">
         <div className="inner">
-          <form className="grid two" name="quote-request">
-            <label className="card">
-              Name *
-              <input name="name" required type="text" />
-            </label>
-            <label className="card">
-              Email Address *
-              <input name="email" required type="email" />
-            </label>
-            <label className="card">
-              Phone Number
-              <input name="phone" type="tel" />
-            </label>
-            <label className="card">
-              Address
-              <input name="address" type="text" />
-            </label>
-            <label className="card">
-              Service Requested
-              <select name="service" defaultValue={selectedService || ""}>
-                <option value="" disabled>Select a service</option>
-                {site.quoteOptions.map((option) => (
-                  <option key={option} value={option}>{option}</option>
-                ))}
-              </select>
-            </label>
-            <label className="card">
-              Anything you'd like to add?
-              <textarea maxLength={180} name="message" rows={5} />
-            </label>
-            <button className="button" type="submit">Request Free Estimate</button>
-          </form>
+          <ContactQuoteForm selectedService={selectedService || ""} />
           <div className="actions">
             <a className="button secondary" href={site.reviewUrl} target="_blank" rel="noreferrer">Write a Review</a>
             <a className="button secondary" href={site.socials.instagram} target="_blank" rel="noreferrer">Follow {site.socialHandle}</a>
