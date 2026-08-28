@@ -24,39 +24,45 @@ export type HomeReview = {
   date?: string;
 };
 
-export const homeMedia = {
+export const cinematicChapters = {
   hero: {
     mediaId: "hero-transformation",
-    videoSrc: "/media/kiwi/hero/kiwi-hero-randy-transformation.mp4",
-    posterSrc: "/media/kiwi/hero/kiwi-hero-poster.jpg",
-    imageSrc: "/media/kiwi/hero/kiwi-hero-poster.jpg",
-    alt: "Finished Kiwi Coatings garage floor coating with the Arizona desert visible through the open garage door",
-    priority: true
+    videoSrc: "/media/kiwi/cinematic/kiwi-hero-scroll.mp4",
+    posterSrc: "/media/kiwi/cinematic/kiwi-hero-scroll-poster.jpg",
+    alt: "Bare Arizona garage concrete floor transforming into a finished Kiwi Coatings flake floor as the desert appears through the open garage door"
   },
+  system: {
+    mediaId: "coating-system-film",
+    videoSrc: "/media/kiwi/cinematic/kiwi-system-scroll.mp4",
+    posterSrc: "/media/kiwi/cinematic/kiwi-system-scroll-poster.jpg",
+    alt: "Cross-section view of a concrete coating system showing the prepared layers beneath a finished decorative floor"
+  },
+  garageOutdoor: {
+    mediaId: "garage-outdoor-film",
+    videoSrc: "/media/kiwi/cinematic/kiwi-garage-outdoor-scroll.mp4",
+    posterSrc: "/media/kiwi/cinematic/kiwi-garage-outdoor-scroll-poster.jpg",
+    alt: "Finished flake garage floor coating opening onto a finished Arizona patio and pool deck coating"
+  },
+  customDesign: {
+    mediaId: "custom-design-signature-film",
+    videoSrc: "/media/kiwi/cinematic/kiwi-custom-design-scroll.mp4",
+    posterSrc: "/media/kiwi/cinematic/kiwi-custom-design-scroll-poster.jpg",
+    alt: "Hands holding a custom blend of colorful decorative floor coating flakes"
+  },
+  colorCraft: {
+    mediaId: "color-to-craft-film",
+    videoSrc: "/media/kiwi/cinematic/kiwi-color-craft-scroll.mp4",
+    posterSrc: "/media/kiwi/cinematic/kiwi-color-craft-scroll-poster.jpg",
+    alt: "Close-up of custom decorative flake colors and material detail used in Kiwi Coatings floor finishes"
+  }
+} satisfies Record<string, { mediaId: string; videoSrc: string; posterSrc: string; alt: string }>;
+
+export const homeMedia = {
   environment: {
     mediaId: "arizona-environment",
     imageSrc: "/media/kiwi/environment/kiwi-arizona-bare-concrete-01.jpg",
     alt: "Bare, worn concrete garage floor before coating, with the Arizona desert visible outside",
     aspect: "3 / 2"
-  },
-  system: {
-    mediaId: "coating-system",
-    imageSrc: "/media/kiwi/process/kiwi-surface-prep-01.jpg",
-    alt: "Kiwi Coatings technician preparing a concrete surface with a grinder before coating",
-    aspect: "4 / 3"
-  },
-  garage: {
-    mediaId: "garage-transformation",
-    imageSrc: "/media/kiwi/garage/kiwi-garage-finished-01.jpg",
-    alt: "Finished gray flake garage floor coating with a car parked on it",
-    aspect: "3 / 2",
-    priority: false
-  },
-  outdoor: {
-    mediaId: "outdoor-living",
-    imageSrc: "/media/kiwi/outdoor/kiwi-patio-finished-01.jpg",
-    alt: "Finished light gray flake patio floor coating under a covered outdoor living space",
-    aspect: "4 / 5"
   },
   commercial: {
     mediaId: "commercial-flooring",
@@ -380,4 +386,34 @@ export const homeFaqs: HomeFaq[] = [
   }
 ];
 
-export const verifiedHomeReviews: HomeReview[] = [];
+export const reviewSummary = {
+  rating: 5.0,
+  reviewCount: 10,
+  source: "Google"
+};
+
+export const verifiedHomeReviews: HomeReview[] = [
+  {
+    text:
+      "We are very happy with the work that Randy and his crew did in our garage. The epoxy floor coating looks great and it only took a day for them to get it done. We were shown many samples to choose from. We would highly recommend Kiwi Coatings! Randy and Michelle are a very pleasant couple to work with and their crew was the best.",
+    reviewer: "Alvin Brown",
+    rating: 5,
+    source: "Google",
+    date: "a month ago"
+  },
+  {
+    text:
+      "Definitely recommend Randy, Eli, and the crew at Kiwi Coatings! They were efficient, professional, and delivered on what they promised. Our garage floors look amazing and we couldn't be happier!",
+    reviewer: "Paul Hanson",
+    rating: 5,
+    source: "Google",
+    date: "a month ago"
+  },
+  {
+    text: "Randy and his crew did an excellent job, they even helped with moving some large heavy items too.",
+    reviewer: "Eric Gameros",
+    rating: 5,
+    source: "Google",
+    date: "a month ago"
+  }
+];

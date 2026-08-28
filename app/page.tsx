@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
 import {
+  ColorCraftAct,
   CommercialAct,
   DesignAct,
   EnvironmentAct,
@@ -10,7 +11,6 @@ import {
   HomeHero,
   HomeServiceLinks,
   KiwiSystemAct,
-  OutdoorAct,
   ProcessAct,
   ProjectsAct,
   ReviewsAct,
@@ -38,9 +38,9 @@ export default function HomePage() {
       <EnvironmentAct />
       <KiwiSystemAct />
       <GarageAct />
-      <OutdoorAct />
       <DesignAct />
       <CommercialAct />
+      <ColorCraftAct />
       <ProcessAct />
       <ProjectsAct />
       <WhyKiwiAct />

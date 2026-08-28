@@ -1,18 +1,21 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { FeaturedProjects } from "@/components/ProjectBlocks";
 import {
   beforeAfterFeature,
+  cinematicChapters,
   customInteriorMaterialStrip,
   customInteriorPanels,
   customInteriorPrimary,
-  fieldMedia,
   founderMedia,
   homeFaqs,
   homeMedia,
   processSteps,
   realWorkPhotos,
   designGallery,
+  reviewSummary,
   verifiedHomeReviews
 } from "@/lib/home-page-content";
 import { getVerifiedCities } from "@/lib/seo-map";
@@ -20,24 +23,42 @@ import { getFeaturedProjects } from "@/lib/projects";
 import { getService, site } from "@/lib/site-data";
 import { StoryMedia } from "@/components/home/StoryMedia";
 import { QuoteSelector } from "@/components/home/QuoteSelector";
+import { ScrollVideoChapter, beatOpacity, openingOpacity } from "@/components/home/ScrollVideoChapter";
 
-function ServiceAnchor({ slug, children }: { slug: string; children: React.ReactNode }) {
-  return <Link href={`/services/${slug}`}>{children}</Link>;
+function NumberedBlock({
+  index,
+  title,
+  href,
+  description
+}: {
+  index: number;
+  title: string;
+  href: string;
+  description?: string;
+}) {
+  return (
+    <Link href={href} className="numbered-block">
+      <span className="numbered-block-index">{String(index).padStart(2, "0")}</span>
+      <span className="numbered-block-title">{title}</span>
+      {description ? <span className="numbered-block-desc">{description}</span> : null}
+      <span className="numbered-block-arrow" aria-hidden="true">
+        Explore →
+      </span>
+    </Link>
+  );
 }
 
-export function HomeHero() {
+/* ---------- Hero (Act 1 — pinned scroll film) ---------- */
+
+function HeroCopy({ progress }: { progress: number }) {
+  const introOpacity = openingOpacity(progress, 0.28, 0.4);
+  const arizonaOpacity = beatOpacity(progress, 0.82, 0.92, 1, 1);
+
   return (
-    <section className="hero story-act story-act-hero" data-story-act="hero" data-reveal>
-      <StoryMedia media={homeMedia.hero} className="hero-media" sizes="100vw" />
-      <div className="hero-scrim" aria-hidden="true" />
-      <div className="inner hero-content" data-story-content>
+    <div className="chapter-copy-stack hero-copy-stack">
+      <div className="hero-copy-primary" style={{ opacity: introOpacity }}>
         <p className="eyebrow">Professional Garage Floor &amp; Concrete Coatings in Arizona</p>
         <h1>Turn Ordinary Concrete Into Something Extraordinary.</h1>
-        <p className="lead">
-          Kiwi Coatings AZ is an Arizona floor coating contractor installing garage floor coatings, patio and pool
-          deck coatings, premium decorative floors, and commercial coating systems for residential and business
-          spaces. Licensed and bonded, {site.licenseNumber}.
-        </p>
         <div className="actions">
           <Link className="button" href="/get-a-quote">
             Request a Quote
@@ -52,47 +73,96 @@ export function HomeHero() {
           <li>Arizona Contractor</li>
         </ul>
       </div>
-    </section>
+      <p className="hero-transition-phrase" style={{ opacity: arizonaOpacity }}>
+        Built For Arizona.
+      </p>
+    </div>
   );
 }
 
+export function HomeHero() {
+  return (
+    <ScrollVideoChapter
+      mediaId={cinematicChapters.hero.mediaId}
+      videoSrc={cinematicChapters.hero.videoSrc}
+      posterSrc={cinematicChapters.hero.posterSrc}
+      alt={cinematicChapters.hero.alt}
+      className="hero-chapter"
+      desktopScrollLength={260}
+      mobileScrollLength={200}
+      priority
+      reducedMotionContent={<HeroCopy progress={0.1} />}
+    >
+      {(progress) => <HeroCopy progress={progress} />}
+    </ScrollVideoChapter>
+  );
+}
+
+/* ---------- Act 2 — Arizona bridge (short, normal flow) ---------- */
+
 export function EnvironmentAct() {
   return (
-    <section className="section story-act story-act--light" data-story-act="arizona-environment" data-reveal>
-      <div className="inner story-layout" data-story-content>
-        <div>
-          <p className="eyebrow">Built for Arizona</p>
-          <h2>Arizona Is Hard on Concrete.</h2>
-          <p>
-            Arizona concrete has to deal with heat, UV exposure, dust, vehicle traffic, oil, spills, outdoor
-            exposure, and everyday wear. Over time, untreated concrete can become stained, dusty, visually worn, and
-            harder to keep clean.
-          </p>
-          <p>
-            That does not mean every surface needs the same coating. It means the surface should be evaluated before
-            a finish is chosen.
-          </p>
-        </div>
-        <StoryMedia media={homeMedia.environment} sizes="(max-width: 760px) 100vw, 50vw" />
+    <section
+      className="section story-act story-act--light story-act--compact"
+      data-story-act="arizona-environment"
+      data-reveal
+    >
+      <div className="inner story-bridge" data-story-content>
+        <p className="eyebrow">Built for Arizona</p>
+        <h2>Arizona Is Hard on Concrete.</h2>
+        <p className="lead lead--tight">
+          Heat, UV, dust, vehicle traffic, and outdoor exposure wear down untreated concrete over time. Kiwi
+          Coatings AZ installs garage, patio, pool deck, and commercial floor coating systems built for that
+          environment.
+        </p>
       </div>
     </section>
   );
 }
 
+/* ---------- Act 3 — Not Paint. A System. (pinned scroll film) ---------- */
+
+function SystemCopy({ progress }: { progress: number }) {
+  const introOpacity = openingOpacity(progress, 0.3, 0.42);
+  const supportOpacity = beatOpacity(progress, 0.32, 0.44, 0.68, 0.8);
+
+  return (
+    <div className="chapter-copy-stack">
+      <div style={{ opacity: introOpacity }}>
+        <p className="eyebrow">The Kiwi Difference</p>
+        <h2>Not Paint. A System.</h2>
+      </div>
+      <p className="chapter-statement" style={{ opacity: supportOpacity }}>
+        The finish is only as good as what happens underneath it.
+      </p>
+    </div>
+  );
+}
+
 export function KiwiSystemAct() {
   return (
-    <section className="section story-act story-act--dark" data-story-act="coating-system" data-reveal>
-      <div className="inner story-layout" data-story-content>
-        <div>
-          <p className="eyebrow">Not Paint. A System.</p>
-          <h2>The Finish Is Only As Good As What Happens Underneath It.</h2>
-          <p>
-            A professional result starts before the decorative finish is installed. Kiwi looks at the existing
-            concrete, how the space is used, whether repair is needed, and which coating system fits the surface.
-          </p>
-          <p>
-            The visible finish may be flake, quartz, metallic epoxy, or another decorative direction, but the system
-            underneath is what makes the project more than a basic surface treatment.
+    <>
+      <ScrollVideoChapter
+        mediaId={cinematicChapters.system.mediaId}
+        videoSrc={cinematicChapters.system.videoSrc}
+        posterSrc={cinematicChapters.system.posterSrc}
+        alt={cinematicChapters.system.alt}
+        desktopScrollLength={230}
+        mobileScrollLength={180}
+        reducedMotionContent={<SystemCopy progress={0.15} />}
+      >
+        {(progress) => <SystemCopy progress={progress} />}
+      </ScrollVideoChapter>
+      <section
+        className="section story-act story-act--dark story-act--supporting"
+        data-story-act="coating-system-detail"
+        data-reveal
+      >
+        <div className="inner story-layout" data-story-content>
+          <p className="supporting-copy">
+            A professional result starts before the decorative finish goes on. Kiwi evaluates the existing
+            concrete, prepares the surface, repairs where needed, then builds the coating system underneath the
+            flake, quartz, or metallic finish.
           </p>
           <ol className="system-layers" aria-label="Coating system layers, from the substrate up">
             <li>
@@ -112,86 +182,102 @@ export function KiwiSystemAct() {
             </li>
           </ol>
         </div>
-        <StoryMedia media={homeMedia.system} sizes="(max-width: 760px) 100vw, 50vw" />
+      </section>
+    </>
+  );
+}
+
+/* ---------- Act 4→5 — Garage → Outdoor (single connective film) ---------- */
+
+function GarageOutdoorCopy({ progress }: { progress: number }) {
+  const garageOpacity = openingOpacity(progress, 0.3, 0.4);
+  const outdoorOpacity = beatOpacity(progress, 0.55, 0.66, 0.92, 1);
+
+  return (
+    <div className="chapter-copy-stack">
+      <div style={{ opacity: garageOpacity }}>
+        <p className="eyebrow">Your Garage</p>
+        <h2>Make the Hardest-Working Room Easier to Live With.</h2>
       </div>
-    </section>
+      <div style={{ opacity: outdoorOpacity }}>
+        <p className="eyebrow">Then Take It Outside.</p>
+        <h2>Patios. Pool Decks. Outdoor Living.</h2>
+      </div>
+    </div>
   );
 }
 
 export function GarageAct() {
   return (
-    <section className="section story-act application-act" data-story-act="garage-transformation" data-reveal>
-      <div className="inner story-layout" data-story-content>
-        <div>
-          <p className="eyebrow">Your Garage</p>
-          <h2>Make the hardest-working room easier to live with.</h2>
-          <p>
-            Garage floors take tire traffic, tools, storage, dust, and spills. A garage coating system can make the
-            space feel cleaner, more finished, and easier to maintain while giving homeowners choices in color,
-            texture, and finish.
-          </p>
-          <p>
-            Start with <ServiceAnchor slug="garage-floor-coatings">garage floor coatings</ServiceAnchor>, then compare{" "}
-            <ServiceAnchor slug="polyaspartic-floor-coatings">polyaspartic coatings</ServiceAnchor>,{" "}
-            <ServiceAnchor slug="epoxy-floor-coatings">epoxy floor coatings</ServiceAnchor>, and{" "}
-            <ServiceAnchor slug="flake-floor-systems">flake floor systems</ServiceAnchor>.
-          </p>
-          <div className="actions">
-            <Link className="button secondary" href="/services/garage-floor-coatings">
-              Explore Garage Floor Coatings
-            </Link>
+    <>
+      <ScrollVideoChapter
+        mediaId={cinematicChapters.garageOutdoor.mediaId}
+        videoSrc={cinematicChapters.garageOutdoor.videoSrc}
+        posterSrc={cinematicChapters.garageOutdoor.posterSrc}
+        alt={cinematicChapters.garageOutdoor.alt}
+        desktopScrollLength={250}
+        mobileScrollLength={195}
+        reducedMotionContent={<GarageOutdoorCopy progress={0.15} />}
+      >
+        {(progress) => <GarageOutdoorCopy progress={progress} />}
+      </ScrollVideoChapter>
+      <section className="section story-act application-act" data-story-act="garage-outdoor-links" data-reveal>
+        <div className="inner" data-story-content>
+          <p className="eyebrow">Explore the Spaces</p>
+          <div className="numbered-block-grid">
+            <NumberedBlock index={1} title="Garage Floor Coatings" href="/services/garage-floor-coatings" />
+            <NumberedBlock
+              index={2}
+              title="Patio & Pool Deck Coatings"
+              href="/services/patio-and-pool-deck-coatings"
+            />
+            <NumberedBlock
+              index={3}
+              title="Polyaspartic Floor Coatings"
+              href="/services/polyaspartic-floor-coatings"
+            />
+            <NumberedBlock index={4} title="Flake Floor Systems" href="/services/flake-floor-systems" />
           </div>
         </div>
-        <StoryMedia media={homeMedia.garage} className="story-media-feature" sizes="(max-width: 760px) 100vw, 55vw" />
-      </div>
-    </section>
+        <div className="inner before-after-block">
+          <p className="eyebrow">See The Difference</p>
+          <h3>From Bare Concrete to Finished Space.</h3>
+          <figure className="before-after-figure">
+            <Image
+              src={beforeAfterFeature.imageSrc}
+              alt={beforeAfterFeature.alt}
+              width={2000}
+              height={1827}
+              sizes="(max-width: 760px) 100vw, 900px"
+            />
+            <div className="before-after-labels" aria-hidden="true">
+              <span>{beforeAfterFeature.beforeLabel}</span>
+              <span>{beforeAfterFeature.afterLabel}</span>
+            </div>
+          </figure>
+        </div>
+      </section>
+    </>
   );
 }
 
-export function OutdoorAct() {
+/* ---------- Act 6 — Custom Floor Design (signature pinned film) ---------- */
+
+function DesignCopy({ progress }: { progress: number }) {
+  const eyebrowOpacity = openingOpacity(progress, 0.16, 0.24);
+  const rebelOpacity = beatOpacity(progress, 0.14, 0.24, 0.4, 0.48);
+  const mainOpacity = beatOpacity(progress, 0.46, 0.56, 0.85, 0.95);
+
   return (
-    <section className="section story-act application-act story-act--warm" data-story-act="outdoor-living" data-reveal>
-      <div className="inner story-layout story-layout-reverse" data-story-content>
-        <StoryMedia media={homeMedia.outdoor} sizes="(max-width: 760px) 100vw, 45vw" />
-        <div>
-          <p className="eyebrow">Your Outdoor Living Space</p>
-          <h2>Extend the finish beyond the garage.</h2>
-          <p>
-            Patios, pool decks, walkways, and entertaining areas need coating choices that consider Arizona sun,
-            water, texture, dust, and outdoor maintenance. The right conversation is different from an interior
-            floor.
-          </p>
-          <p>
-            <ServiceAnchor slug="patio-and-pool-deck-coatings">Patio and pool deck coatings</ServiceAnchor> can be
-            compared with <ServiceAnchor slug="polyaspartic-floor-coatings">polyaspartic coating options</ServiceAnchor>,{" "}
-            <ServiceAnchor slug="quartz-floor-coatings">quartz floor coatings</ServiceAnchor>, and decorative flake
-            finishes where appropriate.
-          </p>
-          <div className="actions">
-            <Link className="button secondary" href="/services/patio-and-pool-deck-coatings">
-              Explore Patio &amp; Pool Deck Coatings
-            </Link>
-          </div>
-        </div>
-      </div>
-      <div className="inner before-after-block">
-        <p className="eyebrow">See The Difference</p>
-        <h3>From Bare Concrete to Finished Space.</h3>
-        <figure className="before-after-figure">
-          <Image
-            src={beforeAfterFeature.imageSrc}
-            alt={beforeAfterFeature.alt}
-            width={2000}
-            height={1827}
-            sizes="(max-width: 760px) 100vw, 900px"
-          />
-          <div className="before-after-labels" aria-hidden="true">
-            <span>{beforeAfterFeature.beforeLabel}</span>
-            <span>{beforeAfterFeature.afterLabel}</span>
-          </div>
-        </figure>
-      </div>
-    </section>
+    <div className="chapter-copy-stack">
+      <p className="chapter-eyebrow-standalone" style={{ opacity: eyebrowOpacity }}>
+        Custom Floor Design
+      </p>
+      <p className="chapter-rebel-line" style={{ opacity: rebelOpacity }}>
+        Or Don&apos;t Play It Safe.
+      </p>
+      <h2 style={{ opacity: mainOpacity }}>Concrete Doesn&apos;t Have to Look Like Concrete.</h2>
+    </div>
   );
 }
 
@@ -202,158 +288,192 @@ export function DesignAct() {
   const serviceLinks = new Map(designGallery.map((item) => [item.serviceHref, item.serviceLabel]));
 
   return (
-    <section className="section story-act story-act--dark story-act--vivid" data-story-act="custom-floor-design" data-reveal>
-      <div className="inner" data-story-content>
-        <p className="eyebrow">Custom Floor Design</p>
-        <h2>Concrete Doesn&apos;t Have to Look Like Concrete.</h2>
-        <p className="lead">
-          Some floors need to disappear into the room. Others should be the room. From flowing metallic finishes and
-          custom flake blends to bold color and specialty effects, Kiwi Coatings AZ can turn a floor into an
-          intentional part of the space &mdash; in real interior rooms, not just garages and patios.
-        </p>
+    <>
+      <ScrollVideoChapter
+        mediaId={cinematicChapters.customDesign.mediaId}
+        videoSrc={cinematicChapters.customDesign.videoSrc}
+        posterSrc={cinematicChapters.customDesign.posterSrc}
+        alt={cinematicChapters.customDesign.alt}
+        desktopScrollLength={260}
+        mobileScrollLength={200}
+        reducedMotionContent={<DesignCopy progress={0.15} />}
+      >
+        {(progress) => <DesignCopy progress={progress} />}
+      </ScrollVideoChapter>
 
-        <div className="custom-interior-grid">
-          <div className="custom-interior-primary">
-            <StoryMedia
-              media={{
-                mediaId: customInteriorPrimary.id,
-                videoSrc: customInteriorPrimary.videoSrc,
-                posterSrc: customInteriorPrimary.posterSrc,
-                imageSrc: customInteriorPrimary.imageSrc,
-                alt: customInteriorPrimary.alt,
-                aspect: "4 / 5",
-                priority: true,
-                caption: `${customInteriorPrimary.label} — ${customInteriorPrimary.room}`
-              }}
-              sizes="(max-width: 760px) 100vw, 42vw"
-            />
-          </div>
-          <div className="custom-interior-panels">
-            {customInteriorPanels.map((panel) => (
+      <section
+        className="section story-act story-act--dark story-act--vivid"
+        data-story-act="custom-floor-design-gallery"
+        data-reveal
+      >
+        <div className="inner" data-story-content>
+          <p className="eyebrow">Real Projects, Real Rooms</p>
+          <div className="custom-interior-grid">
+            <div className="custom-interior-primary">
               <StoryMedia
-                key={panel.id}
                 media={{
-                  mediaId: panel.id,
-                  imageSrc: panel.imageSrc,
-                  alt: panel.alt,
-                  aspect: "16 / 11",
-                  caption: `${panel.label} — ${panel.room}`
+                  mediaId: customInteriorPrimary.id,
+                  videoSrc: customInteriorPrimary.videoSrc,
+                  posterSrc: customInteriorPrimary.posterSrc,
+                  imageSrc: customInteriorPrimary.imageSrc,
+                  alt: customInteriorPrimary.alt,
+                  aspect: "4 / 5",
+                  priority: true,
+                  caption: `${customInteriorPrimary.label} — ${customInteriorPrimary.room}`
                 }}
-                sizes="(max-width: 760px) 100vw, 32vw"
+                sizes="(max-width: 760px) 100vw, 42vw"
               />
+            </div>
+            <div className="custom-interior-panels">
+              {customInteriorPanels.map((panel) => (
+                <StoryMedia
+                  key={panel.id}
+                  media={{
+                    mediaId: panel.id,
+                    imageSrc: panel.imageSrc,
+                    alt: panel.alt,
+                    aspect: "16 / 11",
+                    caption: `${panel.label} — ${panel.room}`
+                  }}
+                  sizes="(max-width: 760px) 100vw, 32vw"
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="custom-material-strip">
+            <p className="custom-material-strip-heading">Where The Design Begins</p>
+            <div className="custom-material-strip-row">
+              {customInteriorMaterialStrip.map((item) => (
+                <StoryMedia
+                  key={item.id}
+                  media={{
+                    mediaId: item.id,
+                    imageSrc: item.imageSrc,
+                    alt: item.alt,
+                    aspect: "4 / 3",
+                    caption: item.room
+                  }}
+                  className="custom-material-item"
+                  sizes="(max-width: 760px) 33vw, 220px"
+                />
+              ))}
+            </div>
+          </div>
+
+          <p className="eyebrow design-gallery-heading">More Finish Directions</p>
+          <div className="design-gallery">
+            {featured ? (
+              <Link href={featured.serviceHref} className="design-tile design-tile-featured" aria-label={featured.serviceLabel}>
+                <StoryMedia
+                  media={{ mediaId: featured.id, imageSrc: featured.imageSrc, alt: featured.alt, aspect: featured.aspect }}
+                  sizes="(max-width: 760px) 100vw, 38vw"
+                />
+                <span className="design-tile-label">{featured.label}</span>
+              </Link>
+            ) : null}
+            {wide ? (
+              <Link href={wide.serviceHref} className="design-tile design-tile-wide" aria-label={wide.serviceLabel}>
+                <StoryMedia
+                  media={{ mediaId: wide.id, imageSrc: wide.imageSrc, alt: wide.alt, aspect: wide.aspect }}
+                  sizes="(max-width: 760px) 100vw, 58vw"
+                />
+                <span className="design-tile-label">{wide.label}</span>
+              </Link>
+            ) : null}
+            {small.map((item) => (
+              <Link href={item.serviceHref} className="design-tile design-tile-small" key={item.id} aria-label={item.serviceLabel}>
+                <StoryMedia
+                  media={{ mediaId: item.id, imageSrc: item.imageSrc, alt: item.alt, aspect: item.aspect }}
+                  sizes="(max-width: 760px) 50vw, 18vw"
+                />
+                <span className="design-tile-label">{item.label}</span>
+              </Link>
+            ))}
+          </div>
+          <div className="actions">
+            {[...serviceLinks.entries()].map(([href, label]) => (
+              <Link className="button secondary" href={href} key={href}>
+                {label}
+              </Link>
             ))}
           </div>
         </div>
-
-        <div className="custom-material-strip">
-          <p className="custom-material-strip-heading">Where The Design Begins</p>
-          <div className="custom-material-strip-row">
-            {customInteriorMaterialStrip.map((item) => (
-              <StoryMedia
-                key={item.id}
-                media={{
-                  mediaId: item.id,
-                  imageSrc: item.imageSrc,
-                  alt: item.alt,
-                  aspect: "4 / 3",
-                  caption: item.room
-                }}
-                className="custom-material-item"
-                sizes="(max-width: 760px) 33vw, 220px"
-              />
-            ))}
-          </div>
-        </div>
-
-        <p className="eyebrow design-gallery-heading">More Finish Directions</p>
-        <div className="design-gallery">
-          {featured ? (
-            <Link href={featured.serviceHref} className="design-tile design-tile-featured" aria-label={featured.serviceLabel}>
-              <StoryMedia
-                media={{ mediaId: featured.id, imageSrc: featured.imageSrc, alt: featured.alt, aspect: featured.aspect }}
-                sizes="(max-width: 760px) 100vw, 38vw"
-              />
-              <span className="design-tile-label">{featured.label}</span>
-            </Link>
-          ) : null}
-          {wide ? (
-            <Link href={wide.serviceHref} className="design-tile design-tile-wide" aria-label={wide.serviceLabel}>
-              <StoryMedia
-                media={{ mediaId: wide.id, imageSrc: wide.imageSrc, alt: wide.alt, aspect: wide.aspect }}
-                sizes="(max-width: 760px) 100vw, 58vw"
-              />
-              <span className="design-tile-label">{wide.label}</span>
-            </Link>
-          ) : null}
-          {small.map((item) => (
-            <Link href={item.serviceHref} className="design-tile design-tile-small" key={item.id} aria-label={item.serviceLabel}>
-              <StoryMedia
-                media={{ mediaId: item.id, imageSrc: item.imageSrc, alt: item.alt, aspect: item.aspect }}
-                sizes="(max-width: 760px) 50vw, 18vw"
-              />
-              <span className="design-tile-label">{item.label}</span>
-            </Link>
-          ))}
-        </div>
-        <div className="actions">
-          {[...serviceLinks.entries()].map(([href, label]) => (
-            <Link className="button secondary" href={href} key={href}>
-              {label}
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
+
+/* ---------- Commercial (short, normal flow) ---------- */
 
 export function CommercialAct() {
   return (
-    <section className="section story-act application-act" data-story-act="commercial-flooring" data-reveal>
-      <div className="inner story-layout" data-story-content>
-        <div>
-          <p className="eyebrow">Your Business</p>
-          <h2>Cleaner surfaces for spaces that need to work.</h2>
-          <p>
-            Shops, showrooms, workspaces, facilities, storage areas, customer-facing spaces, and light commercial
-            environments may need coating systems selected around traffic, cleaning, appearance, and daily
-            operations.
-          </p>
-          <p>
-            Commercial projects can also connect back to epoxy, polyaspartic, quartz, flake, and metallic systems
-            depending on the surface and use.
-          </p>
-          <div className="actions">
-            <Link className="button secondary" href="/services/commercial-floor-coatings">
-              Explore Commercial Floor Coatings
-            </Link>
-          </div>
+    <section className="section story-act story-act--compact" data-story-act="commercial-flooring" data-reveal>
+      <div className="inner story-bridge" data-story-content>
+        <p className="eyebrow">Your Business</p>
+        <h2>Cleaner Surfaces for Spaces That Need to Work.</h2>
+        <p className="lead lead--tight">
+          Shops, showrooms, and light commercial spaces get coating systems selected around traffic, cleaning,
+          and daily operations.
+        </p>
+        <div className="actions">
+          <Link className="button secondary" href="/services/commercial-floor-coatings">
+            Explore Commercial Floor Coatings
+          </Link>
         </div>
-        <StoryMedia media={homeMedia.commercial} sizes="(max-width: 760px) 100vw, 50vw" />
       </div>
     </section>
   );
 }
+
+/* ---------- Color → Craft (pinned scroll film, opens the process chapter) ---------- */
+
+function ColorCraftCopy({ progress }: { progress: number }) {
+  const firstOpacity = openingOpacity(progress, 0.32, 0.42);
+  const secondOpacity = beatOpacity(progress, 0.36, 0.46, 0.68, 0.78);
+
+  return (
+    <div className="chapter-copy-stack">
+      <h2 style={{ opacity: firstOpacity }}>Custom Doesn&apos;t Come From a Catalog.</h2>
+      <p className="chapter-statement" style={{ opacity: secondOpacity }}>
+        It Starts With the Details.
+      </p>
+    </div>
+  );
+}
+
+export function ColorCraftAct() {
+  return (
+    <ScrollVideoChapter
+      mediaId={cinematicChapters.colorCraft.mediaId}
+      videoSrc={cinematicChapters.colorCraft.videoSrc}
+      posterSrc={cinematicChapters.colorCraft.posterSrc}
+      alt={cinematicChapters.colorCraft.alt}
+      desktopScrollLength={220}
+      mobileScrollLength={175}
+      reducedMotionContent={<ColorCraftCopy progress={0.15} />}
+    >
+      {(progress) => <ColorCraftCopy progress={progress} />}
+    </ScrollVideoChapter>
+  );
+}
+
+/* ---------- Process ---------- */
 
 export function ProcessAct() {
   return (
     <section className="section story-act story-act--light" data-story-act="installation-process" data-reveal>
       <div className="inner" data-story-content>
         <p className="eyebrow">Project Process</p>
-        <h2>How a coating project progresses.</h2>
-        <ol className="process-steps">
+        <h2>How a Coating Project Progresses.</h2>
+        <ol className="process-numbered">
           {processSteps.map((step, index) => (
-            <li className="process-step" key={step.title}>
-              <span className="process-step-number">{String(index + 1).padStart(2, "0")}</span>
-              {step.imageSrc ? (
-                <StoryMedia
-                  media={{ mediaId: `process-${index}`, imageSrc: step.imageSrc, alt: step.alt ?? step.title, aspect: "4 / 3" }}
-                  className="process-step-media"
-                  sizes="(max-width: 760px) 100vw, 320px"
-                />
-              ) : null}
-              <h3>{step.title}</h3>
-              <p>{step.text}</p>
+            <li className="process-numbered-item" key={step.title}>
+              <span className="process-numbered-index">{String(index + 1).padStart(2, "0")}</span>
+              <div>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </div>
             </li>
           ))}
         </ol>
@@ -362,6 +482,8 @@ export function ProcessAct() {
   );
 }
 
+/* ---------- Real work ---------- */
+
 export function ProjectsAct() {
   const featuredProjects = getFeaturedProjects();
 
@@ -369,7 +491,7 @@ export function ProjectsAct() {
     <section className="section story-act" data-story-act="kiwi-projects" data-reveal>
       <div className="inner" data-story-content>
         <p className="eyebrow">Real Kiwi Work</p>
-        <h2>Real Floors. Real Transformations.</h2>
+        <h2>See the Difference.</h2>
         <div className="real-work-gallery">
           {realWorkPhotos.map((photo) => (
             <figure className="real-work-photo" key={photo.id}>
@@ -392,6 +514,8 @@ export function ProjectsAct() {
   );
 }
 
+/* ---------- Why Kiwi ---------- */
+
 export function WhyKiwiAct() {
   return (
     <section className="section story-act story-act--dark" data-story-act="why-kiwi" data-reveal>
@@ -403,10 +527,10 @@ export function WhyKiwiAct() {
         />
         <div>
           <p className="eyebrow">Why Kiwi</p>
-          <h2>Licensed, bonded, and focused on the full coating system.</h2>
-          <p>
-            Kiwi Coatings AZ is a licensed and bonded Arizona contractor, {site.licenseNumber}, serving residential
-            and commercial coating projects with a broad range of system and finish options.
+          <h2>Licensed, Bonded, and Focused on the Full System.</h2>
+          <p className="lead lead--tight">
+            Kiwi Coatings AZ is a licensed and bonded Arizona contractor, {site.licenseNumber}, serving
+            residential and commercial coating projects.
           </p>
           <ul className="list card trust-list">
             <li>Licensed and bonded Arizona contractor</li>
@@ -433,20 +557,33 @@ export function WhyKiwiAct() {
   );
 }
 
+/* ---------- Reviews ---------- */
+
+function reviewerInitials(name: string) {
+  return name
+    .split(" ")
+    .map((part) => part[0])
+    .filter(Boolean)
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+}
+
 export function ReviewsAct() {
-  if (verifiedHomeReviews.length > 0) {
+  if (verifiedHomeReviews.length === 0) {
     return (
-      <section className="section story-act" data-story-act="verified-reviews" data-reveal>
+      <section className="section story-act story-act--light review-cta-act" data-story-act="verified-reviews" data-reveal>
         <div className="inner" data-story-content>
           <p className="eyebrow">Customer Proof</p>
-          <h2>Verified customer feedback.</h2>
-          <div className="grid three">
-            {verifiedHomeReviews.map((review) => (
-              <blockquote className="card" key={`${review.source}-${review.reviewer}`}>
-                <p>{review.text}</p>
-                <footer>{review.reviewer}</footer>
-              </blockquote>
-            ))}
+          <h2>See what Arizona customers are saying.</h2>
+          <p className="lead lead--tight">
+            Kiwi Coatings AZ reviews are collected on Google. Read verified customer feedback directly on the
+            Kiwi Coatings AZ Google Business Profile.
+          </p>
+          <div className="actions">
+            <a className="button" href={site.reviewUrl} target="_blank" rel="noreferrer">
+              Read Verified Google Reviews
+            </a>
           </div>
         </div>
       </section>
@@ -454,23 +591,49 @@ export function ReviewsAct() {
   }
 
   return (
-    <section className="section story-act story-act--light review-cta-act" data-story-act="verified-reviews" data-reveal>
+    <section className="section story-act reviews-act" data-story-act="verified-reviews" data-reveal>
       <div className="inner" data-story-content>
-        <p className="eyebrow">Customer Proof</p>
-        <h2>See what Arizona customers are saying.</h2>
-        <p className="lead">
-          Kiwi Coatings AZ reviews are collected on Google. Read verified customer feedback directly on the Kiwi
-          Coatings AZ Google Business Profile.
-        </p>
+        <p className="eyebrow">Real Customer Reviews</p>
+        <h2>What Arizona Homeowners Are Saying.</h2>
+        <div className="reviews-summary-row">
+          <span className="reviews-rating">{reviewSummary.rating.toFixed(1)}</span>
+          <div>
+            <div className="reviews-stars" aria-hidden="true">
+              ★★★★★
+            </div>
+            <p className="reviews-summary-line">
+              Rated 5 Stars on {reviewSummary.source} · {reviewSummary.reviewCount}+ Reviews
+            </p>
+          </div>
+        </div>
+        <div className="reviews-row">
+          {verifiedHomeReviews.map((review) => (
+            <blockquote className="review-card" key={`${review.source}-${review.reviewer}`}>
+              <span className="review-card-badge">{review.source}</span>
+              <p className="review-card-text">&ldquo;{review.text}&rdquo;</p>
+              <footer className="review-card-footer">
+                <span className="review-card-avatar" aria-hidden="true">
+                  {reviewerInitials(review.reviewer)}
+                </span>
+                <span className="review-card-meta">
+                  <span className="review-card-name">{review.reviewer}</span>
+                  {review.date ? <span className="review-card-date">{review.date}</span> : null}
+                </span>
+              </footer>
+            </blockquote>
+          ))}
+        </div>
         <div className="actions">
-          <a className="button" href={site.reviewUrl} target="_blank" rel="noreferrer">
-            Read Verified Google Reviews
+          <a className="button secondary" href={site.reviewUrl} target="_blank" rel="noreferrer">
+            Read All Reviews on Google
           </a>
         </div>
       </div>
     </section>
   );
 }
+
+/* ---------- Service areas ---------- */
 
 export function ServiceAreasAct() {
   const groups = new Map<string, ReturnType<typeof getVerifiedCities>>();
@@ -483,52 +646,49 @@ export function ServiceAreasAct() {
 
   return (
     <section className="section story-act" data-story-act="local-arizona" data-reveal>
-      <div className="inner service-area-layout" data-story-content>
-        <div>
-          <p className="eyebrow">Arizona Service Areas</p>
-          <h2>Floor Coatings Across Arizona&apos;s East Valley &amp; Central Arizona</h2>
-          <p className="lead">
-            Kiwi Coatings AZ serves verified markets across the East Valley, Pinal County, central Arizona, and the
-            greater Phoenix area through dedicated city hubs.
-          </p>
-          <div className="grid three">
-            {[...groups.entries()].map(([region, regionCities]) => (
-              <nav className="card" aria-label={`${region} service areas`} key={region}>
-                <h3>{region}</h3>
-                <div className="service-links">
-                  {regionCities.map((city) => (
-                    <Link href={`/locations/${city.slug}`} key={city.slug}>
-                      Floor Coatings in {city.name}
-                    </Link>
-                  ))}
-                </div>
-              </nav>
-            ))}
+      <div className="inner" data-story-content>
+        <p className="eyebrow">Arizona Service Areas</p>
+        <h2>Floor Coatings Across Arizona&apos;s East Valley &amp; Central Arizona</h2>
+        <p className="lead lead--tight">
+          Kiwi Coatings AZ serves verified markets across the East Valley, Pinal County, and the greater
+          Phoenix area.
+        </p>
+        {[...groups.entries()].map(([region, regionCities]) => (
+          <div className="city-block-group" key={region}>
+            <h3 className="city-block-group-title">{region}</h3>
+            <div className="city-block-grid">
+              {regionCities.map((city) => (
+                <Link href={`/locations/${city.slug}`} key={city.slug} className="city-block">
+                  <span className="city-block-name">Floor Coatings in {city.name}</span>
+                  <span className="city-block-arrow" aria-hidden="true">
+                    →
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
-          <div className="actions">
-            <Link className="button secondary" href="/locations">
-              View All Service Areas
-            </Link>
-          </div>
+        ))}
+        <div className="actions">
+          <Link className="button secondary" href="/locations">
+            View All Service Areas
+          </Link>
         </div>
-        <StoryMedia
-          media={{ mediaId: "field-trailer", imageSrc: fieldMedia.trailer.imageSrc, alt: fieldMedia.trailer.alt, aspect: "4 / 5" }}
-          sizes="(max-width: 760px) 100vw, 28vw"
-        />
       </div>
     </section>
   );
 }
 
+/* ---------- FAQ ---------- */
+
 export function FAQAct() {
   return (
     <section className="section story-act" data-story-act="homepage-faq" data-reveal>
-      <div className="inner" data-story-content>
+      <div className="inner faq-inner" data-story-content>
         <p className="eyebrow">Questions Answered</p>
         <h2>Common questions before requesting a quote.</h2>
-        <div className="grid two">
+        <div className="faq-list">
           {homeFaqs.map((faq) => (
-            <details className="card" key={faq.question}>
+            <details className="faq-row" key={faq.question}>
               <summary>
                 <h3>{faq.question}</h3>
               </summary>
@@ -541,6 +701,8 @@ export function FAQAct() {
   );
 }
 
+/* ---------- Final CTA ---------- */
+
 export function FinalCTA() {
   return (
     <section className="section story-act final-story-cta story-act--dark" data-story-act="final-cta" data-reveal>
@@ -550,9 +712,9 @@ export function FinalCTA() {
         <div>
           <p className="eyebrow">{site.licenseNumber}</p>
           <h2>Your Floor Starts Here.</h2>
-          <p className="lead">
-            Tell Kiwi Coatings AZ what surface you want to transform, where it is located, and how the space will be
-            used.
+          <p className="lead lead--tight">
+            Tell Kiwi Coatings AZ what surface you want to transform, where it is located, and how the space
+            will be used.
           </p>
           <div className="actions">
             <Link className="button" href="/get-a-quote">
@@ -568,6 +730,8 @@ export function FinalCTA() {
     </section>
   );
 }
+
+/* ---------- Homepage → service page connections ---------- */
 
 export function HomeServiceLinks() {
   const serviceSlugs = [
@@ -592,8 +756,8 @@ export function HomeServiceLinks() {
       <div className="inner" data-story-content>
         <p className="eyebrow">Service Authority</p>
         <h2>Explore the coating systems in detail.</h2>
-        <div className="grid three">
-          {serviceSlugs.map((slug) => {
+        <div className="numbered-block-grid numbered-block-grid--wide">
+          {serviceSlugs.map((slug, index) => {
             const service = getService(slug);
 
             if (!service) {
@@ -601,10 +765,7 @@ export function HomeServiceLinks() {
             }
 
             return (
-              <Link className="card" href={`/services/${service.slug}`} key={service.slug}>
-                <h3>{service.name}</h3>
-                <p>{service.shortDescription}</p>
-              </Link>
+              <NumberedBlock key={service.slug} index={index + 1} title={service.name} href={`/services/${service.slug}`} />
             );
           })}
         </div>
@@ -620,3 +781,4 @@ export function HomeServiceLinks() {
     </nav>
   );
 }
+
