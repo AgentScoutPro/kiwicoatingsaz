@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CityServiceLinks } from "@/components/PageBlocks";
-import { cities, getCity, site } from "@/lib/site-data";
+import { JsonLd } from "@/components/JsonLd";
+import { Breadcrumbs, CityServiceLinks } from "@/components/PageBlocks";
+import { getCity, site } from "@/lib/site-data";
 import { getVerifiedCities } from "@/lib/seo-map";
+import { createBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
 type Params = {
   params: Promise<{ city: string }>;
@@ -20,14 +22,12 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     return {};
   }
 
-  return {
+  return createPageMetadata({
     title: `Floor Coatings in ${city.name}, AZ`,
     description: `Kiwi Coatings AZ installs garage, epoxy, polyaspartic, flake, quartz, patio, pool deck, and commercial floor coatings in ${city.name}, AZ.`,
-    robots: city.verified ? undefined : { index: false, follow: false },
-    alternates: {
-      canonical: `/locations/${city.slug}`
-    }
-  };
+    path: `/locations/${city.slug}`,
+    noindex: !city.verified
+  });
 }
 
 export default async function CityPage({ params }: Params) {
@@ -38,11 +38,18 @@ export default async function CityPage({ params }: Params) {
     notFound();
   }
 
+  const breadcrumbs = [
+    { name: "Home", path: "/" },
+    { name: "Service Areas", path: "/locations" },
+    { name: city.name, path: `/locations/${city.slug}` }
+  ];
+
   return (
     <>
+      <JsonLd data={createBreadcrumbSchema(breadcrumbs)} />
       <section className="hero">
         <div className="inner">
-          <p className="breadcrumb">Service Areas / {city.name}</p>
+          <Breadcrumbs items={breadcrumbs} />
           <p className="eyebrow">{city.county}</p>
           <h1>Floor Coatings in {city.name}, AZ</h1>
           <p className="lead">

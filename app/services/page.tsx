@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { ServiceGrid } from "@/components/PageBlocks";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Floor Coating Services",
-  description: "Explore Kiwi Coatings AZ services including garage floor coatings, epoxy, polyaspartic, flake, quartz, patio, pool deck, and commercial floor coatings."
-};
+  description: "Explore Kiwi Coatings AZ services including garage floor coatings, epoxy, polyaspartic, flake, quartz, patio, pool deck, and commercial floor coatings.",
+  path: "/services"
+});
 
 export default function ServicesPage() {
   return (

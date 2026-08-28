@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { CityGrid } from "@/components/PageBlocks";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Arizona Service Areas",
-  description: "Find Kiwi Coatings AZ floor coating service areas across Mesa, Chandler, Gilbert, Queen Creek, San Tan Valley, Maricopa, Casa Grande, Apache Junction, Gold Canyon, Florence, Coolidge, and Phoenix."
-};
+  description: "Find Kiwi Coatings AZ floor coating service areas across Mesa, Chandler, Gilbert, Queen Creek, San Tan Valley, Maricopa, Casa Grande, Apache Junction, Gold Canyon, Florence, Coolidge, and Phoenix.",
+  path: "/locations"
+});
 
 export default function LocationsPage() {
   return (

@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import { services, site } from "@/lib/site-data";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Gallery",
   description: "Kiwi Coatings AZ project image references for garage, patio, pool deck, flake, epoxy, polyaspartic, and specialty floor coating work.",
-  robots: {
-    index: false,
-    follow: true
-  }
-};
+  path: "/gallery",
+  noindex: true
+});
 
 export default function GalleryPage() {
   const images = [

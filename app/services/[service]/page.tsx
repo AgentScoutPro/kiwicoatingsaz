@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
-import { ServiceCityLinks } from "@/components/PageBlocks";
+import { Breadcrumbs, ServiceCityLinks } from "@/components/PageBlocks";
 import { getService, services, site } from "@/lib/site-data";
+import { createBreadcrumbSchema, createPageMetadata, createServiceSchema } from "@/lib/seo";
 
 type Params = {
   params: Promise<{ service: string }>;
@@ -20,13 +21,12 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     return {};
   }
 
-  return {
+  return createPageMetadata({
     title: service.seoTitle,
     description: `${service.shortDescription} Request a quote from Kiwi Coatings AZ for ${service.name.toLowerCase()} across central Arizona.`,
-    alternates: {
-      canonical: `/services/${service.slug}`
-    }
-  };
+    path: `/services/${service.slug}`,
+    image: service.image
+  });
 }
 
 export default async function ServicePage({ params }: Params) {
@@ -37,26 +37,23 @@ export default async function ServicePage({ params }: Params) {
     notFound();
   }
 
+  const breadcrumbs = [
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: service.name, path: `/services/${service.slug}` }
+  ];
+
   return (
     <>
       <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "Service",
-          name: service.name,
-          provider: {
-            "@type": "HomeAndConstructionBusiness",
-            name: site.name,
-            telephone: site.phone
-          },
-          image: service.image,
-          areaServed: "Central Arizona",
-          url: `${site.url}/services/${service.slug}`
-        }}
+        data={createServiceSchema(service, `/services/${service.slug}`)}
+      />
+      <JsonLd
+        data={createBreadcrumbSchema(breadcrumbs)}
       />
       <section className="hero">
         <div className="inner">
-          <p className="breadcrumb">Services / {service.name}</p>
+          <Breadcrumbs items={breadcrumbs} />
           <p className="eyebrow">Floor coating service</p>
           <h1>{service.name} in Arizona</h1>
           <p className="lead">{service.intro}</p>

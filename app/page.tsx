@@ -1,30 +1,22 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { CityGrid, ServiceGrid } from "@/components/PageBlocks";
 import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/lib/site-data";
+import { createLocalBusinessSchema, createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Arizona Floor Coatings",
+  description:
+    "Kiwi Coatings AZ installs garage, epoxy, polyaspartic, patio, pool deck, metallic, flake, quartz, and commercial floor coatings across central Arizona.",
+  path: "/"
+});
 
 export default function HomePage() {
   return (
     <>
       <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "HomeAndConstructionBusiness",
-          name: site.name,
-          url: site.url,
-          telephone: site.phone,
-          email: site.email,
-          logo: site.logo,
-          image: site.heroImage,
-          sameAs: [site.socials.facebook, site.socials.instagram, site.bbbUrl],
-          areaServed: "Central Arizona",
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Coolidge",
-            addressRegion: "AZ",
-            addressCountry: "US"
-          }
-        }}
+        data={createLocalBusinessSchema()}
       />
       <section className="hero">
         <div className="inner">

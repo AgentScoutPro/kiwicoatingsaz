@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site-data";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "About",
   description: "Learn about Kiwi Coatings AZ, a licensed and bonded floor coating contractor based near Coolidge, Arizona.",
-  robots: {
-    index: false,
-    follow: true
-  }
-};
+  path: "/about",
+  noindex: true
+});
 
 export default function AboutPage() {
   return (

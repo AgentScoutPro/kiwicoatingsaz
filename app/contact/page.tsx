@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site-data";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Contact",
-  description: "Request a quote from Kiwi Coatings AZ for garage, epoxy, polyaspartic, flake, quartz, patio, pool deck, and commercial floor coatings."
-};
+  description: "Request a quote from Kiwi Coatings AZ for garage, epoxy, polyaspartic, flake, quartz, patio, pool deck, and commercial floor coatings.",
+  path: "/contact"
+});
 
 export default function ContactPage() {
   return (

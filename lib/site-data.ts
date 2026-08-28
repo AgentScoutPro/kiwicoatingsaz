@@ -3,9 +3,11 @@ export const site = {
   legalName: "KiwiCoatings LLC",
   url: "https://kiwicoatingsaz.com",
   phone: "(602) 901-1823",
+  phoneE164: "+1-602-901-1823",
   phoneHref: "tel:+16029011823",
   email: "randy@kiwicoatingsaz.com",
   area: "Coolidge, AZ",
+  licenseNumber: "ROC #363582",
   license: "Licensed and Bonded Arizona Residential General Contractor ROC#363582",
   accreditation:
     "Licensed and Bonded General Contractor located in the Coolidge, AZ area in Arizona Residential General Contractor License - ROC#363582",
@@ -16,14 +18,15 @@ export const site = {
     facebook: "https://www.facebook.com/kiwicoatingsaz",
     instagram: "https://instagram.com/kiwicoatingsaz"
   },
-  reviewUrl: "https://maps.app.goo.gl/ZiJsREsFixigTz8K8",
+  reviewUrl: "https://share.google/3dHiI8OBoD4IYFHeH",
   bbbUrl: "https://www.bbb.org/us/az/coolidge/profile/epoxy-floor-coating/kiwicoatings-llc-1126-1000166622/#sealclick",
   logo: "https://i0.wp.com/kiwicoatingsaz.com/wp-content/uploads/2026/01/kiwi-coatings-logo.png?fit=1024%2C1024&ssl=1",
   footerLogo: "https://kiwicoatingsaz.com/wp-content/themes/Kiwi%20Coatings%20Theme/assets/img/footerlogo.png",
   heroImage: "https://i0.wp.com/kiwicoatingsaz.com/wp-content/uploads/2026/02/Kiwi_Coatings_Intro_2026-8262-scaled.jpg?fit=2560%2C1707&ssl=1",
   introImage: "https://kiwicoatingsaz.com/wp-content/uploads/2026/01/Kiwi_Coatings_Intro_2026-8189-scaled.jpg",
   dividerVideo: "https://kiwicoatingsaz.com/wp-content/themes/Kiwi%20Coatings%20Theme/assets/img/glow_handicap_sign.mp4",
-  quoteOptions: ["Garage", "Patio", "Pool Decks", "I'm Not Sure"]
+  quoteOptions: ["Garage", "Patio", "Pool Decks", "I'm Not Sure"],
+  contentLastModified: "2026-08-27"
 };
 
 export type Service = {

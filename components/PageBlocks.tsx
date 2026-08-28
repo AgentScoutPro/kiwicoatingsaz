@@ -2,6 +2,24 @@ import Link from "next/link";
 import { cities, services } from "@/lib/site-data";
 import { getIndexableLocalSeoPages, getVerifiedCities } from "@/lib/seo-map";
 
+type BreadcrumbItem = {
+  name: string;
+  path: string;
+};
+
+export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
+  return (
+    <nav className="breadcrumb" aria-label="Breadcrumb">
+      {items.map((item, index) => (
+        <span key={item.path}>
+          {index > 0 ? " / " : null}
+          {index === items.length - 1 ? item.name : <Link href={item.path}>{item.name}</Link>}
+        </span>
+      ))}
+    </nav>
+  );
+}
+
 export function ServiceGrid() {
   return (
     <div className="grid three">

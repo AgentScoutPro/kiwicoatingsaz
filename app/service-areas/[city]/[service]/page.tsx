@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
+import { Breadcrumbs } from "@/components/PageBlocks";
 import { getCity, getService, site } from "@/lib/site-data";
 import { getGeneratedLocalSeoPages, getLocalSeoPage } from "@/lib/seo-map";
+import { createBreadcrumbSchema, createPageMetadata, createServiceSchema } from "@/lib/seo";
 
 type Params = {
   params: Promise<{ city: string; service: string }>;
@@ -25,14 +27,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     return {};
   }
 
-  return {
+  return createPageMetadata({
     title: `${service.name} in ${city.name}, AZ`,
     description: `Kiwi Coatings AZ provides ${service.name.toLowerCase()} in ${city.name}, AZ. ${service.shortDescription}`,
-    robots: seoPage?.indexable ? undefined : { index: false, follow: false },
-    alternates: {
-      canonical: `/service-areas/${city.slug}/${service.slug}`
-    }
-  };
+    path: `/service-areas/${city.slug}/${service.slug}`,
+    image: service.image,
+    noindex: !seoPage?.indexable
+  });
 }
 
 export default async function CityServicePage({ params }: Params) {
@@ -45,33 +46,25 @@ export default async function CityServicePage({ params }: Params) {
     notFound();
   }
 
+  const path = `/service-areas/${city.slug}/${service.slug}`;
+  const breadcrumbs = [
+    { name: "Home", path: "/" },
+    { name: "Service Areas", path: "/locations" },
+    { name: city.name, path: `/locations/${city.slug}` },
+    { name: service.name, path }
+  ];
+
   return (
     <>
       <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "Service",
-          name: `${service.name} in ${city.name}, AZ`,
-          serviceType: service.name,
-          provider: {
-            "@type": "HomeAndConstructionBusiness",
-            name: site.name,
-            telephone: site.phone,
-            email: site.email
-          },
-          image: service.image,
-          areaServed: {
-            "@type": "City",
-            name: `${city.name}, AZ`
-          },
-          url: `${site.url}/service-areas/${city.slug}/${service.slug}`
-        }}
+        data={createServiceSchema(service, path, city)}
+      />
+      <JsonLd
+        data={createBreadcrumbSchema(breadcrumbs)}
       />
       <section className="hero">
         <div className="inner">
-          <p className="breadcrumb">
-            Service Areas / {city.name} / {service.name}
-          </p>
+          <Breadcrumbs items={breadcrumbs} />
           <p className="eyebrow">{city.region}</p>
           <h1>{service.name} in {city.name}, AZ</h1>
           <p className="lead">
