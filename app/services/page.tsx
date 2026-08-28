@@ -14,7 +14,7 @@ export default function ServicesPage() {
           <p className="eyebrow">Services</p>
           <h1>Floor coating services for Arizona homes and businesses.</h1>
           <p className="lead">
-            A technical service hub for every core coating system Kiwi Coatings AZ offers, with city-level pages connected for local search coverage.
+            Explore coating systems for garages, patios, pool decks, commercial spaces, and decorative concrete surfaces across central Arizona.
           </p>
         </div>
       </section>

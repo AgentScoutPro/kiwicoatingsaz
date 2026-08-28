@@ -3,7 +3,11 @@ import { site } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn about Kiwi Coatings AZ, a licensed and bonded floor coating contractor based near Coolidge, Arizona."
+  description: "Learn about Kiwi Coatings AZ, a licensed and bonded floor coating contractor based near Coolidge, Arizona.",
+  robots: {
+    index: false,
+    follow: true
+  }
 };
 
 export default function AboutPage() {
@@ -29,9 +33,9 @@ export default function AboutPage() {
             </ul>
           </div>
           <div className="card">
-            <h3>Content Needed Next</h3>
+            <h3>How Kiwi Coatings AZ Works</h3>
             <p>
-              Add founder story, project photos, reviews, warranty language, crew details, and before-and-after proof once creative content is ready.
+              The team helps customers choose coating systems around the surface condition, intended use, finish style, and long-term maintenance needs.
             </p>
           </div>
         </div>

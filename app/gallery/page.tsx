@@ -3,7 +3,11 @@ import { services, site } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Gallery",
-  description: "Kiwi Coatings AZ project image references for garage, patio, pool deck, flake, epoxy, polyaspartic, and specialty floor coating work."
+  description: "Kiwi Coatings AZ project image references for garage, patio, pool deck, flake, epoxy, polyaspartic, and specialty floor coating work.",
+  robots: {
+    index: false,
+    follow: true
+  }
 };
 
 export default function GalleryPage() {
@@ -18,9 +22,9 @@ export default function GalleryPage() {
       <section className="hero">
         <div className="inner">
           <p className="eyebrow">Gallery</p>
-          <h1>Kiwi Coatings AZ project media references.</h1>
+          <h1>Kiwi Coatings AZ project gallery.</h1>
           <p className="lead">
-            This page preserves the current site's gallery/navigation path and live media references before the full creative gallery layout is built.
+            Browse coating media from garage, patio, pool deck, flake, epoxy, polyaspartic, and specialty floor finish work.
           </p>
         </div>
       </section>

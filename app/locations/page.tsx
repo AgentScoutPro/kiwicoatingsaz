@@ -3,7 +3,7 @@ import { CityGrid } from "@/components/PageBlocks";
 
 export const metadata: Metadata = {
   title: "Arizona Service Areas",
-  description: "Find Kiwi Coatings AZ floor coating service areas across Coolidge, Florence, Casa Grande, San Tan Valley, Queen Creek, Phoenix, Mesa, Gilbert, Chandler, Tempe, Scottsdale, and nearby cities."
+  description: "Find Kiwi Coatings AZ floor coating service areas across Mesa, Chandler, Gilbert, Queen Creek, San Tan Valley, Maricopa, Casa Grande, Apache Junction, Gold Canyon, Florence, Coolidge, and Phoenix."
 };
 
 export default function LocationsPage() {
@@ -12,9 +12,9 @@ export default function LocationsPage() {
       <section className="hero">
         <div className="inner">
           <p className="eyebrow">Service Areas</p>
-          <h1>Local floor coating pages for central Arizona.</h1>
+          <h1>Floor coating service areas across central Arizona.</h1>
           <p className="lead">
-            Each city page acts as a local SEO hub and links to the city-specific versions of Kiwi Coatings AZ services.
+            Kiwi Coatings AZ serves verified markets across the East Valley, Pinal County, and the greater Phoenix area.
           </p>
         </div>
       </section>

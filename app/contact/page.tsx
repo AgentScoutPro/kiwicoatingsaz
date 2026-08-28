@@ -14,7 +14,7 @@ export default function ContactPage() {
           <p className="eyebrow">Contact</p>
           <h1>Request a Kiwi Coatings AZ quote.</h1>
           <p className="lead">
-            Call, email, or use the quote form below. The fields mirror the current Kiwi Coatings quote flow so we preserve the live conversion path while the final form handler is connected.
+            Call, email, or send project details so Kiwi Coatings AZ can follow up about the surface, service type, and location.
           </p>
           <div className="actions">
             <a className="button" href={site.phoneHref}>Call {site.phone}</a>

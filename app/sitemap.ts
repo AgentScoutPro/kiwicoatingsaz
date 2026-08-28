@@ -1,12 +1,13 @@
 import type { MetadataRoute } from "next";
-import { cities, services, site } from "@/lib/site-data";
+import { services, site } from "@/lib/site-data";
+import { getIndexableLocalSeoPages, getVerifiedCities } from "@/lib/seo-map";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/services", "/locations", "/gallery", "/about", "/contact", "/get-a-quote"];
+  const staticRoutes = ["", "/services", "/locations", "/contact", "/get-a-quote"];
   const serviceRoutes = services.map((service) => `/services/${service.slug}`);
-  const cityRoutes = cities.map((city) => `/locations/${city.slug}`);
-  const cityServiceRoutes = cities.flatMap((city) =>
-    services.map((service) => `/service-areas/${city.slug}/${service.slug}`)
+  const cityRoutes = getVerifiedCities().map((city) => `/locations/${city.slug}`);
+  const cityServiceRoutes = getIndexableLocalSeoPages().map(
+    (page) => `/service-areas/${page.city}/${page.service}`
   );
 
   return [...staticRoutes, ...serviceRoutes, ...cityRoutes, ...cityServiceRoutes].map((route) => ({

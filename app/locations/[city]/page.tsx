@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CityServiceLinks } from "@/components/PageBlocks";
 import { cities, getCity, site } from "@/lib/site-data";
+import { getVerifiedCities } from "@/lib/seo-map";
 
 type Params = {
   params: Promise<{ city: string }>;
 };
 
 export function generateStaticParams() {
-  return cities.map((city) => ({ city: city.slug }));
+  return getVerifiedCities().map((city) => ({ city: city.slug }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
@@ -22,6 +23,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return {
     title: `Floor Coatings in ${city.name}, AZ`,
     description: `Kiwi Coatings AZ installs garage, epoxy, polyaspartic, flake, quartz, patio, pool deck, and commercial floor coatings in ${city.name}, AZ.`,
+    robots: city.verified ? undefined : { index: false, follow: false },
     alternates: {
       canonical: `/locations/${city.slug}`
     }
@@ -44,7 +46,7 @@ export default async function CityPage({ params }: Params) {
           <p className="eyebrow">{city.county}</p>
           <h1>Floor Coatings in {city.name}, AZ</h1>
           <p className="lead">
-            Kiwi Coatings AZ serves {city.name} with coating systems for {city.focus}, including epoxy, polyaspartic, flake, quartz, metallic, patio, and commercial floor solutions.
+            Kiwi Coatings AZ serves {city.name} with coating systems for {city.localFocus}, including epoxy, polyaspartic, flake, quartz, metallic, patio, and commercial floor solutions.
           </p>
           <div className="actions">
             <a className="button" href={site.phoneHref}>Call {site.phone}</a>

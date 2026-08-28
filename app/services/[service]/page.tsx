@@ -21,8 +21,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   }
 
   return {
-    title: `${service.name} in Arizona`,
-    description: `${service.short} Request a quote from Kiwi Coatings AZ for ${service.name.toLowerCase()} across central Arizona.`,
+    title: service.seoTitle,
+    description: `${service.shortDescription} Request a quote from Kiwi Coatings AZ for ${service.name.toLowerCase()} across central Arizona.`,
     alternates: {
       canonical: `/services/${service.slug}`
     }
@@ -69,9 +69,9 @@ export default async function ServicePage({ params }: Params) {
       <section className="section">
         <div className="inner grid two">
           <div>
-            <h2>What this page targets</h2>
+            <h2>Built around the way the surface is used</h2>
             <p>
-              This service page establishes the main relevance for {service.name.toLowerCase()} and links into every local version of the service across the Kiwi Coatings AZ service area.
+              Kiwi Coatings AZ helps property owners compare coating systems by durability, appearance, surface exposure, and maintenance needs before recommending a finish.
             </p>
           </div>
           <div className="card">

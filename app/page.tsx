@@ -74,7 +74,7 @@ export default function HomePage() {
             <p className="eyebrow">Follow Us {site.socialHandle}</p>
             <h2>Connect with Kiwi Coatings AZ.</h2>
             <p className="lead">
-              Keep the current social and review signals connected while the expanded local SEO site is built out.
+              See recent updates, browse social proof, or leave feedback through Kiwi Coatings AZ's connected profiles.
             </p>
           </div>
           <div className="card">

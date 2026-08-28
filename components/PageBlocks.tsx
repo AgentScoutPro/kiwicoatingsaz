@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { cities, services } from "@/lib/site-data";
+import { getIndexableLocalSeoPages, getVerifiedCities } from "@/lib/seo-map";
 
 export function ServiceGrid() {
   return (
@@ -8,7 +9,7 @@ export function ServiceGrid() {
         <Link className="card" href={`/services/${service.slug}`} key={service.slug}>
           {service.liveSiteGroup ? <p className="eyebrow">{service.liveSiteGroup}</p> : null}
           <h3>{service.name}</h3>
-          <p>{service.short}</p>
+          <p>{service.shortDescription}</p>
         </Link>
       ))}
     </div>
@@ -16,13 +17,15 @@ export function ServiceGrid() {
 }
 
 export function CityGrid() {
+  const visibleCities = getVerifiedCities();
+
   return (
     <div className="grid three">
-      {cities.map((city) => (
+      {visibleCities.map((city) => (
         <Link className="card" href={`/locations/${city.slug}`} key={city.slug}>
           <h3>{city.name}</h3>
           <p>
-            Floor coating services for {city.focus} in {city.county}.
+            Floor coating services for {city.localFocus} in {city.county}.
           </p>
         </Link>
       ))}
@@ -31,9 +34,16 @@ export function CityGrid() {
 }
 
 export function CityServiceLinks({ citySlug }: { citySlug: string }) {
+  const indexableServiceSlugs = new Set(
+    getIndexableLocalSeoPages()
+      .filter((page) => page.city === citySlug)
+      .map((page) => page.service)
+  );
+  const visibleServices = services.filter((service) => indexableServiceSlugs.has(service.slug));
+
   return (
     <div className="service-links">
-      {services.map((service) => (
+      {visibleServices.map((service) => (
         <Link href={`/service-areas/${citySlug}/${service.slug}`} key={service.slug}>
           {service.name}
         </Link>
@@ -43,9 +53,16 @@ export function CityServiceLinks({ citySlug }: { citySlug: string }) {
 }
 
 export function ServiceCityLinks({ serviceSlug }: { serviceSlug: string }) {
+  const indexableCitySlugs = new Set(
+    getIndexableLocalSeoPages()
+      .filter((page) => page.service === serviceSlug)
+      .map((page) => page.city)
+  );
+  const visibleCities = cities.filter((city) => indexableCitySlugs.has(city.slug));
+
   return (
     <div className="service-links">
-      {cities.map((city) => (
+      {visibleCities.map((city) => (
         <Link href={`/service-areas/${city.slug}/${serviceSlug}`} key={city.slug}>
           {city.name}
         </Link>
