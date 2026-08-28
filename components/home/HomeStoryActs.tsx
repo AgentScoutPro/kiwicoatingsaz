@@ -3,6 +3,9 @@ import Link from "next/link";
 import { FeaturedProjects } from "@/components/ProjectBlocks";
 import {
   beforeAfterFeature,
+  customInteriorMaterialStrip,
+  customInteriorPanels,
+  customInteriorPrimary,
   fieldMedia,
   founderMedia,
   homeFaqs,
@@ -204,9 +207,65 @@ export function DesignAct() {
         <p className="eyebrow">Custom Floor Design</p>
         <h2>Concrete Doesn&apos;t Have to Look Like Concrete.</h2>
         <p className="lead">
-          Beyond a standard protective coating, Kiwi Coatings AZ can build a floor into a real design feature through
-          custom metallic movement, flake blends, quartz texture, and specialty color and finish combinations.
+          Some floors need to disappear into the room. Others should be the room. From flowing metallic finishes and
+          custom flake blends to bold color and specialty effects, Kiwi Coatings AZ can turn a floor into an
+          intentional part of the space &mdash; in real interior rooms, not just garages and patios.
         </p>
+
+        <div className="custom-interior-grid">
+          <div className="custom-interior-primary">
+            <StoryMedia
+              media={{
+                mediaId: customInteriorPrimary.id,
+                videoSrc: customInteriorPrimary.videoSrc,
+                posterSrc: customInteriorPrimary.posterSrc,
+                imageSrc: customInteriorPrimary.imageSrc,
+                alt: customInteriorPrimary.alt,
+                aspect: "4 / 5",
+                priority: true,
+                caption: `${customInteriorPrimary.label} — ${customInteriorPrimary.room}`
+              }}
+              sizes="(max-width: 760px) 100vw, 42vw"
+            />
+          </div>
+          <div className="custom-interior-panels">
+            {customInteriorPanels.map((panel) => (
+              <StoryMedia
+                key={panel.id}
+                media={{
+                  mediaId: panel.id,
+                  imageSrc: panel.imageSrc,
+                  alt: panel.alt,
+                  aspect: "16 / 11",
+                  caption: `${panel.label} — ${panel.room}`
+                }}
+                sizes="(max-width: 760px) 100vw, 32vw"
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="custom-material-strip">
+          <p className="custom-material-strip-heading">Where The Design Begins</p>
+          <div className="custom-material-strip-row">
+            {customInteriorMaterialStrip.map((item) => (
+              <StoryMedia
+                key={item.id}
+                media={{
+                  mediaId: item.id,
+                  imageSrc: item.imageSrc,
+                  alt: item.alt,
+                  aspect: "4 / 3",
+                  caption: item.room
+                }}
+                className="custom-material-item"
+                sizes="(max-width: 760px) 33vw, 220px"
+              />
+            ))}
+          </div>
+        </div>
+
+        <p className="eyebrow design-gallery-heading">More Finish Directions</p>
         <div className="design-gallery">
           {featured ? (
             <Link href={featured.serviceHref} className="design-tile design-tile-featured" aria-label={featured.serviceLabel}>

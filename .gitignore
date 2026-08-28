@@ -9,3 +9,6 @@ dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Raw source media library — not for the repo, production copies live under public/media/kiwi/
+KIWI ASSETS/

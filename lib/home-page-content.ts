@@ -116,6 +116,67 @@ export const processSteps: Array<{
   }
 ];
 
+export type CustomInteriorPanel = {
+  id: string;
+  label: string;
+  room: string;
+  imageSrc: string;
+  videoSrc?: string;
+  posterSrc?: string;
+  alt: string;
+};
+
+export const customInteriorPrimary: CustomInteriorPanel = {
+  id: "custom-office",
+  label: "Custom Metallic Floor",
+  room: "Office",
+  imageSrc: "/media/kiwi/custom-interiors/custom-office-metallic-poster.jpg",
+  videoSrc: "/media/kiwi/custom-interiors/custom-office-metallic.mp4",
+  posterSrc: "/media/kiwi/custom-interiors/custom-office-metallic-poster.jpg",
+  alt: "Green and teal flowing metallic epoxy floor coating installed in a finished office"
+};
+
+export const customInteriorPanels: CustomInteriorPanel[] = [
+  {
+    id: "custom-closet",
+    label: "Custom Metallic Floor",
+    room: "Walk-In Closet",
+    imageSrc: "/media/kiwi/custom-interiors/custom-walk-in-closet-metallic.jpg",
+    alt: "Pink and purple metallic epoxy floor coating finished in a walk-in closet"
+  },
+  {
+    id: "custom-bedroom",
+    label: "Custom Metallic Floor",
+    room: "Master Bedroom",
+    imageSrc: "/media/kiwi/custom-interiors/custom-master-bedroom-metallic.jpg",
+    alt: "Deep purple metallic epoxy floor coating finished in a master bedroom"
+  }
+];
+
+export const customInteriorMaterialStrip: CustomInteriorPanel[] = [
+  {
+    id: "material-copper",
+    label: "Custom Blends",
+    room: "Copper Flake Detail",
+    imageSrc: "/media/kiwi/custom-interiors/custom-copper-flake-detail.jpg",
+    alt: "Gloved hands adding copper decorative flake into a coating base blend"
+  },
+  {
+    id: "material-craft",
+    label: "Craft & Material",
+    room: "Metallic Application",
+    imageSrc: "/media/kiwi/custom-interiors/metallic-application-detail.jpg",
+    alt: "Gold, charcoal, and cream metallic decorative coating being worked with a trowel"
+  },
+  {
+    id: "material-colors",
+    label: "Custom Color Lab",
+    room: "Flake Color Selection",
+    imageSrc: "/media/kiwi/custom-interiors/custom-flake-colors.jpg",
+    alt: "Buckets of bright custom decorative flake colors staged for a custom blend"
+  }
+];
+
 export type DesignGalleryItem = {
   id: string;
   label: string;
