@@ -59,7 +59,9 @@ function HeroCopy({ progress }: { progress: number }) {
     <div className="chapter-copy-stack hero-copy-stack">
       <div className="hero-copy-primary" style={{ opacity: introOpacity }}>
         <p className="eyebrow">Professional Garage Floor &amp; Concrete Coatings in Arizona</p>
-        <h1>Turn Ordinary Concrete Into Something Extraordinary.</h1>
+        <h1>
+          Turn Ordinary Concrete Into Something <span className="hero-accent">Extraordinary.</span>
+        </h1>
         <div className="actions">
           <Link className="button" href="/get-a-quote">
             Request a Quote
@@ -129,10 +131,10 @@ function SystemCopy({ progress }: { progress: number }) {
   const supportOpacity = beatOpacity(progress, 0.32, 0.44, 0.68, 0.8);
 
   return (
-    <div className="chapter-copy-stack">
+    <div className="chapter-copy-stack chapter-copy-stack--overlay">
       <div style={{ opacity: introOpacity }}>
         <p className="eyebrow">The Kiwi Difference</p>
-        <h2>Not Paint. A System.</h2>
+        <h2 className="cinematic-headline">Not Paint. A System.</h2>
       </div>
       <p className="chapter-statement" style={{ opacity: supportOpacity }}>
         The finish is only as good as what happens underneath it.
@@ -196,14 +198,14 @@ function GarageOutdoorCopy({ progress }: { progress: number }) {
   const outdoorOpacity = beatOpacity(progress, 0.55, 0.66, 0.92, 1);
 
   return (
-    <div className="chapter-copy-stack">
+    <div className="chapter-copy-stack chapter-copy-stack--overlay">
       <div style={{ opacity: garageOpacity }}>
         <p className="eyebrow">Your Garage</p>
-        <h2>Make the Hardest-Working Room Easier to Live With.</h2>
+        <h2 className="cinematic-headline">Make the Hardest-Working Room Easier to Live With.</h2>
       </div>
       <div style={{ opacity: outdoorOpacity }}>
         <p className="eyebrow">Then Take It Outside.</p>
-        <h2>Patios. Pool Decks. Outdoor Living.</h2>
+        <h2 className="cinematic-headline">Patios. Pool Decks. Outdoor Living.</h2>
       </div>
     </div>
   );
@@ -254,14 +256,16 @@ function DesignCopy({ progress }: { progress: number }) {
   const mainOpacity = beatOpacity(progress, 0.46, 0.56, 0.85, 0.95);
 
   return (
-    <div className="chapter-copy-stack">
+    <div className="chapter-copy-stack chapter-copy-stack--overlay">
       <p className="chapter-eyebrow-standalone" style={{ opacity: eyebrowOpacity }}>
         Custom Floor Design
       </p>
-      <p className="chapter-rebel-line" style={{ opacity: rebelOpacity }}>
+      <p className="cinematic-headline" style={{ opacity: rebelOpacity }}>
         Or Don&apos;t Play It Safe.
       </p>
-      <h2 style={{ opacity: mainOpacity }}>Concrete Doesn&apos;t Have to Look Like Concrete.</h2>
+      <h2 className="cinematic-headline" style={{ opacity: mainOpacity }}>
+        Concrete Doesn&apos;t Have to Look Like Concrete.
+      </h2>
     </div>
   );
 }
@@ -422,9 +426,11 @@ function ColorCraftCopy({ progress }: { progress: number }) {
   const secondOpacity = beatOpacity(progress, 0.36, 0.46, 0.68, 0.78);
 
   return (
-    <div className="chapter-copy-stack">
-      <h2 style={{ opacity: firstOpacity }}>Custom Doesn&apos;t Come From a Catalog.</h2>
-      <p className="chapter-statement" style={{ opacity: secondOpacity }}>
+    <div className="chapter-copy-stack chapter-copy-stack--overlay">
+      <h2 className="cinematic-headline" style={{ opacity: firstOpacity }}>
+        Custom Doesn&apos;t Come From a Catalog.
+      </h2>
+      <p className="cinematic-headline" style={{ opacity: secondOpacity }}>
         It Starts With the Details.
       </p>
     </div>

@@ -909,8 +909,7 @@ textarea {
   color: var(--kiwi-ink);
 }
 
-.chapter-statement,
-.chapter-rebel-line {
+.chapter-statement {
   font-size: clamp(1.4rem, 2.8vw, 2.1rem);
   font-weight: 700;
   margin: 0;
@@ -928,6 +927,31 @@ textarea {
 
 .hero-copy-stack {
   gap: 28px;
+}
+
+.hero-accent {
+  color: var(--kiwi-green);
+}
+
+/* Shared cinematic headline scale — matches the Hero H1 so every scroll-controlled
+   chapter reads as the same story, just with the semantic tag appropriate to its context. */
+.cinematic-headline {
+  font-size: clamp(2.8rem, 7vw, 6.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0;
+  max-width: 950px;
+}
+
+/* Stacks timed beats (eyebrow / rebel line / headline, etc.) in the same position so an
+   inactive (opacity: 0) beat doesn't reserve extra vertical space next to the active one. */
+.chapter-copy-stack--overlay {
+  display: grid;
+}
+
+.chapter-copy-stack--overlay > * {
+  grid-area: 1 / 1;
 }
 
 .hero-copy-primary .actions {
