@@ -21,6 +21,8 @@ export type ScrollVideoChapterProps = {
   priority?: boolean;
   children?: React.ReactNode | ((progress: number) => React.ReactNode);
   reducedMotionContent?: React.ReactNode;
+  /** Optional progress-driven CSS custom properties applied to the <video> element (e.g. for a brief framing adjustment). */
+  videoVars?: (progress: number) => Record<string, string | number>;
 };
 
 export function ScrollVideoChapter({
@@ -35,7 +37,8 @@ export function ScrollVideoChapter({
   mobileObjectPosition,
   priority = false,
   children,
-  reducedMotionContent
+  reducedMotionContent,
+  videoVars
 }: ScrollVideoChapterProps) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -97,7 +100,8 @@ export function ScrollVideoChapter({
           style={
             {
               "--sv-object-position": objectPosition,
-              "--sv-mobile-object-position": mobileObjectPosition
+              "--sv-mobile-object-position": mobileObjectPosition,
+              ...(videoVars ? videoVars(progress) : {})
             } as React.CSSProperties
           }
         >

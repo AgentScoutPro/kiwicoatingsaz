@@ -21,9 +21,10 @@ export default async function ContactPage({ searchParams }: Props) {
       <section className="hero">
         <div className="inner">
           <p className="eyebrow">Contact</p>
-          <h1>Request a Kiwi Coatings AZ quote.</h1>
+          <h1>Request Your Free Kiwi Coatings AZ Estimate.</h1>
           <p className="lead">
-            Call, email, or send project details so Kiwi Coatings AZ can follow up about the surface, service type, and location.
+            Call, email, or send project details so Kiwi Coatings AZ can follow up with a free estimate for the
+            surface, service type, and location.
           </p>
           <div className="actions">
             <a className="button" href={site.phoneHref}>Call {site.phone}</a>
@@ -63,7 +64,7 @@ export default async function ContactPage({ searchParams }: Props) {
               Anything you'd like to add?
               <textarea maxLength={180} name="message" rows={5} />
             </label>
-            <button className="button" type="submit">Submit Request</button>
+            <button className="button" type="submit">Request Free Estimate</button>
           </form>
           <div className="actions">
             <a className="button secondary" href={site.reviewUrl} target="_blank" rel="noreferrer">Write a Review</a>

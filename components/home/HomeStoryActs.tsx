@@ -21,6 +21,11 @@ import { StoryMedia } from "@/components/home/StoryMedia";
 import { QuoteSelector } from "@/components/home/QuoteSelector";
 import { ScrollVideoChapter, beatOpacity, openingOpacity } from "@/components/home/ScrollVideoChapter";
 
+/** Brief framing nudge (~t=2.2s-4.0s) so the generated worker figure is less identifiable during the flake-broadcast beat. */
+function heroFrameT(progress: number) {
+  return beatOpacity(progress, 0.2, 0.27, 0.4, 0.47);
+}
+
 function NumberedBlock({
   index,
   title,
@@ -88,6 +93,7 @@ export function HomeHero() {
       mobileScrollLength={200}
       priority
       reducedMotionContent={<HeroCopy progress={0.1} />}
+      videoVars={(progress) => ({ "--hero-frame-t": heroFrameT(progress) })}
     >
       {(progress) => <HeroCopy progress={progress} />}
     </ScrollVideoChapter>
@@ -322,6 +328,10 @@ export function DesignAct() {
 
           <div className="custom-material-strip">
             <p className="custom-material-strip-heading">Where The Design Begins</p>
+            <p className="supporting-copy">
+              Every project starts with custom-mixed flakes, hand-combined for the color, depth, and texture the
+              room calls for.
+            </p>
             <div className="custom-material-strip-row">
               {customInteriorMaterialStrip.map((item) => (
                 <StoryMedia

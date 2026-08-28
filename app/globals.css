@@ -827,6 +827,16 @@ textarea {
   }
 }
 
+/* Hero only: brief zoom toward the left/hand side of frame during the flake-broadcast
+   beat so the generated worker figure on the right edge is minimized. Desktop only —
+   at mobile widths the default center crop already excludes that part of the frame. */
+@media (min-width: 769px) {
+  .hero-chapter .scroll-video-el {
+    transform-origin: 30% center;
+    transform: scale(calc(1 + (0.45 * var(--hero-frame-t, 0))));
+  }
+}
+
 .scroll-video-scrim {
   background: linear-gradient(180deg, rgba(11, 13, 12, 0.1) 0%, rgba(11, 13, 12, 0.28) 55%, rgba(11, 13, 12, 0.8) 100%);
   inset: 0;

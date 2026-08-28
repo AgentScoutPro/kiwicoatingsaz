@@ -27,7 +27,18 @@ export const site = {
   heroImage: "https://kiwicoatingsaz.com/media/kiwi/hero/kiwi-hero-poster.jpg",
   introImage: "https://kiwicoatingsaz.com/wp-content/uploads/2026/01/Kiwi_Coatings_Intro_2026-8189-scaled.jpg",
   dividerVideo: "https://kiwicoatingsaz.com/wp-content/themes/Kiwi%20Coatings%20Theme/assets/img/glow_handicap_sign.mp4",
-  quoteOptions: ["Garage", "Patio", "Pool Decks", "I'm Not Sure"],
+  quoteOptions: [
+    "Garage Floor",
+    "Patio / Pool Deck / Outdoor Concrete",
+    "Epoxy Floor",
+    "Polyaspartic Floor",
+    "Metallic / Decorative Interior Floor",
+    "Flake Floor System",
+    "Quartz Floor",
+    "Commercial Floor",
+    "Specialty / Custom Finish",
+    "I'm Not Sure"
+  ],
   contentLastModified: "2026-08-27"
 };
 
@@ -170,7 +181,7 @@ export const services: Service[] = [
     shortDescription: "Outdoor coating options for patios, walkways, pool decks, and backyard living areas.",
     intro: "Kiwi Coatings AZ helps Arizona homeowners refresh outdoor concrete with coating systems selected for appearance, grip, and weather exposure.",
     benefits: ["Outdoor-friendly finish options", "Improved backyard appearance", "Texture options for wet areas"],
-    applications: ["Patios", "Pool decks", "Walkways", "Backyard concrete areas"],
+    applications: ["Patios", "Pool decks", "Walkways", "Stem walls", "Backyard concrete areas"],
     relatedServices: ["polyaspartic-floor-coatings", "flake-floor-systems", "garage-floor-coatings"],
     image: "https://i0.wp.com/kiwicoatingsaz.com/wp-content/uploads/2026/01/Kiwi_Coatings_Intro_2026-8203-scaled-e1769828547879.jpg?fit=1707%2C2005&ssl=1",
     liveSiteGroup: "Timeless Flake Blends",

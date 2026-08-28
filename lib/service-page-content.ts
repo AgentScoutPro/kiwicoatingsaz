@@ -151,7 +151,8 @@ export const primaryServiceContent: Record<string, ServicePageContent> = {
       { title: "Protective topcoats", text: "Topcoats can be selected around traffic, UV exposure, and maintenance needs." }
     ],
     benefitDetails: [
-      { title: "Strong coating build", text: "Epoxy can create a substantial protective layer over prepared concrete." },
+      { title: "Strong coating build", text: "Epoxy can create a substantial protective layer over prepared concrete, with a seamless, hard-wearing finished appearance." },
+      { title: "Chemical, stain, and abrasion resistance", text: "A properly installed epoxy system is selected to resist common spills, stains, and everyday abrasion better than bare concrete." },
       { title: "Decorative flexibility", text: "It supports solid, flake, quartz, and metallic finish directions." },
       { title: "Improved cleanability", text: "A coated floor can be easier to clean than porous concrete that absorbs spills." },
       { title: "Useful for many spaces", text: "Epoxy systems can fit garages, shops, interior floors, and some commercial environments." }
@@ -164,7 +165,8 @@ export const primaryServiceContent: Record<string, ServicePageContent> = {
       { question: "Does old paint need to be removed?", answer: "Existing coatings should be evaluated. Failed or incompatible coatings may need to be removed during preparation." },
       { question: "Can epoxy handle vehicle traffic?", answer: "Epoxy systems are commonly used in garages and shops, but the full system and topcoat should match the expected traffic." },
       { question: "Is epoxy slippery?", answer: "Texture can be adjusted depending on the broadcast material and topcoat. Wet or working areas should be discussed before selecting a finish." },
-      { question: "Will epoxy fix damaged concrete?", answer: "It can improve the surface after repairs, but it does not replace structural concrete repair when that is needed." }
+      { question: "Will epoxy fix damaged concrete?", answer: "It can improve the surface after repairs, but it does not replace structural concrete repair when that is needed." },
+      { question: "How long can a professionally coated floor last?", answer: "With proper preparation, the right coating system, normal maintenance, and conditions suited to the application, epoxy or polyaspartic-coated floors can provide decades of service. Kiwi's legacy guidance notes that properly prepared and maintained systems can last 25+ years, although actual lifespan depends on use, exposure, maintenance, and the condition of the concrete. This is general guidance, not a warranty or guaranteed lifespan." }
     ]
   },
   "patio-and-pool-deck-coatings": {
@@ -196,6 +198,8 @@ export const primaryServiceContent: Record<string, ServicePageContent> = {
       { title: "Decorative flake", text: "Flake systems can add visual texture and help outdoor concrete feel more finished." },
       { title: "Textured finishes", text: "Texture can be adjusted for patios, walkways, and wet pool deck areas." },
       { title: "UV-stable topcoat options", text: "Sun exposure should be considered when selecting the topcoat and finish system." },
+      { title: "UV+Flake specialty direction", text: "Where it fits the space and exposure, UV-reactive flake can be considered as a specialty outdoor design option alongside a standard finish." },
+      { title: "Stem wall coatings", text: "Exposed stem walls next to a patio or pool deck can be coated as part of the same project for a more finished, consistent look around the slab." },
       { title: "Color and blend selection", text: "Outdoor colors should work with the home exterior, hardscape, pool area, and surrounding landscape." }
     ],
     benefitDetails: [
@@ -205,7 +209,7 @@ export const primaryServiceContent: Record<string, ServicePageContent> = {
       { title: "Arizona-aware materials", text: "Sun, heat, and exposure should influence the coating system instead of being treated as afterthoughts." }
     ],
     applicationsIntro:
-      "Outdoor coating systems are commonly used on patios, pool decks, walkways, backyard concrete areas, covered patios, and outdoor living spaces.",
+      "Outdoor coating systems are commonly used on patios, pool decks, walkways, backyard concrete areas, covered patios, exposed stem walls, and outdoor living spaces.",
     faqs: [
       { question: "Can pool deck concrete be coated?", answer: "Often, yes. The surface needs to be evaluated for condition, previous coatings, cracks, drainage, and wet-area use before selecting a system." },
       { question: "What texture should a patio coating have?", answer: "Texture depends on whether the area is dry, wet, covered, uncovered, used by children, or used around a pool. Kiwi can discuss practical finish options." },
@@ -296,6 +300,7 @@ export const primaryServiceContent: Record<string, ServicePageContent> = {
     ],
     benefitDetails: [
       { title: "More professional appearance", text: "A coated floor can make a shop, office, or showroom feel cleaner and more intentional." },
+      { title: "Built for high-traffic areas", text: "Commercial systems are selected with wear resistance in mind for high-traffic areas, carts, foot traffic, and daily operations." },
       { title: "Easier routine cleaning", text: "Coated concrete is generally easier to sweep and clean than porous bare concrete." },
       { title: "System selection by use", text: "The coating can be selected around traffic, texture, cleaning, and appearance needs." },
       { title: "Useful for working spaces", text: "Commercial coatings can support storage areas, light facility use, and customer-facing environments." }
@@ -316,6 +321,7 @@ export const primaryServiceContent: Record<string, ServicePageContent> = {
       "Flake floor systems give concrete a clean, finished look with practical texture and color variation. Kiwi Coatings AZ installs flake systems for Arizona garages, patios, utility spaces, and commercial floors where the surface needs to look better and work harder.",
     overview: [
       "A flake floor system uses decorative vinyl flakes or similar broadcast media within a layered coating assembly. The flakes add color variation, visual texture, and a more forgiving appearance than a single solid color.",
+      "Kiwi Coatings AZ custom-mixes flake combinations rather than limiting projects to a handful of premade colors, including hybrid flake blends, terrazzo and stone-inspired directions, and mica accents selected around the room or space.",
       "Flake systems are commonly chosen for garages because they help disguise normal dust and daily wear while making the floor feel intentional. They can also work in patios, utility spaces, and commercial settings when the full system is selected for the exposure and traffic."
     ],
     arizona: [
@@ -337,8 +343,10 @@ export const primaryServiceContent: Record<string, ServicePageContent> = {
       { title: "Scrape and topcoat", text: "Loose material is removed and a protective topcoat completes the system. Timing depends on the selected materials and site conditions." }
     ],
     finishOptions: [
+      { title: "Custom-mixed flake blends", text: "Colors can be custom-mixed rather than limited to a standard premade blend, so the final look is selected for the room instead of picked off a shelf." },
       { title: "Full-flake coverage", text: "A full broadcast creates a consistent flake look with strong color coverage across the floor." },
-      { title: "Stone and terrazzo-inspired blends", text: "Neutral blends can give the floor a stone-like or terrazzo-style appearance without using tile." },
+      { title: "Hybrid, terrazzo, and stone-inspired blends", text: "Hybrid flake blends and terrazzo- or stone-inspired directions can give the floor a more neutral, tile-like appearance without using tile." },
+      { title: "Mica accents", text: "Mica can be worked into a blend for subtle shimmer and added depth where that fits the space." },
       { title: "Higher-contrast blends", text: "Bolder flake combinations can fit garages, hobby spaces, or commercial areas that need more visual energy." },
       { title: "Texture and topcoat choices", text: "The finish feel should be selected around cleaning, traction, wet use, and exposure." }
     ],
@@ -393,8 +401,9 @@ export const primaryServiceContent: Record<string, ServicePageContent> = {
     benefitDetails: [
       { title: "Textured surface profile", text: "Quartz broadcast systems create a more substantial surface feel than many smooth coating finishes." },
       { title: "Durable working finish", text: "The aggregate layer can support surfaces that see regular foot traffic and work use." },
+      { title: "Non-porous finished surface", text: "The finished quartz system is built to be non-porous, which can help with spill resistance, chemical resistance, and everyday cleaning compared with untreated concrete." },
       { title: "Professional appearance", text: "Quartz can look clean and intentional in utility, commercial, and garage-adjacent spaces." },
-      { title: "Traction planning", text: "The system gives Kiwi a way to discuss grip and texture instead of treating all floors as smooth decorative surfaces." }
+      { title: "Traction-oriented texture", text: "Quartz is often selected where additional grip matters. Kiwi can discuss slip-resistant texture options instead of treating all floors as smooth decorative surfaces." }
     ],
     applicationsIntro:
       "Quartz coating systems are commonly used in utility spaces, work areas, commercial floors, garages, storage areas, and surfaces where texture and durability are priorities.",
@@ -433,10 +442,11 @@ export const primaryServiceContent: Record<string, ServicePageContent> = {
       { title: "Topcoat and care discussion", text: "A protective topcoat completes the system. Kiwi should discuss cleaning, texture, and use based on the chosen finish." }
     ],
     finishOptions: [
-      { title: "Glow effects", text: "Glow elements can be considered for garage, hobby, or specialty spaces where the lighting conditions support the effect." },
-      { title: "Neon or bold flake accents", text: "Brighter flake directions can add energy to garages, shops, studios, or branded spaces." },
+      { title: "Photoluminescent / glow-in-the-dark flakes", text: "Photoluminescent flakes can add a visual glow-in-the-dark effect for garage, hobby, or specialty spaces where the lighting conditions support it. This is a decorative visual effect and is not a substitute for code-required emergency egress or safety lighting." },
+      { title: "UV+Flake", text: "UV-reactive flake is another specialty direction, adding a distinct look under UV or blacklight conditions where that fits the space." },
+      { title: "Neon flake accents", text: "Brighter neon flake directions can add energy to garages, shops, studios, or branded spaces." },
       { title: "Glitter and mica details", text: "Reflective accents can add depth or sparkle when they fit the room and lighting." },
-      { title: "Custom blend planning", text: "Specialty finishes can combine practical flake or coating systems with a more expressive color direction." }
+      { title: "Custom specialty blends", text: "Specialty finishes can combine practical flake or coating systems with a more expressive, custom-mixed color direction." }
     ],
     benefitDetails: [
       { title: "More personal finish", text: "Specialty options let the floor reflect the space instead of defaulting to a standard neutral blend." },
