@@ -71,8 +71,6 @@ export function useScrollVideoProgress({
           onUpdate: (self) => {
             const duration = durationRef.current;
             targetTimeRef.current = duration > 0 ? self.progress * duration : 0;
-            // eslint-disable-next-line no-console
-            console.log("[DEBUG onUpdate]", { progress: self.progress, duration, target: targetTimeRef.current });
             const rounded = Math.round(self.progress * 200) / 200;
             if (Math.abs(rounded - lastReportedRef.current) >= 0.005) {
               lastReportedRef.current = rounded;
@@ -80,9 +78,6 @@ export function useScrollVideoProgress({
             }
           }
         });
-
-        // eslint-disable-next-line no-console
-        console.log("[DEBUG trigger created]", { start: trigger.start, end: trigger.end });
 
         return () => trigger.kill();
       }

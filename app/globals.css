@@ -825,6 +825,17 @@ textarea {
   color: var(--kiwi-lime);
 }
 
+.chapter-copy-stack .button.secondary {
+  border-color: rgba(255, 255, 255, 0.65);
+  color: #fff;
+}
+
+.chapter-copy-stack .button.secondary:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--kiwi-ink);
+}
+
 .chapter-statement,
 .chapter-rebel-line {
   font-size: clamp(1.4rem, 2.8vw, 2.1rem);

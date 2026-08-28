@@ -319,7 +319,7 @@ export function DesignAct() {
                   alt: customInteriorPrimary.alt,
                   aspect: "4 / 5",
                   priority: true,
-                  caption: `${customInteriorPrimary.label} — ${customInteriorPrimary.room}`
+                  caption: `${customInteriorPrimary.label} · ${customInteriorPrimary.room}`
                 }}
                 sizes="(max-width: 760px) 100vw, 42vw"
               />
@@ -333,7 +333,7 @@ export function DesignAct() {
                     imageSrc: panel.imageSrc,
                     alt: panel.alt,
                     aspect: "16 / 11",
-                    caption: `${panel.label} — ${panel.room}`
+                    caption: `${panel.label} · ${panel.room}`
                   }}
                   sizes="(max-width: 760px) 100vw, 32vw"
                 />

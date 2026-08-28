@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import {
   useNearViewport,
@@ -54,6 +54,12 @@ export function ScrollVideoChapter({
 
   const copy = typeof children === "function" ? children(progress) : children;
 
+  useEffect(() => {
+    if (!priority && shouldLoadVideo && videoRef.current) {
+      videoRef.current.load();
+    }
+  }, [priority, shouldLoadVideo]);
+
   if (reducedMotion) {
     return (
       <section
@@ -86,7 +92,7 @@ export function ScrollVideoChapter({
           controls={false}
           autoPlay={false}
           loop={false}
-          preload={priority ? "auto" : "none"}
+          preload={priority ? "auto" : shouldLoadVideo ? "metadata" : "none"}
           poster={posterSrc}
           style={
             {
