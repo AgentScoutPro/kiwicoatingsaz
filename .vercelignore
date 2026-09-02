@@ -1,0 +1,9 @@
+.git
+.next
+node_modules
+KIWI ASSETS
+.claude
+docs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
