@@ -17,7 +17,7 @@ import {
   WhyKiwiAct
 } from "@/components/home/HomeStoryActs";
 import { homeFaqs } from "@/lib/home-page-content";
-import { createFaqSchema, createLocalBusinessSchema, createPageMetadata } from "@/lib/seo";
+import { createFaqSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Arizona Floor Coatings",
@@ -30,9 +30,8 @@ export default function HomePage() {
   return (
     <div className="home-page">
       <JsonLd
-        data={createLocalBusinessSchema()}
+        data={createFaqSchema(homeFaqs)}
       />
-      <JsonLd data={createFaqSchema(homeFaqs)} />
       <HomeHero />
       <EnvironmentAct />
       <KiwiSystemAct />
