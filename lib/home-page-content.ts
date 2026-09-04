@@ -268,7 +268,8 @@ export const designGallery: DesignGalleryItem[] = [
 
 export const founderMedia = {
   imageSrc: "/media/kiwi/founder/founder-02.png",
-  alt: "Randy and a Kiwi Coatings team member standing beside floor coating equipment"
+  alt: "Randy and a Kiwi Coatings team member standing beside floor coating equipment",
+  position: "center top"
 };
 
 export const fieldMedia = {
