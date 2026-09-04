@@ -1585,7 +1585,7 @@ textarea {
     translate3d(calc(-24vw + (var(--garage-worker-travel, 0) * 118vw)), 10vh, 0)
     scale(var(--garage-worker-scale, 1));
   transform-origin: bottom center;
-  width: min(36vw, 560px);
+  width: min(72vw, 1120px);
   will-change: transform;
 }
 
@@ -1620,7 +1620,7 @@ textarea {
     transform:
       translate3d(calc(-40vw + (var(--garage-worker-travel, 0) * 98vw)), 5vh, 0)
       scale(var(--garage-worker-scale, 1));
-    width: min(58vw, 310px);
+    width: min(116vw, 620px);
   }
 
   .scroll-video-chapter {
