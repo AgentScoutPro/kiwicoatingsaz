@@ -1491,6 +1491,44 @@ textarea {
   gap: 28px;
 }
 
+.hero-chapter .scroll-video-copy {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-copy-stack {
+  align-content: end;
+  min-height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.hero-logo-reveal {
+  align-items: center;
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: center;
+  will-change: opacity, transform;
+  z-index: 1;
+}
+
+.hero-logo-reveal img {
+  display: block;
+  height: auto;
+  max-width: 900px;
+  width: min(68vw, 900px);
+}
+
+.hero-copy-primary,
+.hero-transition-phrase {
+  position: relative;
+  z-index: 2;
+}
+
 .hero-accent {
   color: var(--kiwi-green);
 }
@@ -1540,6 +1578,10 @@ textarea {
 @media (max-width: 760px) {
   .scroll-video-copy {
     padding: 40px 18px 56px;
+  }
+
+  .hero-logo-reveal img {
+    width: min(86vw, 520px);
   }
 
   .scroll-video-chapter {

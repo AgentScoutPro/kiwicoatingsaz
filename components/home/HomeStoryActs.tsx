@@ -19,7 +19,7 @@ import { getVerifiedCities } from "@/lib/seo-map";
 import { getService, site } from "@/lib/site-data";
 import { StoryMedia } from "@/components/home/StoryMedia";
 import { QuoteSelector } from "@/components/home/QuoteSelector";
-import { ScrollVideoChapter, beatOpacity, openingOpacity } from "@/components/home/ScrollVideoChapter";
+import { ScrollVideoChapter, beatOpacity, openingOpacity, scrollBeat } from "@/components/home/ScrollVideoChapter";
 
 /** Brief framing nudge (~t=2.2s-4.0s) so the generated worker figure is less identifiable during the flake-broadcast beat. */
 function heroFrameT(progress: number) {
@@ -53,6 +53,8 @@ function NumberedBlock({
 
 function HeroCopy({ progress }: { progress: number }) {
   const introOpacity = openingOpacity(progress, 0.34, 0.46);
+  const logoOpacity = beatOpacity(progress, 0.3, 0.52, 0.72, 0.86);
+  const logoScale = 0.94 + scrollBeat(progress, 0.3, 0.52) * 0.06;
   const arizonaOpacity = beatOpacity(progress, 0.72, 0.82, 0.98, 1);
 
   return (
@@ -75,6 +77,22 @@ function HeroCopy({ progress }: { progress: number }) {
           <li>{site.licenseNumber}</li>
           <li>Arizona Contractor</li>
         </ul>
+      </div>
+      <div
+        className="hero-logo-reveal"
+        style={{
+          opacity: logoOpacity,
+          transform: `scale(${logoScale})`
+        }}
+        aria-hidden={logoOpacity === 0}
+      >
+        <Image
+          src="/media/kiwi/brand/kiwi-logo-hero.png"
+          alt="Kiwi Coatings"
+          width={796}
+          height={662}
+          priority
+        />
       </div>
       <p className="hero-transition-phrase" style={{ opacity: arizonaOpacity }}>
         Built For Arizona.
