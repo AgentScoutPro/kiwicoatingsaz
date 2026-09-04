@@ -604,15 +604,16 @@ p {
 }
 
 .founder-statement-page {
-  background:
-    linear-gradient(90deg, rgba(24, 160, 2, 0.08) 0 1px, transparent 1px 100%),
-    linear-gradient(180deg, #101411 0%, #171a17 38%, var(--kiwi-surface) 38%, var(--kiwi-surface) 100%);
-  background-size: 64px 100%, auto;
+  background: var(--kiwi-surface);
 }
 
 .founder-statement-hero {
+  background:
+    linear-gradient(90deg, rgba(24, 160, 2, 0.08) 0 1px, transparent 1px 100%),
+    linear-gradient(180deg, #101411 0%, #171a17 100%);
+  background-size: 64px 100%, auto;
   color: var(--kiwi-white);
-  padding: 124px 20px 76px;
+  padding: clamp(56px, 7vw, 92px) 20px clamp(42px, 5vw, 68px);
 }
 
 .founder-statement-intro {
@@ -633,20 +634,19 @@ p {
 }
 
 .founder-statement-section {
-  padding: 0 20px 112px;
+  padding: clamp(48px, 6vw, 84px) 20px 112px;
 }
 
 .founder-statement-layout {
   align-items: start;
   display: grid;
-  gap: clamp(36px, 6vw, 88px);
-  grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.78fr);
+  gap: clamp(36px, 5vw, 72px);
+  grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.72fr);
 }
 
 .founder-statement-copy {
-  background: var(--kiwi-surface);
   max-width: 720px;
-  padding-top: 24px;
+  padding-top: 0;
 }
 
 .founder-statement-copy p {
@@ -700,18 +700,18 @@ p {
 
 .founder-portrait-wrap {
   position: sticky;
-  top: 96px;
+  top: 112px;
 }
 
 .founder-portrait {
-  aspect-ratio: 3 / 4.35;
+  aspect-ratio: 4 / 5;
   border: 1px solid rgba(255, 255, 255, 0.13);
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
   display: block;
   height: auto;
-  max-height: calc(100vh - 128px);
+  max-height: min(720px, calc(100vh - 148px));
   object-fit: cover;
-  object-position: center 44%;
+  object-position: center 39%;
   width: 100%;
 }
 
@@ -1707,15 +1707,9 @@ textarea {
     gap: 16px;
   }
 
-  .founder-statement-page {
-    background:
-      linear-gradient(90deg, rgba(24, 160, 2, 0.07) 0 1px, transparent 1px 100%),
-      linear-gradient(180deg, #101411 0%, #171a17 28%, var(--kiwi-surface) 28%, var(--kiwi-surface) 100%);
-    background-size: 44px 100%, auto;
-  }
-
   .founder-statement-hero {
-    padding: 84px 18px 40px;
+    background-size: 44px 100%, auto;
+    padding: 64px 18px 40px;
   }
 
   .founder-statement-section {
