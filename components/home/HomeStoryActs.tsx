@@ -484,7 +484,13 @@ export function WhyKiwiAct() {
     <section className="section story-act story-act--dark" data-story-act="why-kiwi" data-reveal>
       <div className="inner grid two founder-layout" data-story-content>
         <StoryMedia
-          media={{ mediaId: "founder", imageSrc: founderMedia.imageSrc, alt: founderMedia.alt, aspect: "4 / 5" }}
+          media={{
+            mediaId: "founder",
+            imageSrc: founderMedia.imageSrc,
+            alt: founderMedia.alt,
+            aspect: "4 / 5",
+            position: founderMedia.position
+          }}
           className="founder-media"
           sizes="(max-width: 760px) 100vw, 38vw"
         />
