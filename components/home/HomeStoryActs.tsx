@@ -52,10 +52,9 @@ function NumberedBlock({
 /* ---------- Hero (Act 1 — pinned scroll film) ---------- */
 
 function HeroCopy({ progress }: { progress: number }) {
-  const introOpacity = openingOpacity(progress, 0.34, 0.46);
-  const logoOpacity = beatOpacity(progress, 0.3, 0.52, 0.72, 0.86);
-  const logoScale = 0.94 + scrollBeat(progress, 0.3, 0.52) * 0.06;
-  const arizonaOpacity = beatOpacity(progress, 0.72, 0.82, 0.98, 1);
+  const introOpacity = openingOpacity(progress, 0.28, 0.42);
+  const logoOpacity = scrollBeat(progress, 0.44, 0.64);
+  const logoScale = 0.94 + scrollBeat(progress, 0.44, 0.64) * 0.06;
 
   return (
     <div className="chapter-copy-stack hero-copy-stack">
@@ -94,9 +93,6 @@ function HeroCopy({ progress }: { progress: number }) {
           priority
         />
       </div>
-      <p className="hero-transition-phrase" style={{ opacity: arizonaOpacity }}>
-        Built For Arizona.
-      </p>
     </div>
   );
 }

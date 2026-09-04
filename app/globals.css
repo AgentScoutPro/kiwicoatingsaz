@@ -1507,6 +1507,9 @@ textarea {
 .hero-logo-reveal {
   align-items: center;
   display: flex;
+  filter:
+    drop-shadow(0 10px 40px rgba(0, 0, 0, 0.28))
+    drop-shadow(0 0 24px rgba(187, 255, 0, 0.12));
   inset: 0;
   justify-content: center;
   pointer-events: none;
@@ -1523,8 +1526,7 @@ textarea {
   width: min(68vw, 900px);
 }
 
-.hero-copy-primary,
-.hero-transition-phrase {
+.hero-copy-primary {
   position: relative;
   z-index: 2;
 }
@@ -1556,14 +1558,6 @@ textarea {
 
 .hero-copy-primary .actions {
   margin-top: 24px;
-}
-
-.hero-transition-phrase {
-  font-size: clamp(1.4rem, 3.2vw, 2.3rem);
-  font-weight: 800;
-  letter-spacing: 0.03em;
-  margin: 0;
-  text-transform: uppercase;
 }
 
 .story-act--supporting {
