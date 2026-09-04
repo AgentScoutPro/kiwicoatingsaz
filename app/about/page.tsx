@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { site } from "@/lib/site-data";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -36,6 +37,11 @@ export default function AboutPage() {
             <p>
               The team helps customers choose coating systems around the surface condition, intended use, finish style, and long-term maintenance needs.
             </p>
+            <div className="actions">
+              <Link className="button secondary" href="/founders-statement">
+                Read Randy&apos;s Founder Statement
+              </Link>
+            </div>
           </div>
         </div>
       </section>

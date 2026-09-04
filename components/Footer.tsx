@@ -70,6 +70,9 @@ export function Footer() {
           <p>
             <Link href="/about">About Kiwi Coatings AZ</Link>
           </p>
+          <p>
+            <Link href="/founders-statement">A Message From Our Founder</Link>
+          </p>
           <p className="footer-socials">
             <a href={site.socials.facebook} target="_blank" rel="noreferrer">Facebook</a>
             {" / "}

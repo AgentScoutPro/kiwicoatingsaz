@@ -29,6 +29,7 @@ export function Header() {
           <Link href="/locations">Service Areas</Link>
           <Link href="/projects">Projects</Link>
           <Link href="/about">About</Link>
+          <Link href="/founders-statement">Founder</Link>
           <Link href="/contact">Contact</Link>
           <a className="nav-phone" href={site.phoneHref}>
             {site.phone}
