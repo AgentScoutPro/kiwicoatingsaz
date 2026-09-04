@@ -1556,6 +1556,39 @@ textarea {
   grid-area: 1 / 1;
 }
 
+.garage-outdoor-copy-stack {
+  min-height: min(720px, calc(100svh - 152px));
+}
+
+.garage-copy-beat {
+  align-self: end;
+  position: relative;
+  z-index: 2;
+}
+
+.garage-worker-overlay {
+  inset: 0;
+  opacity: var(--garage-worker-opacity, 0);
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.garage-worker-figure {
+  bottom: -12vh;
+  display: block;
+  height: auto;
+  left: 0;
+  position: absolute;
+  transform:
+    translate3d(calc(-24vw + (var(--garage-worker-travel, 0) * 118vw)), 10vh, 0)
+    scale(var(--garage-worker-scale, 1));
+  transform-origin: bottom center;
+  width: min(36vw, 560px);
+  will-change: transform;
+}
+
 .hero-copy-primary .actions {
   margin-top: 24px;
 }
@@ -1576,6 +1609,18 @@ textarea {
 
   .hero-logo-reveal img {
     width: min(86vw, 520px);
+  }
+
+  .garage-outdoor-copy-stack {
+    min-height: min(680px, calc(100svh - 96px));
+  }
+
+  .garage-worker-figure {
+    bottom: 0;
+    transform:
+      translate3d(calc(-40vw + (var(--garage-worker-travel, 0) * 98vw)), 5vh, 0)
+      scale(var(--garage-worker-scale, 1));
+    width: min(58vw, 310px);
   }
 
   .scroll-video-chapter {

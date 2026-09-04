@@ -209,15 +209,37 @@ export function KiwiSystemAct() {
 
 function GarageOutdoorCopy({ progress }: { progress: number }) {
   const garageOpacity = openingOpacity(progress, 0.34, 0.44);
-  const outdoorOpacity = beatOpacity(progress, 0.48, 0.58, 0.95, 1);
+  const outdoorOpacity = beatOpacity(progress, 0.58, 0.68, 0.95, 1);
+  const workerOpacity = beatOpacity(progress, 0.2, 0.32, 0.48, 0.64);
+  const workerTravel = scrollBeat(progress, 0.2, 0.42);
+  const workerScale = 0.96 + scrollBeat(progress, 0.2, 0.36) * 0.04;
 
   return (
-    <div className="chapter-copy-stack chapter-copy-stack--overlay">
-      <div style={{ opacity: garageOpacity }}>
+    <div
+      className="chapter-copy-stack chapter-copy-stack--overlay garage-outdoor-copy-stack"
+      style={
+        {
+          "--garage-worker-opacity": workerOpacity,
+          "--garage-worker-travel": workerTravel,
+          "--garage-worker-scale": workerScale
+        } as React.CSSProperties
+      }
+    >
+      <div className="garage-copy-beat" style={{ opacity: garageOpacity }}>
         <p className="eyebrow">Your Garage</p>
         <h2 className="cinematic-headline">Make the Hardest-Working Room Easier to Live With.</h2>
       </div>
-      <div style={{ opacity: outdoorOpacity }}>
+      <div className="garage-worker-overlay" aria-hidden="true">
+        <Image
+          className="garage-worker-figure"
+          src="/media/kiwi/process/kiwi-worker-floor-grinder.png"
+          alt=""
+          width={1024}
+          height={1024}
+          sizes="(max-width: 760px) 58vw, 36vw"
+        />
+      </div>
+      <div className="garage-copy-beat" style={{ opacity: outdoorOpacity }}>
         <p className="eyebrow">Then Take It Outside.</p>
         <h2 className="cinematic-headline">Patios. Pool Decks. Outdoor Living.</h2>
       </div>
