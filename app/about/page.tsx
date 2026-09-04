@@ -77,6 +77,7 @@ export default function AboutPage() {
               width={1200}
               height={1500}
               sizes="(max-width: 760px) 100vw, 44vw"
+              style={{ objectPosition: founderMedia.position }}
             />
           </figure>
           <div>

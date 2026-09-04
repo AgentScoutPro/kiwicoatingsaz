@@ -894,7 +894,7 @@ textarea {
   display: block;
   height: auto;
   object-fit: cover;
-  object-position: center 40%;
+  object-position: center top;
   width: 100%;
 }
 
