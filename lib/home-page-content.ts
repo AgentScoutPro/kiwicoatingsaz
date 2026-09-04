@@ -267,8 +267,8 @@ export const designGallery: DesignGalleryItem[] = [
 ];
 
 export const founderMedia = {
-  imageSrc: "/media/kiwi/founder/randy-founder-01.jpg",
-  alt: "Randy, owner of Kiwi Coatings AZ, standing next to floor coating equipment"
+  imageSrc: "/media/kiwi/founder/founder-02.png",
+  alt: "Randy and a Kiwi Coatings team member standing beside floor coating equipment"
 };
 
 export const fieldMedia = {
