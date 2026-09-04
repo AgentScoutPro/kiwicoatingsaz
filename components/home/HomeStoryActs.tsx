@@ -52,8 +52,8 @@ function NumberedBlock({
 /* ---------- Hero (Act 1 — pinned scroll film) ---------- */
 
 function HeroCopy({ progress }: { progress: number }) {
-  const introOpacity = openingOpacity(progress, 0.28, 0.4);
-  const arizonaOpacity = beatOpacity(progress, 0.82, 0.92, 1, 1);
+  const introOpacity = openingOpacity(progress, 0.34, 0.46);
+  const arizonaOpacity = beatOpacity(progress, 0.72, 0.82, 0.98, 1);
 
   return (
     <div className="chapter-copy-stack hero-copy-stack">
@@ -91,7 +91,7 @@ export function HomeHero() {
       posterSrc={cinematicChapters.hero.posterSrc}
       alt={cinematicChapters.hero.alt}
       className="hero-chapter"
-      desktopScrollLength={260}
+      desktopScrollLength={220}
       mobileScrollLength={200}
       priority
       reducedMotionContent={<HeroCopy progress={0.1} />}
@@ -127,8 +127,8 @@ export function EnvironmentAct() {
 /* ---------- Act 3 — Not Paint. A System. (pinned scroll film) ---------- */
 
 function SystemCopy({ progress }: { progress: number }) {
-  const introOpacity = openingOpacity(progress, 0.3, 0.42);
-  const supportOpacity = beatOpacity(progress, 0.32, 0.44, 0.68, 0.8);
+  const introOpacity = openingOpacity(progress, 0.34, 0.44);
+  const supportOpacity = beatOpacity(progress, 0.34, 0.44, 0.84, 0.94);
 
   return (
     <div className="chapter-copy-stack chapter-copy-stack--overlay">
@@ -151,7 +151,7 @@ export function KiwiSystemAct() {
         videoSrc={cinematicChapters.system.videoSrc}
         posterSrc={cinematicChapters.system.posterSrc}
         alt={cinematicChapters.system.alt}
-        desktopScrollLength={230}
+        desktopScrollLength={190}
         mobileScrollLength={180}
         reducedMotionContent={<SystemCopy progress={0.15} />}
       >
@@ -194,8 +194,8 @@ export function KiwiSystemAct() {
 /* ---------- Act 4→5 — Garage → Outdoor (single connective film) ---------- */
 
 function GarageOutdoorCopy({ progress }: { progress: number }) {
-  const garageOpacity = openingOpacity(progress, 0.3, 0.4);
-  const outdoorOpacity = beatOpacity(progress, 0.55, 0.66, 0.92, 1);
+  const garageOpacity = openingOpacity(progress, 0.34, 0.44);
+  const outdoorOpacity = beatOpacity(progress, 0.48, 0.58, 0.95, 1);
 
   return (
     <div className="chapter-copy-stack chapter-copy-stack--overlay">
@@ -219,7 +219,7 @@ export function GarageAct() {
         videoSrc={cinematicChapters.garageOutdoor.videoSrc}
         posterSrc={cinematicChapters.garageOutdoor.posterSrc}
         alt={cinematicChapters.garageOutdoor.alt}
-        desktopScrollLength={250}
+        desktopScrollLength={205}
         mobileScrollLength={195}
         reducedMotionContent={<GarageOutdoorCopy progress={0.15} />}
       >
@@ -253,7 +253,7 @@ export function GarageAct() {
 function DesignCopy({ progress }: { progress: number }) {
   const eyebrowOpacity = openingOpacity(progress, 0.16, 0.24);
   const rebelOpacity = beatOpacity(progress, 0.14, 0.24, 0.4, 0.48);
-  const mainOpacity = beatOpacity(progress, 0.46, 0.56, 0.85, 0.95);
+  const mainOpacity = beatOpacity(progress, 0.46, 0.56, 0.92, 1);
 
   return (
     <div className="chapter-copy-stack chapter-copy-stack--overlay">
@@ -283,7 +283,7 @@ export function DesignAct() {
         videoSrc={cinematicChapters.customDesign.videoSrc}
         posterSrc={cinematicChapters.customDesign.posterSrc}
         alt={cinematicChapters.customDesign.alt}
-        desktopScrollLength={260}
+        desktopScrollLength={210}
         mobileScrollLength={200}
         reducedMotionContent={<DesignCopy progress={0.15} />}
       >
@@ -422,8 +422,8 @@ export function CommercialAct() {
 /* ---------- Color → Craft (pinned scroll film, opens the process chapter) ---------- */
 
 function ColorCraftCopy({ progress }: { progress: number }) {
-  const firstOpacity = openingOpacity(progress, 0.32, 0.42);
-  const secondOpacity = beatOpacity(progress, 0.36, 0.46, 0.68, 0.78);
+  const firstOpacity = openingOpacity(progress, 0.34, 0.44);
+  const secondOpacity = beatOpacity(progress, 0.36, 0.46, 0.84, 0.94);
 
   return (
     <div className="chapter-copy-stack chapter-copy-stack--overlay">
@@ -444,7 +444,7 @@ export function ColorCraftAct() {
       videoSrc={cinematicChapters.colorCraft.videoSrc}
       posterSrc={cinematicChapters.colorCraft.posterSrc}
       alt={cinematicChapters.colorCraft.alt}
-      desktopScrollLength={220}
+      desktopScrollLength={185}
       mobileScrollLength={175}
       reducedMotionContent={<ColorCraftCopy progress={0.15} />}
     >
@@ -757,4 +757,3 @@ export function HomeServiceLinks() {
     </nav>
   );
 }
-

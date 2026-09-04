@@ -84,6 +84,12 @@ export function ScrollVideoChapter({
       ref={sectionRef}
       className={["scroll-video-chapter", className].filter(Boolean).join(" ")}
       data-story-act={mediaId}
+      style={
+        {
+          "--scroll-video-desktop-length": `${desktopScrollLength}vh`,
+          "--scroll-video-mobile-length": `${mobileScrollLength}vh`
+        } as React.CSSProperties
+      }
     >
       <div className="scroll-video-stage">
         <video

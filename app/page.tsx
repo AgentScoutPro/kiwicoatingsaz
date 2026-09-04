@@ -28,7 +28,7 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function HomePage() {
   return (
-    <>
+    <div className="home-page">
       <JsonLd
         data={createLocalBusinessSchema()}
       />
@@ -47,6 +47,6 @@ export default function HomePage() {
       <HomeServiceLinks />
       <FAQAct />
       <FinalCTA />
-    </>
+    </div>
   );
 }
