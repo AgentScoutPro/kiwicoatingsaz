@@ -26,8 +26,15 @@ export const tier1ServiceSlugs = [
   "metallic-epoxy-floors"
 ] as const;
 
+export const approvedExpansionCitySlugs = [
+  "red-rock",
+  "eloy",
+  "arizona-city"
+] as const;
+
 const tier1CitySet = new Set<string>(tier1CitySlugs);
 const tier1ServiceSet = new Set<string>(tier1ServiceSlugs);
+const approvedExpansionCitySet = new Set<string>(approvedExpansionCitySlugs);
 
 export const tier1LocalSeoPages: LocalSeoPage[] = tier1CitySlugs.flatMap((city) =>
   tier1ServiceSlugs.map((service) => ({
@@ -37,6 +44,20 @@ export const tier1LocalSeoPages: LocalSeoPage[] = tier1CitySlugs.flatMap((city) 
     indexable: true
   }))
 );
+
+export const approvedExpansionLocalSeoPages: LocalSeoPage[] = approvedExpansionCitySlugs.flatMap((city) =>
+  services.map((service) => ({
+    city,
+    service: service.slug,
+    tier: "tier-1" as const,
+    indexable: true
+  }))
+);
+
+export const indexableLocalSeoPages: LocalSeoPage[] = [
+  ...tier1LocalSeoPages,
+  ...approvedExpansionLocalSeoPages
+];
 
 export const futureExpansionPages: LocalSeoPage[] = cities
   .filter((city) => city.verified)
@@ -48,10 +69,18 @@ export const futureExpansionPages: LocalSeoPage[] = cities
       indexable: false
     }))
   )
-  .filter((page) => !isTier1LocalSeoPage(page.city, page.service));
+  .filter((page) => !isIndexableLocalSeoPage(page.city, page.service));
 
 export function isTier1LocalSeoPage(citySlug: string, serviceSlug: string) {
   return tier1CitySet.has(citySlug) && tier1ServiceSet.has(serviceSlug);
+}
+
+export function isApprovedExpansionLocalSeoPage(citySlug: string) {
+  return approvedExpansionCitySet.has(citySlug);
+}
+
+export function isIndexableLocalSeoPage(citySlug: string, serviceSlug: string) {
+  return isTier1LocalSeoPage(citySlug, serviceSlug) || isApprovedExpansionLocalSeoPage(citySlug);
 }
 
 export function getLocalSeoPage(citySlug: string, serviceSlug: string): LocalSeoPage | undefined {
@@ -62,7 +91,7 @@ export function getLocalSeoPage(citySlug: string, serviceSlug: string): LocalSeo
     return undefined;
   }
 
-  if (isTier1LocalSeoPage(citySlug, serviceSlug)) {
+  if (isIndexableLocalSeoPage(citySlug, serviceSlug)) {
     return {
       city: citySlug,
       service: serviceSlug,
@@ -89,11 +118,11 @@ export function getLocalSeoPage(citySlug: string, serviceSlug: string): LocalSeo
 }
 
 export function getIndexableLocalSeoPages() {
-  return tier1LocalSeoPages;
+  return indexableLocalSeoPages;
 }
 
 export function getGeneratedLocalSeoPages() {
-  return [...tier1LocalSeoPages, ...futureExpansionPages];
+  return [...indexableLocalSeoPages, ...futureExpansionPages];
 }
 
 export function getVerifiedCities() {

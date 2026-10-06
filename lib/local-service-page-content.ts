@@ -74,6 +74,33 @@ const tier1Cities = {
     outdoor: "Casa Grande outdoor concrete should be evaluated for heat, sun exposure, texture, and how the surface will be maintained.",
     decorative: "Decorative systems in Casa Grande can work for interiors or showrooms when the design direction and use both make sense.",
     nearbyCities: ["coolidge", "maricopa", "florence"]
+  },
+  "red-rock": {
+    name: "Red Rock",
+    tone: "garage floors, patios, utility spaces, and residential concrete exposed to heat and dust",
+    opener: "Red Rock properties often need practical concrete coating systems for garages, patios, and outdoor surfaces that see dust, heat, and regular use.",
+    garage: "A Red Rock garage may need to handle vehicles, storage, tools, tracked-in dust, and a cleaner finished look.",
+    outdoor: "Red Rock patios and outdoor concrete should be reviewed for sun exposure, water, texture, and cleaning expectations.",
+    decorative: "Decorative systems in Red Rock should still be selected around traffic, lighting, maintenance, and how the surface will be used.",
+    nearbyCities: ["eloy", "arizona-city", "casa-grande"]
+  },
+  eloy: {
+    name: "Eloy",
+    tone: "garages, workshops, patios, utility floors, and light commercial surfaces",
+    opener: "Eloy projects can range from residential garages and patios to working floors that need better cleanability and durability.",
+    garage: "An Eloy garage or workshop floor may need to support vehicles, tools, storage, dust, and routine cleaning.",
+    outdoor: "Eloy outdoor concrete should be evaluated for heat, sun exposure, texture, water, and long-term maintenance.",
+    decorative: "Decorative systems in Eloy can work where the finish direction fits the surface, traffic, and cleaning expectations.",
+    nearbyCities: ["arizona-city", "casa-grande", "coolidge"]
+  },
+  "arizona-city": {
+    name: "Arizona City",
+    tone: "garage floors, patios, utility spaces, and outdoor residential concrete",
+    opener: "Arizona City properties often need coating systems for garages, patios, outdoor concrete, and utility surfaces that see dust, sun, and everyday wear.",
+    garage: "An Arizona City garage may need a coating direction that accounts for vehicles, storage, dust, and household use.",
+    outdoor: "Arizona City patios and outdoor concrete should be reviewed for sun, water, texture, furniture movement, and cleaning needs.",
+    decorative: "Decorative systems in Arizona City should balance appearance with practical maintenance and surface use.",
+    nearbyCities: ["eloy", "casa-grande", "red-rock"]
   }
 } as const;
 
@@ -137,6 +164,54 @@ const tier1Services = {
     finishes: ["subtle metallic movement", "bold multi-color blends", "gloss direction", "decorative topcoat systems"],
     related: ["epoxy-floor-coatings", "garage-floor-coatings", "polyaspartic-floor-coatings"],
     faqAngle: "metallic"
+  },
+  "flake-floor-systems": {
+    name: "Flake Floor Systems",
+    short: "flake floor systems",
+    intent: "add decorative texture, color variation, and a more finished surface",
+    localWhy: "Flake systems are useful when a garage, patio, utility floor, or work surface needs a practical finish that helps disguise dust and daily wear.",
+    choices: ["Custom flake blends selected around the space", "Full broadcast flake systems for garage and utility floors", "Outdoor-aware flake systems where patios or exterior concrete are being considered", "Protective topcoat options selected around traffic and cleaning"],
+    process: ["Review the surface condition, traffic, and desired color direction", "Prepare the concrete for the selected flake system", "Address visible cracks, chips, and surface issues where appropriate", "Install coating layers and broadcast flake for the desired coverage", "Apply the protective finish selected around use and maintenance"],
+    conditions: ["dust", "garage traffic", "color and blend selection", "cleaning expectations", "texture preference"],
+    finishes: ["neutral flake blends", "stone-inspired blends", "higher-contrast custom blends", "mica or accent flake directions"],
+    related: ["garage-floor-coatings", "polyaspartic-floor-coatings", "quartz-floor-coatings"],
+    faqAngle: "flake"
+  },
+  "quartz-floor-coatings": {
+    name: "Quartz Floor Coatings",
+    short: "quartz floor coatings",
+    intent: "create a textured, durable broadcast surface for demanding use",
+    localWhy: "Quartz systems can be useful where traction, texture, durability, and a more rugged finish matter more than a smooth decorative look.",
+    choices: ["Quartz broadcast systems for working floors", "Textured finishes for utility or commercial spaces", "Protective topcoats selected around cleaning and traffic", "Color blends selected around the property and use"],
+    process: ["Review traffic, texture needs, cleaning routines, and concrete condition", "Prepare the concrete surface for the selected system", "Repair visible surface defects where appropriate", "Broadcast quartz into the coating system for texture and durability", "Finish with the protective topcoat selected for the project"],
+    conditions: ["working floor traffic", "texture needs", "cleaning routines", "dust and grit", "utility or commercial use"],
+    finishes: ["gray quartz blends", "neutral aggregate texture", "commercial-grade texture", "durable broadcast finish direction"],
+    related: ["flake-floor-systems", "commercial-floor-coatings", "polyaspartic-floor-coatings"],
+    faqAngle: "quartz"
+  },
+  "commercial-floor-coatings": {
+    name: "Commercial Floor Coatings",
+    short: "commercial floor coatings",
+    intent: "support cleaner, more durable business and working surfaces",
+    localWhy: "Commercial coatings are useful where floors need to handle foot traffic, equipment, cleaning, storage, customer visibility, or routine business use.",
+    choices: ["Epoxy and polyaspartic systems for business floors", "Quartz or flake texture where traction and wear matter", "Decorative systems for customer-facing rooms", "Protective topcoats selected around cleaning and operating needs"],
+    process: ["Review how the business uses the floor and what traffic it sees", "Evaluate concrete condition, stains, previous coatings, and repair needs", "Prepare the surface for the selected commercial coating system", "Install coating layers, broadcast material, or decorative finish where selected", "Discuss cure timing and return-to-use planning for the business"],
+    conditions: ["foot traffic", "cleaning routines", "equipment or storage use", "customer-facing appearance", "scheduling and return-to-use needs"],
+    finishes: ["practical flake systems", "quartz broadcast texture", "solid or restrained business finishes", "decorative showroom directions"],
+    related: ["epoxy-floor-coatings", "polyaspartic-floor-coatings", "quartz-floor-coatings"],
+    faqAngle: "commercial"
+  },
+  "specialty-floor-finishes": {
+    name: "Specialty Floor Finishes",
+    short: "specialty floor finishes",
+    intent: "create a custom finish direction for spaces that need a distinctive look",
+    localWhy: "Specialty finishes can be useful when a garage, studio, showroom, hobby room, or branded space needs a more custom visual direction.",
+    choices: ["Glow, neon, glitter, mica, or accent flake directions where appropriate", "Custom blends selected around the room or brand", "Decorative topcoats chosen around traffic and maintenance", "Specialty effects used only where the surface and use make sense"],
+    process: ["Review the desired finish direction, lighting, and use of the space", "Evaluate concrete condition and preparation needs", "Plan color, texture, and accent choices around the project", "Install the coating and specialty broadcast or effect as selected", "Finish with a protective system appropriate for traffic and cleaning"],
+    conditions: ["lighting", "visual expectations", "traffic", "cleaning and upkeep", "fit between the finish and surface use"],
+    finishes: ["glow accents", "neon or bright flake blends", "glitter and mica accents", "custom decorative blends"],
+    related: ["flake-floor-systems", "metallic-epoxy-floors", "epoxy-floor-coatings"],
+    faqAngle: "specialty"
   }
 } as const;
 
