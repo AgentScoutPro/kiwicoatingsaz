@@ -73,6 +73,9 @@ export function Footer() {
           <p>
             <Link href="/founders-statement">A Message From Our Founder</Link>
           </p>
+          <p>
+            <Link href="/floors-for-hope">Floors for Hope</Link>
+          </p>
           <p className="footer-socials">
             <a href={site.socials.facebook} target="_blank" rel="noreferrer">Facebook</a>
             {" / "}

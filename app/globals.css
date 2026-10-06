@@ -765,6 +765,111 @@ textarea {
   text-underline-offset: 3px;
 }
 
+/* ---------- Floors for Hope ---------- */
+
+.floors-for-hope-page {
+  background: var(--kiwi-surface);
+}
+
+.floors-hope-hero {
+  align-items: flex-end;
+  color: var(--kiwi-white);
+  display: flex;
+  min-height: 78vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.floors-hope-hero-media {
+  inset: 0;
+  position: absolute;
+}
+
+.floors-hope-hero-media img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.floors-hope-hero-scrim {
+  background:
+    linear-gradient(90deg, rgba(11, 13, 12, 0.92), rgba(11, 13, 12, 0.58) 46%, rgba(11, 13, 12, 0.18)),
+    linear-gradient(0deg, rgba(11, 13, 12, 0.84), rgba(11, 13, 12, 0));
+  inset: 0;
+  position: absolute;
+}
+
+.floors-hope-hero-content {
+  padding: clamp(72px, 10vw, 132px) 20px;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.floors-hope-hero-content .eyebrow,
+.floors-hope-hero-content .lead {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.floors-hope-hero-content .button.secondary {
+  border-color: rgba(255, 255, 255, 0.62);
+  color: #fff;
+}
+
+.floors-hope-hero-content .button.secondary:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--kiwi-ink);
+}
+
+.floors-hope-split {
+  display: grid;
+  gap: 48px;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+}
+
+.floors-hope-steps .card {
+  min-height: 220px;
+}
+
+.floors-hope-steps span {
+  color: var(--kiwi-lime);
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.floors-hope-form-layout {
+  display: grid;
+  gap: 44px;
+  grid-template-columns: minmax(260px, 0.42fr) minmax(0, 1fr);
+}
+
+.nomination-form {
+  display: grid;
+  gap: 28px;
+}
+
+.nomination-fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.nomination-fieldset legend {
+  color: var(--kiwi-muted);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.nomination-full {
+  margin-bottom: 20px;
+}
+
 .list {
   display: grid;
   gap: 10px;
@@ -2163,7 +2268,9 @@ textarea {
   .story-layout,
   .story-layout-reverse,
   .founder-layout,
-  .service-area-layout {
+  .service-area-layout,
+  .floors-hope-split,
+  .floors-hope-form-layout {
     grid-template-columns: 1fr;
   }
 

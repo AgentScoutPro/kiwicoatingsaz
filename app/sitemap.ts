@@ -6,7 +6,16 @@ import { getIndexableLocalSeoPages, getVerifiedCities } from "@/lib/seo-map";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date(site.contentLastModified);
-  const staticRoutes = ["", "/about", "/services", "/locations", "/projects", "/contact", "/founders-statement"];
+  const staticRoutes = [
+    "",
+    "/about",
+    "/services",
+    "/locations",
+    "/projects",
+    "/contact",
+    "/founders-statement",
+    "/floors-for-hope"
+  ];
   const projectRoutes = projects.map((project) => `/projects/${project.slug}`);
   const serviceRoutes = services.map((service) => `/services/${service.slug}`);
   const cityRoutes = getVerifiedCities().map((city) => `/locations/${city.slug}`);
