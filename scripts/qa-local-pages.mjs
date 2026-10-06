@@ -1,7 +1,7 @@
 import { writeFileSync } from "node:fs";
 
 const baseUrl = process.env.BASE_URL || "http://127.0.0.1:3015";
-const siteUrl = "https://kiwicoatingsaz.com";
+const siteUrl = "https://www.kiwicoatingsaz.com";
 
 const cities = ["mesa", "gilbert", "chandler", "queen-creek", "san-tan-valley", "casa-grande"];
 const services = [

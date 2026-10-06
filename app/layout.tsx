@@ -15,6 +15,11 @@ export const metadata: Metadata = {
   },
   description:
     "Durable epoxy, polyaspartic, flake, quartz, patio, pool deck, garage, and commercial floor coatings from Kiwi Coatings AZ.",
+  icons: {
+    icon: site.logoPath,
+    shortcut: site.logoPath,
+    apple: site.logoPath
+  },
   openGraph: {
     siteName: site.name,
     locale: "en_US",

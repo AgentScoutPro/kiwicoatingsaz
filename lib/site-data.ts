@@ -1,7 +1,7 @@
 export const site = {
   name: "Kiwi Coatings AZ",
   legalName: "KiwiCoatings LLC",
-  url: "https://kiwicoatingsaz.com",
+  url: "https://www.kiwicoatingsaz.com",
   phone: "(602) 901-1823",
   phoneE164: "+1-602-901-1823",
   phoneHref: "tel:+16029011823",
@@ -20,13 +20,13 @@ export const site = {
   },
   reviewUrl: "https://share.google/3dHiI8OBoD4IYFHeH",
   bbbUrl: "https://www.bbb.org/us/az/coolidge/profile/epoxy-floor-coating/kiwicoatings-llc-1126-1000166622/#sealclick",
-  logo: "https://kiwicoatingsaz.com/media/kiwi/brand/kiwi-coatings-logo.png",
+  logo: "https://www.kiwicoatingsaz.com/media/kiwi/brand/kiwi-coatings-logo.png",
   logoPath: "/media/kiwi/brand/kiwi-coatings-logo.png",
   bbbLogoPath: "/media/kiwi/brand/bbb-accredited-business.png",
-  footerLogo: "https://kiwicoatingsaz.com/media/kiwi/brand/kiwi-coatings-logo.png",
-  heroImage: "https://kiwicoatingsaz.com/media/kiwi/hero/kiwi-hero-poster.jpg",
-  introImage: "https://kiwicoatingsaz.com/wp-content/uploads/2026/01/Kiwi_Coatings_Intro_2026-8189-scaled.jpg",
-  dividerVideo: "https://kiwicoatingsaz.com/wp-content/themes/Kiwi%20Coatings%20Theme/assets/img/glow_handicap_sign.mp4",
+  footerLogo: "https://www.kiwicoatingsaz.com/media/kiwi/brand/kiwi-coatings-logo.png",
+  heroImage: "https://www.kiwicoatingsaz.com/media/kiwi/hero/kiwi-hero-poster.jpg",
+  introImage: "https://www.kiwicoatingsaz.com/wp-content/uploads/2026/01/Kiwi_Coatings_Intro_2026-8189-scaled.jpg",
+  dividerVideo: "https://www.kiwicoatingsaz.com/wp-content/themes/Kiwi%20Coatings%20Theme/assets/img/glow_handicap_sign.mp4",
   quoteOptions: [
     "Garage Floor",
     "Patio / Pool Deck / Outdoor Concrete",
@@ -75,7 +75,7 @@ export const services: Service[] = [
     benefits: ["Hot-tire resistant finish options", "Easy-to-clean surface", "Flake, quartz, epoxy, and polyaspartic systems"],
     applications: ["Residential garages", "Workshops", "Storage areas", "Light commercial garage spaces"],
     relatedServices: ["polyaspartic-floor-coatings", "epoxy-floor-coatings", "flake-floor-systems"],
-    image: "https://kiwicoatingsaz.com/wp-content/uploads/2026/07/durable-floor-coatings-2560.jpg",
+    image: "https://www.kiwicoatingsaz.com/wp-content/uploads/2026/07/durable-floor-coatings-2560.jpg",
     liveSiteGroup: "Durable Floor Coatings",
     featured: true,
     priority: 1
@@ -93,7 +93,7 @@ export const services: Service[] = [
     benefits: ["Fast return to use", "UV-resistant finish", "Strong abrasion and chemical resistance"],
     applications: ["Garages", "Patios", "Commercial floors", "Utility areas"],
     relatedServices: ["garage-floor-coatings", "epoxy-floor-coatings", "patio-and-pool-deck-coatings"],
-    image: "https://kiwicoatingsaz.com/wp-content/uploads/2026/07/durable-floor-coatings-2560.jpg",
+    image: "https://www.kiwicoatingsaz.com/wp-content/uploads/2026/07/durable-floor-coatings-2560.jpg",
     liveSiteGroup: "Durable Floor Coatings",
     featured: true,
     priority: 2
@@ -111,7 +111,7 @@ export const services: Service[] = [
     benefits: ["Excellent bond strength", "Custom color and broadcast options", "Strong protection from wear and spills"],
     applications: ["Garages", "Shops", "Workspaces", "Decorative interior floors"],
     relatedServices: ["garage-floor-coatings", "polyaspartic-floor-coatings", "metallic-epoxy-floors"],
-    image: "https://kiwicoatingsaz.com/wp-content/uploads/2026/07/durable-floor-coatings-2560.jpg",
+    image: "https://www.kiwicoatingsaz.com/wp-content/uploads/2026/07/durable-floor-coatings-2560.jpg",
     liveSiteGroup: "Durable Floor Coatings",
     featured: true,
     priority: 3
@@ -129,7 +129,7 @@ export const services: Service[] = [
     benefits: ["Custom decorative movement", "Premium showroom look", "Great for interior feature spaces"],
     applications: ["Interior feature floors", "Showrooms", "Retail spaces", "Decorative residential floors"],
     relatedServices: ["epoxy-floor-coatings", "commercial-floor-coatings", "specialty-floor-finishes"],
-    image: "https://kiwicoatingsaz.com/wp-content/uploads/2026/02/Kiwi_Coatings_Intro_2026-8373-1-scaled.jpg",
+    image: "https://www.kiwicoatingsaz.com/wp-content/uploads/2026/02/Kiwi_Coatings_Intro_2026-8373-1-scaled.jpg",
     liveSiteGroup: "Durable Floor Coatings",
     featured: true,
     priority: 5
@@ -147,7 +147,7 @@ export const services: Service[] = [
     benefits: ["Wide blend selection", "Helps hide dust and daily wear", "Slip-resistant texture options"],
     applications: ["Garages", "Patios", "Utility spaces", "Commercial floors"],
     relatedServices: ["garage-floor-coatings", "quartz-floor-coatings", "specialty-floor-finishes"],
-    image: "https://kiwicoatingsaz.com/wp-content/uploads/2026/07/flakes.jpg",
+    image: "https://www.kiwicoatingsaz.com/wp-content/uploads/2026/07/flakes.jpg",
     liveSiteGroup: "Timeless Flake Blends",
     featured: false,
     priority: 7
@@ -165,7 +165,7 @@ export const services: Service[] = [
     benefits: ["Durable aggregate texture", "Commercial-grade feel", "Strong traction and wear resistance"],
     applications: ["Commercial floors", "Utility areas", "Work areas", "Textured concrete surfaces"],
     relatedServices: ["flake-floor-systems", "commercial-floor-coatings", "polyaspartic-floor-coatings"],
-    image: "https://kiwicoatingsaz.com/wp-content/uploads/2026/07/flakes.jpg",
+    image: "https://www.kiwicoatingsaz.com/wp-content/uploads/2026/07/flakes.jpg",
     liveSiteGroup: "Timeless Flake Blends",
     featured: false,
     priority: 8

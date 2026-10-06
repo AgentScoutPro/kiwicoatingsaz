@@ -3,52 +3,75 @@
 import { useState } from "react";
 import { site } from "@/lib/site-data";
 
-type Status = "idle" | "submitting" | "success" | "error";
+type Status = "idle" | "ready" | "error";
+
+const RECIPIENT_EMAIL = "randy@kiwicoatingsaz.com";
+
+function formatFieldName(name: string) {
+  return name
+    .replace(/[_-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+function buildEmailBody(form: HTMLFormElement) {
+  const data = new FormData(form);
+  const lines = ["NEW KIWI COATINGS WEBSITE INQUIRY", ""];
+
+  data.forEach((value, key) => {
+    if (key === "company_website" || value instanceof File) {
+      return;
+    }
+
+    const cleanValue = String(value).trim();
+
+    if (!cleanValue) {
+      return;
+    }
+
+    const label = key === "message" ? "Project Details" : formatFieldName(key);
+    lines.push(`${label}: ${cleanValue}`);
+  });
+
+  lines.push(
+    "",
+    "Website Page:",
+    window.location.href,
+    "",
+    "Submitted From:",
+    "Kiwi Coatings Website"
+  );
+
+  return lines.join("\n");
+}
 
 export function ContactQuoteForm({ selectedService }: { selectedService: string }) {
   const [status, setStatus] = useState<Status>("idle");
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setStatus("submitting");
 
     const form = event.currentTarget;
+
+    if (!form.reportValidity()) {
+      return;
+    }
+
     const data = new FormData(form);
+    const name = String(data.get("name") ?? "").trim();
+    const subjectName = name || "Website Visitor";
+    const subject = `Kiwi Coatings Website Quote Request - ${subjectName}`;
+    const body = buildEmailBody(form);
+    const params = new URLSearchParams({ subject, body });
+    const mailtoLink = `mailto:${RECIPIENT_EMAIL}?${params.toString()}`;
 
     try {
-      const response = await fetch("/api/quote-request", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: data.get("name"),
-          email: data.get("email"),
-          phone: data.get("phone"),
-          address: data.get("address"),
-          service: data.get("service"),
-          message: data.get("message"),
-          honeypot: data.get("company_website")
-        })
-      });
-
-      const result = await response.json().catch(() => ({ ok: false }));
-
-      if (response.ok && result.ok) {
-        setStatus("success");
-        form.reset();
-      } else {
-        setStatus("error");
-      }
+      setStatus("ready");
+      window.location.href = mailtoLink;
     } catch {
       setStatus("error");
     }
-  }
-
-  if (status === "success") {
-    return (
-      <div className="card form-status form-status-success" role="status">
-        <p>Thank you. Your request has been sent directly to Kiwi Coatings. Someone will be in touch soon.</p>
-      </div>
-    );
   }
 
   return (
@@ -87,15 +110,20 @@ export function ContactQuoteForm({ selectedService }: { selectedService: string 
           Company Website
           <input name="company_website" tabIndex={-1} autoComplete="off" type="text" />
         </label>
-        <button className="button" disabled={status === "submitting"} type="submit">
-          {status === "submitting" ? "Sending…" : "Request Free Estimate"}
+        <button className="button" type="submit">
+          Request Free Estimate
         </button>
       </form>
+      {status === "ready" ? (
+        <div className="card form-status form-status-success" role="status">
+          <p>Your email application will open with your request ready to send.</p>
+        </div>
+      ) : null}
       {status === "error" ? (
         <div className="card form-status form-status-error" role="alert">
           <p>
-            We couldn't send your request. Please call Kiwi Coatings directly at{" "}
-            <a href={site.phoneHref}>{site.phone}</a> or try again.
+            Your email application could not be opened. Please email us directly at{" "}
+            <a href={`mailto:${RECIPIENT_EMAIL}`}>{RECIPIENT_EMAIL}</a>.
           </p>
         </div>
       ) : null}
