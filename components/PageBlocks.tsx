@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { cities, services } from "@/lib/site-data";
+import { cities, getCity, services } from "@/lib/site-data";
 import { getIndexableLocalSeoPages, getVerifiedCities } from "@/lib/seo-map";
 
 type BreadcrumbItem = {
@@ -57,7 +57,11 @@ export function CityServiceLinks({ citySlug }: { citySlug: string }) {
       .filter((page) => page.city === citySlug)
       .map((page) => page.service)
   );
-  const visibleServices = services.filter((service) => indexableServiceSlugs.has(service.slug));
+  const city = getCity(citySlug);
+  const visibleServices =
+    indexableServiceSlugs.size > 0 || !city?.verified
+      ? services.filter((service) => indexableServiceSlugs.has(service.slug))
+      : services;
 
   return (
     <div className="service-links">

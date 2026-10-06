@@ -4,7 +4,7 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Arizona Service Areas",
-  description: "Find Kiwi Coatings AZ floor coating service areas across Mesa, Chandler, Gilbert, Queen Creek, San Tan Valley, Maricopa, Casa Grande, Apache Junction, Gold Canyon, Florence, Coolidge, and Phoenix.",
+  description: "Find Kiwi Coatings AZ floor coating service areas across Mesa, Chandler, Gilbert, Queen Creek, San Tan Valley, Maricopa, Casa Grande, Apache Junction, Gold Canyon, Florence, Coolidge, Phoenix, Red Rock, Eloy, and Arizona City.",
   path: "/locations"
 });
 

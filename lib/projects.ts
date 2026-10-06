@@ -66,8 +66,8 @@ export const selectedWork: SelectedWorkGallery[] = [
         role: "supporting"
       },
       {
-        src: "/media/kiwi/projects/kiwi-project-garage-03.jpg",
-        alt: "Finished garage concrete coating by Kiwi Coatings",
+        src: "/media/kiwi/garage/kiwi-garage-finished-01.jpg",
+        alt: "Kiwi Coatings garage floor finish shown with a parked vehicle",
         role: "supporting"
       }
     ]

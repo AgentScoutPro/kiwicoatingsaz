@@ -412,6 +412,114 @@ export const cityPageContent: Record<string, CityPageContent> = {
       { question: "Why does surface preparation matter?", answer: "Preparation helps the coating bond to a suitable concrete surface and allows cracks, chips, previous coatings, and weak areas to be addressed." }
     ]
   },
+  "red-rock": {
+    title: "Floor Coatings in Red Rock, AZ",
+    metaDescription:
+      "Kiwi Coatings AZ installs garage, epoxy, polyaspartic, patio, pool deck, flake, quartz, metallic, and commercial floor coatings in Red Rock, AZ.",
+    intro:
+      "Kiwi Coatings AZ serves Red Rock with concrete coating systems for garages, patios, utility spaces, and residential concrete that needs a more finished and maintainable surface.",
+    localContext: [
+      "Red Rock garage and patio surfaces can see dust, heat, vehicle traffic, storage use, and outdoor exposure. A coating system should be selected around the actual concrete condition and how the space will be used.",
+      "Outdoor concrete should be approached differently than enclosed garage floors. Sun, water, texture, cleaning expectations, and surrounding hardscape all matter before a coating direction is selected."
+    ],
+    featuredServices: ["garage-floor-coatings", "polyaspartic-floor-coatings", "epoxy-floor-coatings", "patio-and-pool-deck-coatings", "flake-floor-systems", "quartz-floor-coatings"],
+    concreteConditions: [
+      "Dust and heat exposure across garage and outdoor surfaces",
+      "Vehicle traffic, storage, and household use in garages",
+      "Sun-exposed patio and walkway concrete",
+      "Concrete stains, small chips, or cracks that should be evaluated before coating"
+    ],
+    whyKiwi: [
+      "Licensed and bonded with Arizona ROC #363582",
+      "Concrete coating options for garages, patios, utility spaces, and outdoor surfaces",
+      "Epoxy, polyaspartic, flake, quartz, metallic, and specialty finish options",
+      "Surface preparation and system selection based on condition, exposure, and use"
+    ],
+    projectProof:
+      "Future Red Rock project proof can be added when verified photos, service type, and customer-approved project details are available.",
+    reviewProof:
+      "Red Rock review proof should only use verified customer review content after approval.",
+    nearbyCities: ["eloy", "arizona-city", "casa-grande"],
+    faqs: [
+      { question: "Does Kiwi Coatings AZ serve Red Rock?", answer: "Yes. Red Rock is included in the verified Kiwi Coatings AZ service area." },
+      { question: "What coatings should Red Rock homeowners compare?", answer: "Garage floor coatings, epoxy, polyaspartic, flake, quartz, and patio coating systems are useful starting points depending on the surface." },
+      { question: "Can outdoor concrete be coated in Red Rock?", answer: "Often, yes. Outdoor concrete should be evaluated for sun exposure, water, texture needs, and current surface condition." },
+      { question: "Can Kiwi help choose a finish?", answer: "Yes. Finish direction can be discussed around the home, the concrete, traffic, lighting, and maintenance expectations." },
+      { question: "What should I include in a Red Rock quote request?", answer: "Share the surface type, approximate location, current condition, desired finish, and how the space is used." }
+    ]
+  },
+  eloy: {
+    title: "Floor Coatings in Eloy, AZ",
+    metaDescription:
+      "Kiwi Coatings AZ installs garage, epoxy, polyaspartic, patio, pool deck, flake, quartz, metallic, and commercial floor coatings in Eloy, AZ.",
+    intro:
+      "Kiwi Coatings AZ serves Eloy with floor coating systems for garages, workshops, patios, utility floors, light commercial spaces, and concrete surfaces that need a cleaner finished look.",
+    localContext: [
+      "Eloy garage and work surfaces can need practical coatings for vehicle use, tools, storage, dust, and routine cleaning. The right system depends on the concrete and what the floor is expected to handle.",
+      "Patios and exterior concrete should be reviewed for sun exposure, texture, water, and maintenance before choosing a coating or finish direction."
+    ],
+    featuredServices: ["garage-floor-coatings", "epoxy-floor-coatings", "polyaspartic-floor-coatings", "commercial-floor-coatings", "patio-and-pool-deck-coatings", "flake-floor-systems"],
+    concreteConditions: [
+      "Heat and dust across garage, patio, and working surfaces",
+      "Vehicle, tool, storage, and light commercial wear",
+      "Outdoor exposure on patios and walkways",
+      "Existing stains, cracks, or previous coatings that need review"
+    ],
+    whyKiwi: [
+      "Licensed and bonded with Arizona ROC #363582",
+      "Residential and light commercial coating systems",
+      "Garage, patio, shop, flake, quartz, epoxy, and polyaspartic options",
+      "Preparation-focused process before coating layers are installed"
+    ],
+    projectProof:
+      "Future Eloy project examples can be added when verified project media and approved project details are available.",
+    reviewProof:
+      "Eloy-specific review proof should be added only from verified customer reviews.",
+    nearbyCities: ["arizona-city", "casa-grande", "coolidge"],
+    faqs: [
+      { question: "Does Kiwi Coatings AZ serve Eloy?", answer: "Yes. Eloy is included in the verified Kiwi Coatings AZ service area." },
+      { question: "What coatings are useful for Eloy garages or workshops?", answer: "Garage floor coatings, epoxy, polyaspartic, flake, and quartz systems can be compared depending on traffic, texture, cleaning, and finish goals." },
+      { question: "Are commercial floor coatings available in Eloy?", answer: "Yes. Commercial coating options can be considered for shops, storage areas, showrooms, and similar business surfaces." },
+      { question: "Can patios be coated in Eloy?", answer: "Yes. Outdoor concrete can be reviewed for patio and pool deck coating options with texture and exposure in mind." },
+      { question: "What happens before Kiwi recommends a system?", answer: "The surface, current condition, use, exposure, cleaning expectations, and desired appearance should all be reviewed first." }
+    ]
+  },
+  "arizona-city": {
+    title: "Floor Coatings in Arizona City, AZ",
+    metaDescription:
+      "Kiwi Coatings AZ installs garage, epoxy, polyaspartic, patio, pool deck, flake, quartz, metallic, and commercial floor coatings in Arizona City, AZ.",
+    intro:
+      "Kiwi Coatings AZ serves Arizona City with coating systems for garages, patios, utility spaces, outdoor concrete, and residential surfaces that need better cleanability and a more finished appearance.",
+    localContext: [
+      "Arizona City garages and outdoor concrete can see dust, sun, vehicle use, storage, and everyday wear. Coating recommendations should start with the surface condition and how the property owner plans to use the space.",
+      "For patios, pool-adjacent areas, and backyard concrete, texture, water, sun exposure, and long-term maintenance should guide the coating conversation."
+    ],
+    featuredServices: ["garage-floor-coatings", "patio-and-pool-deck-coatings", "polyaspartic-floor-coatings", "epoxy-floor-coatings", "flake-floor-systems", "quartz-floor-coatings"],
+    concreteConditions: [
+      "Dust, sunlight, and outdoor debris",
+      "Garage traffic from vehicles, storage, and household use",
+      "Patio and utility concrete that needs texture and cleaning planning",
+      "Concrete damage or staining that should be evaluated before coating"
+    ],
+    whyKiwi: [
+      "Licensed and bonded with Arizona ROC #363582",
+      "Coating options for garages, patios, utility floors, and outdoor concrete",
+      "Protective and decorative systems including epoxy, polyaspartic, flake, quartz, and metallic finishes",
+      "System selection based on concrete condition, exposure, use, and finish preference"
+    ],
+    projectProof:
+      "Future Arizona City project proof can be added when verified photos, service details, and customer-approved context are available.",
+    reviewProof:
+      "Arizona City review proof should only use verified customer review content after approval.",
+    nearbyCities: ["eloy", "casa-grande", "red-rock"],
+    faqs: [
+      { question: "Does Kiwi Coatings AZ serve Arizona City?", answer: "Yes. Arizona City is included in the verified Kiwi Coatings AZ service area." },
+      { question: "What coatings should Arizona City homeowners consider?", answer: "Garage coatings, patio and pool deck coatings, epoxy, polyaspartic, flake, and quartz systems are useful options to compare." },
+      { question: "Can Kiwi coat outdoor concrete in Arizona City?", answer: "Often, yes. Outdoor concrete should be reviewed for sun exposure, water, texture, and surface condition." },
+      { question: "Can a dusty garage floor be coated?", answer: "Often, but the concrete should be evaluated and prepared before coating so the selected system has a suitable surface." },
+      { question: "How do I request an Arizona City quote?", answer: "Share the surface type, current condition, approximate location, desired finish, and how the space will be used." }
+    ]
+  },
   phoenix: {
     title: "Floor Coatings in Phoenix, AZ",
     metaDescription:
